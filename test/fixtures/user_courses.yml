@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  course_id: 1
+  user_id: 1
+  progress: 1
+  bookmark: MyString
+  time_spent: MyString
+
+two:
+  course_id: 1
+  user_id: 1
+  progress: 1
+  bookmark: MyString
+  time_spent: MyString

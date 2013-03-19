@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  url: MyString
+  estimated_time: 9.99
+  subject_id: 1
+
+two:
+  name: MyString
+  url: MyString
+  estimated_time: 9.99
+  subject_id: 1
