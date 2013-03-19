@@ -86,7 +86,7 @@ courses = Course.create([
 	name: 'CSS Foundations',
 	url: 'http://teamtreehouse.com/library/websites/css-foundations',
 	estimated_time: 6,
-	subject_id: 5
+	subject_id: 6
 	},
 
 
@@ -94,7 +94,7 @@ courses = Course.create([
 	name: 'CSS Cross Country',
 	url: 'http://www.codeschool.com/courses/css-cross-country',
 	estimated_time: 6,
-	subject_id: 5
+	subject_id: 6
 	},
 
 
@@ -102,7 +102,7 @@ courses = Course.create([
 	name: 'CSS3 on Treehouse',
 	url: 'http://teamtreehouse.com/library/websites/css3',
 	estimated_time: 6,
-	subject_id: 5
+	subject_id: 6
 	},
 
 
@@ -110,7 +110,7 @@ courses = Course.create([
 	name: 'Responsive Websites',
 	url: 'http://teamtreehouse.com/library/websites/build-a-responsive-website/',
 	estimated_time: 4,
-	subject_id: 5
+	subject_id: 6
 	},
 
 
@@ -118,7 +118,7 @@ courses = Course.create([
 	name: 'Try Git',
 	url: 'http://www.codeschool.com/courses/try-git',
 	estimated_time: 1,
-	subject_id: 6
+	subject_id: 7
 	},
 
 
@@ -126,14 +126,14 @@ courses = Course.create([
 	name: 'Git Real',
 	url: 'http://www.codeschool.com/courses/git-real',
 	estimated_time: 3,
-	subject_id: 6
+	subject_id: 7
 	},
 
 	{
 	name: 'Git Immersion',
 	url: 'http://gitimmersion.com/',
 	estimated_time: 3,
-	subject_id: 6
+	subject_id: 7
 	},
 
 
@@ -141,14 +141,14 @@ courses = Course.create([
 	name: 'The Git Book',
 	url: 'http://git-scm.com/book',
 	estimated_time: 6,
-	subject_id: 6
+	subject_id: 7
 	},
 
 	{
 	name: 'Git Videos',
 	url: 'http://git-scm.com/videos',
 	estimated_time: 1,
-	subject_id: 6
+	subject_id: 7
 	},
 
 
