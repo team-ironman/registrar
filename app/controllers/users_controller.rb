@@ -12,13 +12,20 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-	def add_course_to_user
-		# @TODO change to logged in user
-		@user = User.find(1)
+  def create
+    @user = User.new(params[:user])
 
-		@user.user_courses.build(course_id: params[:cid], user_id: 1, progress: 0)
-		@user.save
-		redirect_to prework_path
-	end
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.json { render json: @user, status: :created, location: @user }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+    
+  end
+
 
 end

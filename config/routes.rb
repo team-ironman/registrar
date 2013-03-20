@@ -1,12 +1,9 @@
 Registrar::Application.routes.draw do
-
-  match '/users/add_course_to_user/:cid' => 'users#add_course_to_user', :as => "add_course_to_user"
-  
   resources :users
   resources :courses
 
   match '/prework' => 'prework#index' 
-
+  match 'preworkintro' => 'courses#intro'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
