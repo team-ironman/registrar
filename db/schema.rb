@@ -11,15 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130319200001) do
+ActiveRecord::Schema.define(:version => 20130320182017) do
 
   create_table "courses", :force => true do |t|
     t.string   "name"
     t.string   "url"
     t.decimal  "estimated_time"
     t.integer  "subject_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "treehouse_badges"
   end
 
   create_table "subjects", :force => true do |t|
@@ -34,8 +35,9 @@ ActiveRecord::Schema.define(:version => 20130319200001) do
     t.integer  "progress"
     t.string   "bookmark"
     t.string   "time_spent"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.integer  "treehouse_badges_completed"
   end
 
   create_table "users", :force => true do |t|
@@ -45,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20130319200001) do
     t.string   "treehouse_login"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.string   "phone_number"
   end
 
 end

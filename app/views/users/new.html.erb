@@ -1,0 +1,20 @@
+<H1>User Sign-Up</H1>
+<%= form_for (@user) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :phone_number %>
+  <%= f.text_field :phone_number %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.label :treehouse_login %>
+  <%= f.text_field :treehouse_login %>
+
+  <%= f.label :codeschool_login %>
+  <%= f.text_field :codeschool_login %>
+
+  <%= f.submit %>
+
+<% end %>
