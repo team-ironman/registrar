@@ -7,19 +7,19 @@
 			<h3>Courses</h3>
 					
 			<div class="well">
-<%#= raise @user_courses.inspect %>
+<%#= raise @user_courses_hash.inspect %>
+
 				<% @subjects.each do |s| %>
 					<ul><%= s.name %>
 						<% s.courses.each do |c| %>
 							<li><%= link_to c.name, c.url, {:target=> "_blank"} %> -
 		
-								<% if @user_courses.has_key?(c.id) %>
-									<%= @user_courses[c.id].progress %>
-
+								<% if @user_courses_hash.has_key?(c.id) %>
+									<%= @user_courses_hash[c.id].progress %>
 								<% else %>
-									<%= link_to 'Start', '/user/1/add_course_to_user/' + c.id.to_s %>
-								
+									<%= link_to 'Start', '/users/add_course_to_user/' + c.id.to_s %>
 								<% end %> 
+
 							</li>
 						<% end %>
 					</ul>
