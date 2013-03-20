@@ -1,6 +1,6 @@
 Registrar::Application.routes.draw do
 
-  match '/user/add_course_to_user/:id' => 'user#add_course_to_user', :as => "add_course_to_user"
+  match '/users/:id/add_course_to_user/:cid' => 'users#add_course_to_user', :as => "add_course_to_user"
   
   resources :users
   resources :courses
