@@ -7,7 +7,7 @@
 			<h3>Courses</h3>
 					
 			<div class="well">
-
+<%#= raise @user_courses.inspect %>
 				<% @subjects.each do |s| %>
 					<ul><%= s.name %>
 						<% s.courses.each do |c| %>
@@ -18,7 +18,7 @@
 
 								<% else %>
 									<%= link_to 'Start', '/user/add_course_to_user/' + c.id.to_s %>
-								<%= raise @user_courses.inspect %>
+								
 								<% end %> 
 							</li>
 						<% end %>
