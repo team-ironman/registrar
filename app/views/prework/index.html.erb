@@ -12,9 +12,16 @@
 					<ul><%= s.name %>
 						<% s.courses.each do |c| %>
 							<li><%= link_to c.name, c.url, {:target=> "_blank"} %> -
-
-								<%= @user_courses[c.id].progress %>
-
+<!-- if user course c.id exists
+true -->			
+								<% if @user_courses.has_key?(c.id) %>
+									<%= @user_courses[c.id].progress %>
+								<% else %>
+									<%= link_to 'Start', '/user/add_course_to_user/' + c.id.to_s %>
+								<% end %> 
+<!-- else
+show star button
+ -->
 							</li>
 						<% end %>
 					</ul>
