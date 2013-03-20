@@ -153,3 +153,5 @@ courses = Course.create([
 
 
 	])
+
+u = User.create( name: 'Tim Hunter', email: 'hunternz@gmail.com', codeschool_login: 'aspectratio', treehouse_login: 'aspectratio' )

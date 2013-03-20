@@ -1,0 +1,26 @@
+<title>Iron Board</title>
+<div class="container">
+	<div class="row">
+		<div class="span8">
+			<h1>Iron Board</h1>
+			<hr>
+			<h3>Courses</h3>
+					
+			<div class="well">
+<%#= raise @user_courses.inspect %>
+				<% @subjects.each do |s| %>
+					<ul><%= s.name %>
+						<% s.courses.each do |c| %>
+							<li><%= link_to c.name, c.url, {:target=> "_blank"} %> -
+
+								<%= @user_courses[c.id].progress %>
+
+							</li>
+						<% end %>
+					</ul>
+				<% end %>
+
+			</div> <!-- well -->
+		</div> <!-- span8 -->
+	</div> <!-- row -->
+</div> <!-- container -->
