@@ -23,10 +23,10 @@ class User < ActiveRecord::Base
 
   def add_course_to_user(course_id)
     # @TODO change to logged in user
-    @user = User.find(1)
+    user = User.find(1)
 
-    @user.user_courses.build(course_id: course_id, user_id: 1, progress: 0)
-    @user.save
+    user.user_courses.build(course_id: course_id, user_id: 1, progress: 0).save
+    
   end
 
 
