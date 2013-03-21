@@ -14,10 +14,11 @@ class PreworkController < ApplicationController
       end
     end
 
-    @user_courses_hash = User.first.user_courses_hash
+    
     @user.save
     @user.codeschool_progress
     @user.save
+    @user_courses_hash = User.first.user_courses_hash
 	end
 
 end
