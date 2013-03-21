@@ -8,12 +8,16 @@
 					
 			<div class="well">
 <%#= raise @user_courses_hash.inspect %>
-
+				
+				<!-- subjects is an array of our subjects -->
 				<% @subjects.each do |s| %>
 					<ul><%= s.name %>
 						<% s.courses.each do |c| %>
+						<!-- For each subject, print out the list of courses that relate to it (s.courses) -->
 							<li><%= link_to c.name, c.url, {:target=> "_blank"} %> -
-		
+								<!-- I think we can get rid of this, but basically @user_courses_hash 
+								is a hash of user_courses with the name of the course as the key. This is
+								a check to see if it exists and if so it prints. -->
 								<% if @user_courses_hash.has_key?(c.id) %>
 									<%= @user_courses_hash[c.id].progress %>
 								<% else %>

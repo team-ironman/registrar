@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  require "open-uri"
   attr_accessible :codeschool_login, :email, :first_name, :treehouse_login, :phone_number, :last_name
 
   validates :first_name, :last_name, :phone_number, :email, :codeschool_login, :treehouse_login, :presence => true
@@ -24,38 +25,20 @@ class User < ActiveRecord::Base
   def add_course_to_user(course_id)
     # @TODO change to logged in user
     user = User.find(1)
-
     user.user_courses.build(course_id: course_id, user_id: 1, progress: 0).save
-    
   end
 
 
    def codeschool_progress
-
-    # get user's code school ID from 'user' table
-    # current_user = User.first
     login = self.codeschool_login
-    user_courses_hash = self.user_courses_hash
-
-    # get hash of user's courses User.user_courses_hash
-    progress = scrape_codeschool(login)
-
-    # for each in the user_courses_hash, find the course name (user_course.course.name)
-    user_courses_hash.each do |id, user_course|
-      # cid = user_course.first.course_id
-      # puts Course.find(id).name
-
-      binding.pry
-        
-      if progress.has_key?(user_course.course.name.to_sym)
-
-       user_courses_hash[id].progress = progress[user_course.course.name.to_sym]
-
-       user_courses_hash[id].save
+    cs_user_courses = UserCourse.codeschool_for_user(User.first)
+    progress_hash = scrape_codeschool(login)
+    cs_user_courses.each do |user_course|
+      if progress_hash.has_key?(user_course.course.name.to_sym)
+       user_course.progress = progress_hash[user_course.course.name.to_sym]
+       user_course.save
       end
-
     end
- 
   end
 
 
@@ -75,7 +58,6 @@ class User < ActiveRecord::Base
       incomplete_course_progress_list[course.to_sym] = doc.css("div.course-progress")[index].attr("data-width")
     end
     progress = completed_course_list.merge(incomplete_course_progress_list)
-
   end
 
 
