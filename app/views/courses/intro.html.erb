@@ -1,7 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="span8">
+      <h1>Iron Board</h1>
+      <hr>
+      <h3>Overview</h3>
+          
+      <div class="well">
 <section id="overview">
-  <h2 class="page-header first">Overview</h2>
+  <%= image_tag "avi.png", :align => "right", :width => "330px" %>
 
-  <p>In this document you're going to find a ton of reading, videos, and quizzes that Flatiron students complete before their semester even begins. We thought we'd open source this material. We suggest going through this material linearly because it really represents a progressive journey through the fundamentals and abstractions required to build web applications. Enjoy.</p>
+  <p><img src="http://dailydropcap.com/images/I-11-cap.png" title="Daily Drop Cap by Jessica Hische" align="left" alt="I"/>n this document you're going to find a ton of reading, videos, and quizzes that Flatiron students complete before their semester even begins. We thought we'd open source this material. We suggest going through this material linearly because it really represents a progressive journey through the fundamentals and abstractions required to build web applications. Enjoy.</p>
 
   <p>The main topics we want students to know about before the semester starts are on the left: Internet Basics, Command-Line Interface, Git Version Control, SQL and Databases, HTML, CSS, Javascript and jQuery, Ruby, and Ruby on Rails.</p>
 
@@ -47,10 +55,16 @@
   <p>
     You might be wondering why we would share our curriculum if we are in the education business. First, we honestly do not think that going through this content alone will make anyone a web developer. That's like saying that knowing how to hammer a nail means you can build a house. Sure, you've got the gestures and mechanics down, maybe, but you don't know the first thing about building. There is just so much more to being a developer than the syntax of how to define a method or iterate over an array. We don't focus on content at the Flatiron School. We focus on learning to love code.</p>
 
-    <quote>
-      <p>If you want to build a ship, don’t drum up the men to gather wood, divide the work and give orders. Instead, teach them to yearn for the vast and endless sea.</p>
-      <cite>Antoine de Saint-Exupery</cite>
-    </quote>
+    <blockquote>
+      <p>If you want to build a ship, don’t drum up the men to gather wood, divide the work and give orders. Instead, teach them to yearn for the vast and endless sea.</p><br>
+      <cite><em>Antoine de Saint-Exupery</em></cite>
+    </blockquote>
   </p>
 </section>
-<%= link_to "Start Pre-Work", prework_path %>
+<%= link_to "Start Pre-Work!", prework_path, :class => 'btn btn-primary btn-large' %>
+
+      </div> <!-- well -->
+    </div> <!-- span8 -->
+  </div> <!-- row -->
+</div> <!-- container -->
+

@@ -1,23 +1,36 @@
-<p id="notice"><%= notice %></p>
+<title>Iron Board</title>
+<div class="container">
+  <div class="row">
+    <div class="span8">
+      <h1>Welcome <em><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></em> to Iron Board!</h1>
+      <hr>
+          
+      <div class="well">
+        <p id="notice"><%= notice %></p>
 
-  <b>Name:</b>
-  <%= @user.first_name %>
-  <%= @user.last_name %>
-
-  <b>Email:</b>
-  <%= @user.email %>
-
-  <b>Phone Number:</b>
-  <%= @user.phone_number %>
-
-  <b>Treehouse:</b>
-  <%= @user.treehouse_login %>
-
-  <b>Codeschool:</b>
-  <%= @user.codeschool_login %></br>
-
-<%= link_to 'Pre-Work Intro', preworkintro_path %></br>
-  
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+          <b>Name:</b>
+          <%= @user.first_name.capitalize %>
+          <%= @user.last_name.capitalize %>
+          <br><br>
+          <b>Email:</b>
+          <%= @user.email %>
+          <br><br>
+          <b>Phone Number:</b>
+          <%= @user.phone_number %>
+          <br><br>
+          <b>Treehouse:</b>
+          <%= @user.treehouse_login %>
+          <br><br>
+          <b>Codeschool:</b>
+          <%= @user.codeschool_login %></br>
+          <br>
+        <%= link_to 'Start Here!', preworkintro_path, :class => 'btn btn-warning btn-large' %></br>
+          <p>
+            <br />
+        <%= link_to 'Edit', edit_user_path(@user) %> |
+        <%= link_to 'Back', users_path %>
+          </p>
+      </div> <!-- well -->
+    </div> <!-- span8 -->
+  </div> <!-- row -->
+</div> <!-- container -->

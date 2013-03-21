@@ -1,36 +1,46 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<div class="container">
+  <div class="row">
+    <div class="span6">
+      <div class="form-unit" id="signupForm">
+        <div style="display: <%= @user.errors.any? ? 'block' : 'none';%>">
+      <%= form_for(@user) do |f| %>
+        <% if @user.errors.any? %>
+          <div class="error" id="error_explanation">
+            <a class="close" data-dismiss="alert">&#215;</a>
+            <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+            
+            <% @user.errors.full_messages.each do |msg| %>
+              <%= content_tag :div, msg %>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+      <H1>User Sign-Up</H1>
+
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
+
+          <%= f.label :last_name %>
+        <%= f.text_field :last_name %>
+
+        <%= f.label :phone_number %>
+        <%= f.text_field :phone_number %>
+
+        <%= f.label :email %>
+        <%= f.text_field :email, :placeholder => 'something@flatironschool.com'  %>
+
+        <%= f.label :treehouse_login %>
+        <%= f.text_field :treehouse_login %>
+
+        <%= f.label :codeschool_login %>
+        <%= f.text_field :codeschool_login %>
+<br><br>
+        <%= f.submit 'Submit!', :class => 'btn btn-warning btn-large' %>
+
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-<H1>User Sign-Up</H1>
-
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
-
-    <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
-
-  <%= f.label :phone_number %>
-  <%= f.text_field :phone_number %>
-
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-
-  <%= f.label :treehouse_login %>
-  <%= f.text_field :treehouse_login %>
-
-  <%= f.label :codeschool_login %>
-  <%= f.text_field :codeschool_login %>
-
-  <%= f.submit %>
-
-<% end %>
+      </div>
+    </div> <!-- span8 -->
+  </div> <!-- row -->
+</div> <!-- container -->
