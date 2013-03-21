@@ -18,5 +18,4 @@ class PreworkController < ApplicationController
     @user.save
 	end
 
-
 end

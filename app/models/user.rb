@@ -30,6 +30,64 @@ class User < ActiveRecord::Base
   end
 
 
+   def codeschool_progress
+
+    # get user's code school ID from 'user' table
+    # current_user = User.first
+    login = self.codeschool_login
+    user_courses_hash = self.user_courses_hash
+
+    # get hash of user's courses User.user_courses_hash
+    progress = scrape_codeschool(login)
+
+    # for each in the user_courses_hash, find the course name (user_course.course.name)
+    user_courses_hash.each do |id, user_course|
+      # cid = user_course.first.course_id
+      # puts Course.find(id).name
+
+      binding.pry
+        
+      if progress.has_key?(user_course.course.name.to_sym)
+
+       user_courses_hash[id].progress = progress[user_course.course.name.to_sym]
+
+       user_courses_hash[id].save
+      end
+
+    end
+ 
+  end
+
+
+  # use scrape method to get hash of user progress
+  def scrape_codeschool(login)
+
+    url = "http://www.codeschool.com/users/#{login}"
+    doc = Nokogiri::HTML(open(url))
+    completed_course_list = {}
+    completed_courses = doc.css("li.course.card-a.alt.course-complete a").map {|course| course.text}
+    completed_courses.each do |course|
+      completed_course_list[course.to_sym] = "100%"
+    end
+    incomplete_course_progress_list = {}
+    incomplete_courses = (doc.css("li.course.card-a") - doc.css("li.course.card-a.alt.course-complete")).map {|course| course.inner_text.strip}
+    incomplete_courses.each_with_index do |course, index|
+      incomplete_course_progress_list[course.to_sym] = doc.css("div.course-progress")[index].attr("data-width")
+    end
+    progress = completed_course_list.merge(incomplete_course_progress_list)
+
+  end
+
+
+
+
+# match that to the keys in the progress hash progress[:name]
+
+# set progress equal to value of progress_hash - 
+# user_course.progress = progress[:name]
+
+
+
 end
 
 
