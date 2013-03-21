@@ -17,6 +17,7 @@ class PreworkController < ApplicationController
     
     @user.save
     @user.codeschool_progress
+    @user.treehouse_progress
     @user.save
     @user_courses_hash = User.first.user_courses_hash
 	end
