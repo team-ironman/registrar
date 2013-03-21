@@ -31,22 +31,9 @@ class User < ActiveRecord::Base
 
 
    def codeschool_progress
-
-    # get user's code school ID from 'user' table
-    # current_user = User.first
     login = self.codeschool_login
     user_courses_hash = self.user_courses_hash
-
-    # get hash of user's courses User.user_courses_hash
-    progress = scrape_codeschool(login)
-
-    # for each in the user_courses_hash, find the course name (user_course.course.name)
     user_courses_hash.each do |id, user_course|
-      # cid = user_course.first.course_id
-      # puts Course.find(id).name
-
-      binding.pry
-        
       if progress.has_key?(user_course.course.name.to_sym)
 
        user_courses_hash[id].progress = progress[user_course.course.name.to_sym]
