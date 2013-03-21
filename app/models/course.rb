@@ -6,4 +6,7 @@ class Course < ActiveRecord::Base
   has_many :users, through: :user_courses
   has_one :course_provider
 
+  # def self.codeschool
+  #   where(:course_provider_id => 1)
+  # end
 end
