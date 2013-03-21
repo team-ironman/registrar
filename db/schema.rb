@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130320192144) do
+ActiveRecord::Schema.define(:version => 20130320195123) do
 
   create_table "courses", :force => true do |t|
     t.string   "name"
@@ -35,9 +35,10 @@ ActiveRecord::Schema.define(:version => 20130320192144) do
     t.integer  "progress"
     t.string   "bookmark"
     t.string   "time_spent"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.integer  "treehouse_badges_completed"
+    t.integer  "column",                     :default => 0
   end
 
   create_table "users", :force => true do |t|
