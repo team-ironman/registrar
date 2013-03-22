@@ -2,7 +2,7 @@
   <div class="row">
     <div class="span6">
       <div class="form-unit" id="signupForm">
-        <div style="display: <%= @user.errors.any? ? 'block' : 'none';%>">
+
       <%= form_for(@user) do |f| %>
         <% if @user.errors.any? %>
           <div class="error" id="error_explanation">
@@ -14,19 +14,19 @@
               <%= content_tag :div, msg %>
             <% end %>
             </ul>
-          </div>
+
         <% end %>
 
       <H1>User Sign-Up</H1>
 
         <%= f.label :first_name %>
-        <%= f.text_field :first_name %>
+        <%= f.text_field :first_name, :placeholder => 'Avi' %>
 
           <%= f.label :last_name %>
-        <%= f.text_field :last_name %>
+        <%= f.text_field :last_name, :placeholder => 'Flombaum' %>
 
         <%= f.label :phone_number %>
-        <%= f.text_field :phone_number %>
+        <%= f.text_field :phone_number, :placeholder => '555-123-1234' %>
 
         <%= f.label :email %>
         <%= f.text_field :email, :placeholder => 'something@flatironschool.com'  %>
