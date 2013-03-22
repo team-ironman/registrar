@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     @user.save
     @user.create_associations
     @user.codeschool_progress
+    @user.all_treehouse_badges
     @user.treehouse_progress
     respond_to do |format|
       if @user.save
