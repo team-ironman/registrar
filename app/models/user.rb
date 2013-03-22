@@ -131,10 +131,4 @@ class User < ActiveRecord::Base
     progress
   end
 
-  def overall_progress
-    student = User.first
-    all_progress = student.user_courses.select(:progress)
-    progress_array = all_progress.map {|a| a.progress}
-    progress_array.inject{ |sum, el| sum + el }.to_f / progress_array.size
-  end
 end
