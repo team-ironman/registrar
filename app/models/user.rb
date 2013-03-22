@@ -20,18 +20,23 @@ class User < ActiveRecord::Base
 		courses.each do |course|
 			user_courses_hash[course.course_id] = course
 		end
-
 		return user_courses_hash
 	end
 
-  def add_course_to_user(course_id)
-    # @TODO change to logged in user
-    user = User.find(1)
-    user.user_courses.build(course_id: course_id, user_id: 1, progress: 0).save
+  def add_course_to_user(course)
+    self.user_courses.build(course_id: course.id, user_id: self.id, progress: 0, treehouse_badges_completed: 0).save
   end
 
+  def create_associations
+    courses = Course.all
+    courses.each do |course|
+      unless self.courses.include?(course)
+        self.add_course_to_user(course)
+      end
+    end
+  end
 
-   def codeschool_progress
+  def codeschool_progress
     login = self.codeschool_login
     cs_user_courses = UserCourse.codeschool_for_user(self)
     progress_hash = scrape_codeschool(login)

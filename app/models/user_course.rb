@@ -1,5 +1,5 @@
 class UserCourse < ActiveRecord::Base
-  attr_accessible :bookmark, :course_id, :progress, :time_spent, :user_id
+  attr_accessible :bookmark, :course_id, :progress, :time_spent, :user_id, :treehouse_badges_completed
 
   belongs_to :user
   belongs_to :course
