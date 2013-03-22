@@ -23,13 +23,17 @@ body {
 	background:#e4e4da;
     font-family: 'Open Sans', sans-serif;
     background-image:url('../img/sep-half.png');
+    color: #333333;
+}
 
+h1 {
+	color: #333333;
 }
 
 h3,h4 , h5 {
 	font-family: 'Open Sans', sans-serif;
 	font-weight:lighter;
-	color: ##333333;
+	color: #333333;
 }
 
 h2{
