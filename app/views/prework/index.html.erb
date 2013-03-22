@@ -5,7 +5,13 @@
 			<h1>Iron Board</h1>
 			<hr>
 			<h3>Courses</h3>
+			<h2>Great Job, <%= @student.first_name.capitalize %> <%= @student.last_name.capitalize %>!!</h2>
+			
 			<h2>Overall Progress: <%= @average.round(2) %>% </h2>		
+			<div class="progress progress-info progress-striped">
+						<div class="bar" style="width: <%= @average.round(2) %>%" >
+						</div>
+					</div>
 			<div class="well">
 <%#= raise @user_courses_hash.inspect %>
 				
