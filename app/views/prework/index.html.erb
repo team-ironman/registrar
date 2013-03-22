@@ -10,26 +10,25 @@
 <%#= raise @user_courses_hash.inspect %>
 				
 				<!-- subjects is an array of our subjects -->
-				<% @subjects.each do |s| %>
-					<ul style="list-style: none;"><h2><%= s.name %></h2>
-						<% s.courses.each do |c| %>
+				<% last_subject = nil %>
+				<% @user_courses.each do |c| %>
+					<% if c.course.subject != last_subject %>
+						<% last_subject = c.course.subject %>
+						<% if last_subject %>
+							</ul>
+						<% end %>
+						<ul style="list-style: none;"><h2><%= c.course.subject.name %></h2>
+					<% end %> 
 						<!-- For each subject, print out the list of courses that relate to it (s.courses) -->
-							<li><%= link_to c.name, c.url, {:target=> "_blank"} %> -
+							<li><%= link_to c.course.name, c.course.url, {:target=> "_blank"} %> -
 								<!-- I think we can get rid of this, but basically @user_courses_hash 
 								is a hash of user_courses with the name of the course as the key. This is
 								a check to see if it exists and if so it prints. -->
-								<% if @user_courses_hash.has_key?(c.id) %>
 									<div class="progress progress-striped active">
 										<%#= @user_courses_hash[c.id].progress %>
-										<div class="bar" style="width: <%= @user_courses_hash[c.id].progress %>%" >
+										<div class="bar" style="width: <%= c.progress %>%" >
 									</div>
-								<% else %>
-									<%= link_to 'Start', '/users/add_course_to_user/' + c.id.to_s %>
-								<% end %> 
-
-							</li>
-						<% end %>
-					</ul>
+							</li>	
 				<% end %>
 			</div> <!-- well -->
 		</div> <!-- span8 -->

@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
 
    def codeschool_progress
     login = self.codeschool_login
-    cs_user_courses = UserCourse.codeschool_for_user(User.first)
+    cs_user_courses = UserCourse.codeschool_for_user(self)
     progress_hash = scrape_codeschool(login)
     cs_user_courses.each do |user_course|
       if progress_hash.has_key?(user_course.course.name.to_sym)

@@ -24,7 +24,13 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
-    
+  end
+
+  def update_codeschool
+    @user = User.find(params[:id])
+    @user.codeschool_progress
+    # redirect_to (@user, :message => 'updated codeschool')
+    redirect_to user_path(@user), :alert => "Codeschool progress updated"
   end
 
 
