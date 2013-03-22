@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  layout 'credentials', :only => :new
+
 	def index
 		@users = User.all
 	end

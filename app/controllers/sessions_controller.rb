@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+
+  layout 'credentials'
+  
   def new
   end
 
