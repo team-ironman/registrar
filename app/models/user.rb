@@ -74,7 +74,8 @@ class User < ActiveRecord::Base
     progress_hash = scrape_treehouse(login)
     th_user_courses.each do |user_course|
       if progress_hash.has_key?(user_course.course.name.to_sym)
-       user_course.progress = progress_hash[user_course.course.name.to_sym]
+       user_course.treehouse_badges_completed = progress_hash[user_course.course.name.to_sym]
+       user_course.progress = user_course.treehouse_badges_completed / user_course.course.treehouse_badges
        user_course.save
       end
     end
