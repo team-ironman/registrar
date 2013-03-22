@@ -1,5 +1,5 @@
 class Course < ActiveRecord::Base
-  attr_accessible :estimated_time, :name, :subject_id, :url
+  attr_accessible :estimated_time, :name, :subject_id, :url, :treehouse_badges
 
   belongs_to :subject
   has_many :user_courses

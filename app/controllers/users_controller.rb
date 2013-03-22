@@ -34,5 +34,11 @@ class UsersController < ApplicationController
     redirect_to user_path(@user), :alert => "Codeschool progress updated"
   end
 
+  def update_treehouse
+    @user = User.find(params[:id])
+    @user.treehouse_progress
+    # redirect_to (@user, :message => 'updated codeschool')
+    redirect_to prework_path(@user), :alert => "Treehouse progress updated"
+  end
 
 end
