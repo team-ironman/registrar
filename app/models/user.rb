@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   require "open-uri"
-  attr_accessible :codeschool_login, :email, :first_name, :treehouse_login, :phone_number, :last_name
+  attr_accessible :codeschool_login, :email, :first_name, :treehouse_login, :phone_number, :last_name, :password, :password_confirmation
 
   validates :first_name, :last_name, :phone_number, :email, :codeschool_login, :treehouse_login, :presence => true
   validates :first_name, :last_name, :phone_number, :email, :codeschool_login, :treehouse_login, :uniqueness => true
@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   has_many :courses, through: :user_courses
 
 	accepts_nested_attributes_for :user_courses
+
+  has_secure_password
 
 	def user_courses_hash
 		courses = UserCourse.where(:user_id => 1)

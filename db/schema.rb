@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130321173750) do
+ActiveRecord::Schema.define(:version => 20130322153121) do
 
   create_table "course_providers", :force => true do |t|
     t.string   "name"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20130321173750) do
     t.string   "phone_number"
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "password_digest"
   end
 
 end
