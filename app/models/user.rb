@@ -68,7 +68,41 @@ class User < ActiveRecord::Base
 # set progress equal to value of progress_hash - 
 # user_course.progress = progress[:name]
 
+  def treehouse_progress
+    login = self.treehouse_login
+    th_user_courses = UserCourse.treehouse_for_user(User.first)
+    progress_hash = scrape_treehouse(login)
+    th_user_courses.each do |user_course|
+      if progress_hash.has_key?(user_course.course.name.to_sym)
+       user_course.progress = progress_hash[user_course.course.name.to_sym]
+       user_course.save
+      end
+    end
+  end
 
+  def login_to_treehouse
+    agent = Mechanize.new
+    agent.get("http://www.teamtreehouse.com/login")
+    form = agent.page.forms[1]
+    form.fields[2].value = "avi@flatironschool.com"
+    form.fields[3].value = "flatironschool"
+    form.submit
+  end
+
+  def scrape_treehouse(login)
+    login_to_treehouse
+    url = "http://www.teamtreehouse.com/#{login}"
+    doc = Nokogiri::HTML(open(url))
+    all_courses = doc.css("p.light a").map {|course| course.text}
+    #data is an array of course names
+    unique_courses = all_courses.uniq
+    #count each type of course name and save it to the completed badges in the user_course table
+    progress = {}
+    unique_courses.each do |course|
+      progress[course.to_sym] = all_courses.count(course)
+    end
+    progress
+  end
 
 end
 

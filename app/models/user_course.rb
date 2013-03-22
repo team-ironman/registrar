@@ -19,4 +19,12 @@ class UserCourse < ActiveRecord::Base
     self.codeschool.where(:user_id => user.id)
   end
 
+    def self.treehouse
+    joins(:course).where("courses.course_provider_id = ?", 2).readonly(false)
+  end
+
+  def self.treehouse_for_user(user)
+    self.treehouse.where(:user_id => user.id)
+  end
+
 end
