@@ -42,10 +42,9 @@ ActiveRecord::Schema.define(:version => 20130321173750) do
     t.integer  "progress"
     t.string   "bookmark"
     t.string   "time_spent"
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
     t.integer  "treehouse_badges_completed"
-    t.integer  "column",                     :default => 0
   end
 
   create_table "users", :force => true do |t|
