@@ -120,7 +120,7 @@ class User < ActiveRecord::Base
     login_to_treehouse
     url = "http://www.teamtreehouse.com/#{login}"
     doc = Nokogiri::HTML(open(url))
-    all_courses = doc.css("p.light a").map {|course| course.text}
+    all_courses = doc.css("p.light a:first").map {|course| course.text}
     #data is an array of course names
     unique_courses = all_courses.uniq
     #count each type of course name and save it to the completed badges in the user_course table
