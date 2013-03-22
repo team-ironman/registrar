@@ -2,7 +2,7 @@ class PreworkController < ApplicationController
 
 	def index
     if !params[:id]
-     user_id = 1
+     user_id = session[:user_id]
     else
       user_id = params[:id]
     end
