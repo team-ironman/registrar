@@ -4,7 +4,8 @@ Registrar::Application.routes.draw do
 
   match '/prework' => 'prework#index' 
   match 'preworkintro' => 'courses#intro'
-  match '/users/:id/update_codeschool' => 'users#update_codeschool'
+  match '/:id/update_codeschool' => 'users#update_codeschool'
+  match '/:id/update_treehouse' => 'users#update_treehouse'
   match '/:id/prework' => 'prework#index' 
 
 
