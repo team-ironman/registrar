@@ -96,7 +96,7 @@ class User < ActiveRecord::Base
 
   def treehouse_progress
     login = self.treehouse_login
-    th_user_courses = UserCourse.treehouse_for_user(User.first)
+    th_user_courses = UserCourse.treehouse_for_user(self)
     progress_hash = scrape_treehouse(login)
     th_user_courses.each do |user_course|
       if progress_hash.has_key?(user_course.course.name.to_sym)
