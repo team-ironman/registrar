@@ -10,9 +10,9 @@ Registrar::Application.routes.draw do
 
   match '/prework' => 'prework#index' 
   match 'preworkintro' => 'courses#intro'
-  match '/:id/update_codeschool' => 'users#update_codeschool'
-  match '/:id/update_treehouse' => 'users#update_treehouse'
-  match '/:id/prework' => 'prework#index' 
+  match '/users/:id/update_codeschool' => 'users#update_codeschool'
+  match '/users/:id/update_treehouse' => 'users#update_treehouse'
+  match '/users/:id/prework' => 'prework#index', as: 'user_prework'
 
 
   # The priority is based upon order of creation:

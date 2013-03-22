@@ -14,7 +14,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-
+    @user.save
+    @user.create_associations
     respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
@@ -31,14 +32,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.codeschool_progress
     # redirect_to (@user, :message => 'updated codeschool')
-    redirect_to user_path(@user), :alert => "Codeschool progress updated"
+    redirect_to user_prework_path(@user), :alert => "Codeschool progress updated"
   end
 
   def update_treehouse
     @user = User.find(params[:id])
     @user.treehouse_progress
     # redirect_to (@user, :message => 'updated codeschool')
-    redirect_to prework_path(@user), :alert => "Treehouse progress updated"
+    redirect_to user_prework_path(@user), :alert => "Treehouse progress updated"
   end
 
 end
