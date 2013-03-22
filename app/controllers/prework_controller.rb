@@ -16,6 +16,7 @@ class PreworkController < ApplicationController
         self.add_course_to_user(course.id)
       end
     end
+
   end
 
 end

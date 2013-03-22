@@ -68,6 +68,25 @@ class User < ActiveRecord::Base
 # set progress equal to value of progress_hash - 
 # user_course.progress = progress[:name]
 
+  def all_treehouse_badges
+    login_to_treehouse
+    #need an array of urls
+    #iterate through array 
+    urls_object = Course.select(:url).where(:course_provider_id => 2)
+    urls = urls_object.map {|url| url.url }        
+    urls.each do |url|
+      doc = Nokogiri::HTML(open(url))
+      data = doc.css("div.module-topper h3").text
+      total_number_of_badges = data.split(" ").first
+      total_number_of_videos = data.split(" ")[3]
+      #save num of badges to course table
+      course = Course.where(:url => url).first
+      course.treehouse_badges = total_number_of_badges
+      course.save
+    end
+  end
+
+
   def treehouse_progress
     login = self.treehouse_login
     th_user_courses = UserCourse.treehouse_for_user(User.first)
@@ -75,7 +94,7 @@ class User < ActiveRecord::Base
     th_user_courses.each do |user_course|
       if progress_hash.has_key?(user_course.course.name.to_sym)
        user_course.treehouse_badges_completed = progress_hash[user_course.course.name.to_sym]
-       user_course.progress = user_course.treehouse_badges_completed / user_course.course.treehouse_badges
+       user_course.progress = (user_course.treehouse_badges_completed.round(2) / user_course.course.treehouse_badges.round(2)) * 100
        user_course.save
       end
     end
@@ -106,7 +125,3 @@ class User < ActiveRecord::Base
   end
 
 end
-
-
-
-
