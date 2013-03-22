@@ -16,6 +16,8 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     @user.save
     @user.create_associations
+    @user.codeschool_progress
+    @user.treehouse_progress
     respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
@@ -37,6 +39,7 @@ class UsersController < ApplicationController
 
   def update_treehouse
     @user = User.find(params[:id])
+    @user.all_treehouse_badges
     @user.treehouse_progress
     # redirect_to (@user, :message => 'updated codeschool')
     redirect_to user_prework_path(@user), :alert => "Treehouse progress updated"
