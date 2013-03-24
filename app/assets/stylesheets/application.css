@@ -10,8 +10,8 @@
  *
  *= require_self
  *= require twitter-bootstrap-static/bootstrap
- *= require login.css
  *= require table.css
  *= require prettyPhoto.css
  *= require main.css 
+ *= require login.css
  */
