@@ -131,4 +131,25 @@ class User < ActiveRecord::Base
     progress
   end
 
+  def overall_progress
+    @student = User.find(id)
+    all_progress = @student.user_courses.select(:progress)
+    progress_array = all_progress.map {|a| a.progress}
+    @average = progress_array.inject{ |sum, el| sum + el }.to_f / progress_array.size
+  end
+
+  def overall_treehouse_progress
+    th_user_courses = UserCourse.treehouse_for_user(self)
+    all_progress = th_user_courses.select(:progress)
+    progress_array = all_progress.map {|a| a.progress}
+    @average = progress_array.inject{ |sum, el| sum + el }.to_f / progress_array.size
+  end
+
+  def overall_codeschool_progress
+    cs_user_courses = UserCourse.codeschool_for_user(self)
+    all_progress = cs_user_courses.select(:progress)
+    progress_array = all_progress.map {|a| a.progress}
+    @average = progress_array.inject{ |sum, el| sum + el }.to_f / progress_array.size
+  end
+
 end
