@@ -48,6 +48,8 @@ GEM
       sass (>= 3.2.0)
       thor
     builder (3.0.4)
+    bullet (4.5.0)
+      uniform_notifier
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -170,6 +172,7 @@ GEM
     unf (0.1.0)
       unf_ext
     unf_ext (0.0.6)
+    uniform_notifier (1.2.0)
     warden (1.2.1)
       rack (>= 1.0)
     webrobots (0.1.1)
@@ -180,6 +183,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   bcrypt-ruby (~> 3.0.0)
+  bullet
   coffee-rails (~> 3.2.1)
   jquery-rails
   mechanize
