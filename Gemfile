@@ -33,6 +33,9 @@ gem 'activeadmin'
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
+# bullet - to deal with n+1 stuff
+gem 'bullet', group: :development
+
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
