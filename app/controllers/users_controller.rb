@@ -48,4 +48,12 @@ class UsersController < ApplicationController
     redirect_to user_prework_path(@user), :alert => "Treehouse progress updated"
   end
 
+  def static_progress
+    @usercourse = UserCourse.find(params[:id])
+    @usercourse.progress = params[:progress]
+    @usercourse.save
+
+    format.js #{ render json: @user, status: :created, location: @user }    
+  end
+
 end
