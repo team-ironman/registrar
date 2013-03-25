@@ -19,6 +19,7 @@ role :app, "192.81.213.114"                          # This may be the same as y
 role :db, "192.81.213.114", :primary => true
 
 
+
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
 
