@@ -7,7 +7,7 @@ class UserCourse < ActiveRecord::Base
   def self.codeschool
     #creates a result set that is all CodeSchool user courses. Using includes will do
     #eager loading, so if the result is used in an iterator it has all the info it needs,
-    #therefore uses less SQL queries.
+    #therefore uses less SQL queries. Using "select('*')" will return a non-readonly object.
     includes(:course).select('*').where('courses.course_provider_id' => 1)
   end
 
