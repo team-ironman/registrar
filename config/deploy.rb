@@ -5,7 +5,7 @@ set :repository,  "git@github.com:flatiron-school/registrar.git"
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
 set :user, 'deploy'
-set :deploy_to, "/home/#{ user }/#{ application }"
+set :deploy_to, "/home/#{user}/#{application}"
 set :use_sudo, false
 
 set :scm, :git
@@ -14,6 +14,7 @@ default_run_options[:pty] = true
 
 role :web, "192.81.213.114"                          # Your HTTP server, Apache/etc
 role :app, "192.81.213.114"                          # This may be the same as your `Web` server
+role :db, "192.81.213.114", :primary => true
 
 
 # if you want to clean up old releases on each deploy uncomment this:
