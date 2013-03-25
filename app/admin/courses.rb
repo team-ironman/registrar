@@ -4,7 +4,7 @@ ActiveAdmin.register Course do
     column :url
     column :subject
     column :estimated_time
-    column :course_provider_id
+    column :course_provider
   end
   
 end
