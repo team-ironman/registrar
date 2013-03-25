@@ -14,6 +14,16 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+
+	def user_courses_hash
+		courses = UserCourse.where(:user_id => 1)
+		user_courses_hash = {}
+		courses.each do |course|
+			user_courses_hash[course.course_id] = course
+		end
+		return user_courses_hash
+	end
+
   def add_course_to_user(course)
     self.user_courses.build(:course_id => course.id).save
   end
@@ -70,7 +80,7 @@ class User < ActiveRecord::Base
       doc = Nokogiri::HTML(open(url))
       data = doc.css("div.module-topper h3").text
       total_number_of_badges = data.split(" ").first
-      total_number_of_videos = data.split(" ")[3]
+      # total_number_of_videos = data.split(" ")[3]
       #save num of badges to course table
       course = Course.where(:url => url).first
       course.treehouse_badges = total_number_of_badges
@@ -117,24 +127,26 @@ class User < ActiveRecord::Base
   end
 
   def overall_progress
-    @student = User.find(id)
-    all_progress = @student.user_courses.select(:progress)
-    progress_array = all_progress.map {|a| a.progress}
-    @average = progress_array.inject{ |sum, el| sum + el }.to_f / progress_array.size
+    courses = User.find(id).user_courses
+    average(progress_array(courses))
   end
 
-  def overall_treehouse_progress
-    th_user_courses = UserCourse.treehouse_for_user(self)
-    all_progress = th_user_courses.select(:progress)
-    progress_array = all_progress.map {|a| a.progress}
-    @average = progress_array.inject{ |sum, el| sum + el }.to_f / progress_array.size
+  def student_treehouse_progress
+    courses = UserCourse.treehouse_for_user(self)
+    average(progress_array(courses))
   end
 
-  def overall_codeschool_progress
-    cs_user_courses = UserCourse.codeschool_for_user(self)
-    all_progress = cs_user_courses.select(:progress)
-    progress_array = all_progress.map {|a| a.progress}
-    @average = progress_array.inject{ |sum, el| sum + el }.to_f / progress_array.size
+  def student_codeschool_progress
+    courses = UserCourse.codeschool_for_user(self)
+    average(progress_array(courses))
+  end
+
+  def progress_array(user)
+    user.select(:progress).map {|obj| obj.progress}
+  end
+
+  def average(array)
+    array.inject{ |sum, el| sum + el }.to_f / array.size
   end
 
 end
