@@ -1,11 +1,12 @@
 <title>Iron Board</title>
+<br>
 <div class="container">
   <div class="row">
-    <div class="span8">
+    <div class="span12">
       <h1>Welcome <em><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></em> to Iron Board!</h1>
       <hr>
           
-      <div class="well">
+      <div class="well form-unit" id="signupForm">
         <p id="notice"><%= notice %></p>
 
           <b>Name:</b>

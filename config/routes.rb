@@ -22,6 +22,7 @@ Registrar::Application.routes.draw do
   match '/users/:id/update_treehouse' => 'users#update_treehouse'
   match '/users/:id/prework' => 'prework#index', as: 'user_prework'
 
+  post '/user_courses/update_progress', to: 'user_courses#update_progress', as: 'update_progress'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

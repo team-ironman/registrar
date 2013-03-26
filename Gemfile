@@ -38,6 +38,8 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # bullet - to deal with n+1 stuff
 gem 'bullet', group: :development
 
+gem 'roadie'
+
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 

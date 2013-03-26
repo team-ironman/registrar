@@ -1,4 +1,5 @@
-﻿/*!
+﻿
+/*!
  * Lion - Responsive Admin Theme
  *
  * Copyright 2012 
@@ -18,14 +19,52 @@
 */
 
 
-/**********BASE CONFIGURATIONS**********/   
-body {
-	background:#e4e4da;
-    font-family: 'Open Sans', sans-serif;
-    background-image:url('http://i1283.photobucket.com/albums/a553/erin_lee1/sep-half_zpsb3f6dde9.png');
-    color: #333333;
+/**********BASE CONFIGURATIONS**********/  
+#hours {
+	color: gray;
+	font-size: 11px;
 }
-
+a {
+	color: #ff6e01;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+	color: #777777;
+}
+/*checkbox*/
+input[type="checkbox"] {
+	margin-bottom: 5px;
+	margin-right: 5px;
+}
+.regular-checkbox {
+    -webkit-appearance: none;
+    background-color: #fafafa;
+    border: 1px solid #cacece;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+    padding: 9px;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+}
+.regular-checkbox:active, .regular-checkbox:checked:active {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+ 
+.regular-checkbox:checked {
+    background-color: #e9ecee;
+    border: 1px solid #adb8c0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+    color: #99a1a7;
+}
+.regular-checkbox:checked:after {
+    content: '\2714';
+    font-size: 14px;
+    position: absolute;
+    top: 0px;
+    left: 3px;
+    color: #99a1a7;
+}
 h1 {
 	color: #333333;
 }
@@ -342,11 +381,13 @@ h5 {
     background:#4c453d;
     padding-top:25px;
     padding-bottom: 40px;
-	border-top-style: solid;
+		border-top-style: solid;
     border-top-width:8px;
     border-top-color:#312d27;
-    background-image:url('../img/sep-half.png');
-    text-align:center
+    text-align:center;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -142px;
 
 }
 

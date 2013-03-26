@@ -7,18 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div class="navbar navbar-inverse">
+	<div class="lion navbar navbar-inverse">
 		<div class="navbar-inner">
-			<a class="brand" href="#">Iron Board</a>
+			<a class="brand" href="#">Iron Board</a><ul class="nav">
 			<% if current_user %>
 				Logged in as <%= current_user.email %>.
         <%= link_to "Pre-Work", prework_path %>
         <%= link_to "Calendar", calendar_path %>
 				<%= link_to "Log Out", logout_path %>
 			<% else %>
-				<%= link_to "Sign Up", signup_path %> || 
-				<%= link_to "Log in", login_path %>
-			<% end %>
+				<li><%= link_to "Sign Up", signup_path %></li>
+				<li><%= link_to "Log in", login_path %></li>
+			<% end %></ul>
 		</div>
 	</div>
 <%= yield %>

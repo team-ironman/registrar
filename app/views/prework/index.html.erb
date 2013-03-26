@@ -2,19 +2,18 @@
 <div class="container">
 	<div class="row">
 		<div class="span8">
-			<h1>Iron Board</h1>
-			<hr>
+			<br>
 			<h3>Courses</h3>
-			<h2>Great Job, <%= @student.first_name.capitalize %> <%= @student.last_name.capitalize %>!!</h2>
+			<h2>Awesome job, <em><%= @student.first_name.capitalize %>!!</em></h2>
+			<h4>Keep it up!</h4>
 			
-			<h2>Overall Progress: <%= @average.round(2) %>% </h2>		
-			<div class="progress progress-info progress-striped">
-						<div class="bar" style="width: <%= @average.round(2) %>%" >
+			<h2>Overall Progress: <span id="text_overallprogress"><%= @average.round(2) %>%</span> </h2>		
+			<div class="progress progress-info progress-striped active">
+						<div class="bar" id="overallprogress" style="width: <%= @average.round(2) %>%" >
 						</div>
 					</div>
 			<div class="well">
-<%#= raise @user_courses_hash.inspect %>
-				
+		
 				<!-- subjects is an array of our subjects -->
 				<% last_subject = nil %>
 				<% @user_courses.each do |c| %>
@@ -25,18 +24,41 @@
 						<% end %>
 						<ul style="list-style: none;"><h2><%= c.course.subject.name %></h2>
 					<% end %> 
-						<!-- For each subject, print out the list of courses that relate to it (s.courses) -->
-							<li><%= link_to c.course.name, c.course.url, {:target=> "_blank"} %> -
-								<!-- I think we can get rid of this, but basically @user_courses_hash 
-								is a hash of user_courses with the name of the course as the key. This is
-								a check to see if it exists and if so it prints. -->
-									<div class="progress progress-striped active">
-										<%#= @user_courses_hash[c.id].progress %>
-										<div class="bar" style="width: <%= c.progress %>%" >
+							<li>
+								<!-- if the course is not treehouse or codeschool show checkbox -->
+							<div class="row">
+								<div class="span5">
+									<% if c.course.course_provider_id == 0 %>
+										<%# form_tag ("/user_courses/#{c.id}", :method => 'post', :remote => true) %>
+										<% check_value = true if c.progress > 0 %>
+											<%= check_box_tag c.id, 'yes', check_value, :class => 'regular-checkbox' %>
+										<% else %>
+										<!-- do nothing -->
+									<% end %>
+										<!-- when the checkbox is marked the progress bar goes to 100% -->
+
+										<% if c.course.course_provider_id == 2 %>
+											<%= 'Treehouse || ' %>
+										<% elsif c.course.course_provider_id == 1 %>
+											<%= 'Codeschool || ' %>
+										<% else %>
+									<% end %>
+									<%= link_to c.course.name, c.course.url, {:target=> "_blank"} %>
+									</div> 
+									<div class="span3 offset4" id="hours" align="right">
+										<%= c.course.estimated_time %> <a href="#" id="hours" data-toggle="tooltip" data-placement="right" title="" data-original-title="Tooltip on right">Hours</a>
+									</div>
+								</div> <!-- ends first row with checkbox and course name -->
+										<% if c.progress < 100 %>
+											<div class="progress progress-warning progress-striped active">
+										<% else %>
+											<div class="progress progress-warning">
+										<% end %>
+										<div class="bar" id="bar<%= c.id %>" style="width: <%= c.progress %>%" >
+										</div>
 									</div>
 							</li>	
 				<% end %>
-
 			</div> <!-- well -->
 		</div> <!-- span8 -->
 	</div> <!-- row -->
