@@ -6,7 +6,7 @@
   =require twitter-bootstrap-static/fontawesome
   */
 
-  .btn-primary {
+.btn-primary {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   background-color: #006dcc;
@@ -17,4 +17,10 @@
 	border-right-color: #0044cc;
 	border-top-color: #0044cc;
 	border-bottom-color: #002a80;
+}
+.navbar {
+  margin-bottom: 0px;
+}
+body {
+  background-color:#e4e4da;
 }

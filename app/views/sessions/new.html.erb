@@ -1,19 +1,19 @@
-
-<div class="container form-4">
-
-			<h1> Log In to Iron Board</h1> 			
-					<%= form_tag sessions_path, {:class => 'form-4'} do %>
-						<p>
-							<%= text_field_tag :email, params[:email], :placeholder =>'Email' %>
-						</p>
-						<p>
-							<%= password_field_tag :password, :placeholder => 'Password' %>
-						</p>
-						<p>
-			    		<%= submit_tag "Continue" %>
-			  		</p>
-			  	<% end %>
-
-  					<p>Not a member? <span><%= link_to "Sign-up", new_user_path%></span></p>
-
+<div class="first-page">
+	<div class="container form-4 registrar-height-fix">
+<%= image_tag "http://i1283.photobucket.com/albums/a553/erin_lee1/ironboard-logo_zps029be7ed.png" %> 			
+			<%= form_tag sessions_path, {:class => 'form-4'} do %>
+				<p>
+					<%= text_field_tag :email, params[:email], :placeholder =>'Email' %>
+				</p>
+				<p>
+					<%= password_field_tag :password, :placeholder => 'Password' %>
+				</p>
+				<p>
+	    		<%= submit_tag "SIGN IN" %>
+	  		</p>
+	  	<% end %>
+		<div align="center">
+			Not a member? <span><%= link_to "Sign-up", new_user_path%></span></p>
+		</div>
+	</div>
 </div>

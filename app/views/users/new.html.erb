@@ -1,7 +1,8 @@
+<br>
 <div class="container">
   <div class="row">
-    <div class="span6">
-      <div class="form-unit" id="signupForm" style="height:700px">
+    <div class="span12">
+      <div class="form-5" id="signupForm" style="height:700px">
 
       <%= form_for(@user) do |f| %>
         <% if @user.errors.any? %>
@@ -17,7 +18,7 @@
 
         <% end %>
 
-      <h2>User Sign-Up</h2>
+      <h1>New User Sign-Up</h1>
 
         <%= f.label :first_name %>
         <%= f.text_field :first_name, :placeholder => 'Avi' %>
@@ -32,10 +33,10 @@
         <%= f.text_field :email, :placeholder => 'something@flatironschool.com'  %>
 
         <%= f.label :treehouse_login %>
-        <%= f.text_field :treehouse_login %>
+        <%= f.text_field :treehouse_login, :placeholder => 'treehouse login'  %>
 
         <%= f.label :codeschool_login %>
-        <%= f.text_field :codeschool_login %>
+        <%= f.text_field :codeschool_login, :placeholder => 'codeschool login'  %>
 
         <%= f.label :password %>
         <%= f.password_field :password %>        
@@ -45,7 +46,7 @@
 
 
 <br><br>
-        <%= f.submit 'Submit!', :class => 'btn btn-warning btn-large' %>
+        <%= f.submit 'SUBMIT', :class => 'btn btn-warning btn-large' %>
 
       <% end %>
       </div>

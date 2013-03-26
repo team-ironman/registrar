@@ -2,13 +2,12 @@
 <div class="container">
 	<div class="row">
 		<div class="span8">
-			<h1>Iron Board</h1>
-			<hr>
+			<br>
 			<h3>Courses</h3>
-			<h2>Great Job, <%= @student.first_name.capitalize %> <%= @student.last_name.capitalize %>!!</h2>
+			<h2>Great Job, <em><%= @student.first_name.capitalize %> <%= @student.last_name.capitalize %>!!</em></h2>
 			
 			<h2>Overall Progress: <span id="text_overallprogress"><%= @average.round(2) %>%</span> </h2>		
-			<div class="progress progress-info progress-striped">
+			<div class="progress progress-info progress-striped active">
 						<div class="bar" id="overallprogress" style="width: <%= @average.round(2) %>%" >
 						</div>
 					</div>
@@ -42,7 +41,11 @@
 								<% else %>
 								<% end %>
 								<%= link_to c.course.name, c.course.url, {:target=> "_blank"} %>
-									<div class="progress progress-striped active">
+								<% if c.progress < 100 %>
+									<div class="progress progress-warning progress-striped active">
+										<% else %>
+									<div class="progress progress-warning">
+										<% end %>
 										<div class="bar" id="bar<%= c.id %>" style="width: <%= c.progress %>%" >
 <!--
 

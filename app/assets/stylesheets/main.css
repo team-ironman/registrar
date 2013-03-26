@@ -20,7 +20,14 @@
 
 
 /**********BASE CONFIGURATIONS**********/  
-
+a {
+	color: #ff6e01;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+	color: #777777;
+}
 
 /* SQUARED THREE */
 .squaredThree {
@@ -82,12 +89,6 @@
   filter: alpha(opacity=100);
   opacity: 1;
 } 
-body {
-	background:#e4e4da;
-    font-family: 'Open Sans', sans-serif;
-    background-image:url('http://i1283.photobucket.com/albums/a553/erin_lee1/sep-half_zpsb3f6dde9.png');
-    color: #333333;
-}
 
 h1 {
 	color: #333333;
@@ -405,11 +406,13 @@ h5 {
     background:#4c453d;
     padding-top:25px;
     padding-bottom: 40px;
-	border-top-style: solid;
+		border-top-style: solid;
     border-top-width:8px;
     border-top-color:#312d27;
-    background-image:url('../img/sep-half.png');
-    text-align:center
+    text-align:center;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -142px;
 
 }
 
@@ -1162,4 +1165,3 @@ h5 {
 .fc-header-title h2{font-size:10px; }
 .fc-header-right {display:none}
 }
-
