@@ -26,36 +26,35 @@
 					<% end %> 
 							<li>
 								<!-- if the course is not treehouse or codeschool show checkbox -->
-								<% if c.course.course_provider_id == 0 %>
-								<%# form_tag ("/user_courses/#{c.id}", :method => 'post', :remote => true) %>
-								<% check_value = true if c.progress > 0 %>
-									<%= check_box_tag c.id, 'yes', check_value, :class => 'regular-checkbox' %>
-								<% else %>
-									<!-- do nothing -->
-								<% end %>
-									<!-- when the checkbox is marked the progress bar goes to 100% -->
-
-								<% if c.course.course_provider_id == 2 %>
-								<%= 'Treehouse || ' %>
-								<% elsif c.course.course_provider_id == 1 %>
-								<%= 'Codeschool || ' %>
-								<% else %>
-								<% end %>
-								<%= link_to c.course.name, c.course.url, {:target=> "_blank"} %>
-								<% if c.progress < 100 %>
-									<div class="progress progress-warning progress-striped active">
+							<div class="row">
+								<div class="span5">
+									<% if c.course.course_provider_id == 0 %>
+										<%# form_tag ("/user_courses/#{c.id}", :method => 'post', :remote => true) %>
+										<% check_value = true if c.progress > 0 %>
+											<%= check_box_tag c.id, 'yes', check_value, :class => 'regular-checkbox' %>
 										<% else %>
-									<div class="progress progress-warning">
+										<!-- do nothing -->
+									<% end %>
+										<!-- when the checkbox is marked the progress bar goes to 100% -->
+
+										<% if c.course.course_provider_id == 2 %>
+											<%= 'Treehouse || ' %>
+										<% elsif c.course.course_provider_id == 1 %>
+											<%= 'Codeschool || ' %>
+										<% else %>
+									<% end %>
+									<%= link_to c.course.name, c.course.url, {:target=> "_blank"} %>
+									</div> 
+									<div class="span3 offset4" id="hours" align="right">
+										<%= c.course.estimated_time %> <a href="#" id="hours" data-toggle="tooltip" data-placement="right" title="" data-original-title="Tooltip on right">Hours</a>
+									</div>
+								</div> <!-- ends first row with checkbox and course name -->
+										<% if c.progress < 100 %>
+											<div class="progress progress-warning progress-striped active">
+										<% else %>
+											<div class="progress progress-warning">
 										<% end %>
 										<div class="bar" id="bar<%= c.id %>" style="width: <%= c.progress %>%" >
-<!--
-
-if the course is not treehouse or codeschool have checkbox
-checkbox marked will make progress bar 100%
-
-
--->
-
 										</div>
 									</div>
 							</li>	

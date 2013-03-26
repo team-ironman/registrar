@@ -20,6 +20,10 @@
 
 
 /**********BASE CONFIGURATIONS**********/  
+#hours {
+	color: gray;
+	font-size: 11px;
+}
 a {
 	color: #ff6e01;
 	text-decoration: none;
