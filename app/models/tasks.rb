@@ -17,8 +17,8 @@ class Tasks
       Course.week_one
 
     #GOAL: RETURN A "COURSE" OBJECT OF WEEK1 INCOMPLETE COURSES
+      
 
-    
 
 
   end
