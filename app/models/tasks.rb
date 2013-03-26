@@ -9,14 +9,16 @@ class Tasks
 
   def show_past_due_courses(user, days_before_class)
 
-    #Get list of courses completed
-      # user_courses.progress < 100
+    #PROVIDES A "USERCOURSE" OBJECT FOR A USER'S INCOMPLETE COURSES
+      u = User.first
+      u.user_courses.incomplete
 
-    #All courses due (test case week 1)
-      # courses.days_due_before_class where > 21
+    #PROVIDES A "COURSE" OBJECT WITH WEEK ONE COURSES
+      Course.week_one
 
+    #GOAL: RETURN A "COURSE" OBJECT OF WEEK1 INCOMPLETE COURSES
 
-
+    
 
 
   end
