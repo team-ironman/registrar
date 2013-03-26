@@ -5,6 +5,7 @@ ActiveAdmin.register Course do
     column :subject
     column :estimated_time
     column :course_provider
+    default_actions
   end
   
 end

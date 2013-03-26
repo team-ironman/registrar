@@ -7,6 +7,7 @@ ActiveAdmin.register User do
     column :phone_number
     column :treehouse_login
     column :codeschool_login
+    default_actions
   end
   
   # show do
