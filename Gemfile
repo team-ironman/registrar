@@ -24,6 +24,8 @@ gem 'jquery-rails'
 
 gem 'nokogiri'
 
+gem 'event-calendar', :require => 'event_calendar'
+
 gem 'pry'
 
 gem 'mechanize'

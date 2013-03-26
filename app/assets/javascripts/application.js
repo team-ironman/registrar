@@ -15,3 +15,5 @@
 //= require twitter/bootstrap
 //= require user_courses
 //= require_tree .
+
+$('a#hours').tooltip(data-animation="true")

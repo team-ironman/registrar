@@ -1,0 +1,18 @@
+<title>Iron Board</title>
+<div class="container">
+  <div class="row">
+    <div class="span8">
+          
+      <div class="well">
+        <p id="notice"><%= notice %></p>
+        <%= @event.name %></br>
+        Location: <%= @event.location %></br>
+        Address: <%= @event.address %></br>
+        Begins: <%= @event.start_at.strftime("%m/%d/%Y at %I:%M%p") %></br>
+        Ends: <%= @event.end_at.strftime("%m/%d/%Y at %I:%M%p") %></br>
+        <%= link_to 'Back to Calendar', calendar_path %>
+          </p>
+      </div> <!-- well -->
+    </div> <!-- span8 -->
+  </div> <!-- row -->
+</div> <!-- container -->

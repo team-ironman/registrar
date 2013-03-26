@@ -1,5 +1,8 @@
 Registrar::Application.routes.draw do
 
+  match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
+
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -11,6 +14,7 @@ Registrar::Application.routes.draw do
   resources :sessions
   resources :users
   resources :courses
+  match ':events/:id' => 'events#show'
 
   match '/prework' => 'prework#index' 
   match 'preworkintro' => 'courses#intro'
