@@ -4,7 +4,8 @@
 		<div class="span8">
 			<br>
 			<h3>Courses</h3>
-			<h2>Great Job, <em><%= @student.first_name.capitalize %> <%= @student.last_name.capitalize %>!!</em></h2>
+			<h2>Awesome job, <em><%= @student.first_name.capitalize %>!!</em></h2>
+			<h4>Keep it up!</h4>
 			
 			<h2>Overall Progress: <span id="text_overallprogress"><%= @average.round(2) %>%</span> </h2>		
 			<div class="progress progress-info progress-striped active">
@@ -28,7 +29,7 @@
 								<% if c.course.course_provider_id == 0 %>
 								<%# form_tag ("/user_courses/#{c.id}", :method => 'post', :remote => true) %>
 								<% check_value = true if c.progress > 0 %>
-									<%= check_box_tag c.id, 'yes', check_value, :class => 'squaredThree' %>
+									<%= check_box_tag c.id, 'yes', check_value, :class => 'regular-checkbox' %>
 								<% else %>
 									<!-- do nothing -->
 								<% end %>
