@@ -1,27 +1,19 @@
 
-<div class="container">
-	<div class="row">
-		<div class="span7">
+<div class="container form-4">
+
 			<h1> Log In to Iron Board</h1> 			
-				<div class="well">
-					<%= image_tag "avi.png", :align => "right", :width => "230px" %>
-					<%= form_tag sessions_path do %>
-						<div class="field">
-							<%= label_tag :email %><br />
-							<%= text_field_tag :email, params[:email] %>
-						</div>
-						<div class="field">
-							<%= label_tag :password %><br />
-							<%= password_field_tag :password %>
-						</div>
-						<div class="actions">
-			    		<%= submit_tag "Log In", :class => 'btn btn-primary btn-large' %>
-			  		</div>
+					<%= form_tag sessions_path, {:class => 'form-4'} do %>
+						<p>
+							<%= text_field_tag :email, params[:email], :placeholder =>'Email' %>
+						</p>
+						<p>
+							<%= password_field_tag :password, :placeholder => 'Password' %>
+						</p>
+						<p>
+			    		<%= submit_tag "Continue" %>
+			  		</p>
 			  	<% end %>
-			  	<div>
+
   					<p>Not a member? <span><%= link_to "Sign-up", new_user_path%></span></p>
-					</div>
-				</div>
-		</div>
-	</div>
+
 </div>

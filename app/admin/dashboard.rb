@@ -14,7 +14,7 @@ ActiveAdmin.register_page "Dashboard" do
     table_for User.all do
       column :first_name
       column :last_name
-      column :overall_progress do |student|
+      column (:overall_progress ) do |student|
         link_to (number_to_percentage student.overall_progress), admin_user_path(student)
       end
     end
