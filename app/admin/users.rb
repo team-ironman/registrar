@@ -38,8 +38,8 @@ ActiveAdmin.register User do
 
   sidebar "Summary", :only => :show do
     attributes_table_for user do
-      row("Total Treehouse") { number_to_percentage user.overall_treehouse_progress }
-      row("Total CodeSchool") { number_to_percentage user.overall_codeschool_progress }
+      row("Total Treehouse") { number_to_percentage user.student_treehouse_progress }
+      row("Total CodeSchool") { number_to_percentage user.student_codeschool_progress }
       end
     end
 
