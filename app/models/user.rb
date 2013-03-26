@@ -14,26 +14,13 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-	def user_courses_hash
-		courses = UserCourse.where(:user_id => 1)
-		user_courses_hash = {}
-		courses.each do |course|
-			user_courses_hash[course.course_id] = course
-		end
-		return user_courses_hash
-	end
-
   def add_course_to_user(course)
-    self.user_courses.build(course_id: course.id, user_id: self.id, progress: 0, treehouse_badges_completed: 0).save
+    self.user_courses.build(:course_id => course.id).save
   end
 
   def create_associations
-    courses = Course.all
-    courses.each do |course|
-      unless self.courses.include?(course)
-        self.add_course_to_user(course)
-      end
-    end
+    courses = Course.all.reject { |course| self.courses.include?(course)}
+    courses.each { |course| add_course_to_user(course) }
   end
 
   def codeschool_progress
@@ -66,8 +53,6 @@ class User < ActiveRecord::Base
     end
     progress = completed_course_list.merge(incomplete_course_progress_list)
   end
-
-
 
 
 # match that to the keys in the progress hash progress[:name]
