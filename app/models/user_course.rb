@@ -31,7 +31,7 @@ class UserCourse < ActiveRecord::Base
   end
 
   def self.all_for_user(user_id)
-    includes(:course => :subject).where(:user_id => user_id)
+    includes(:course => :subject).where(:user_id => user_id).order('subjects.display_order')
   end
 
 end
