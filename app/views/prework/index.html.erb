@@ -1,4 +1,5 @@
-<title>Iron Board</title>
+<title>Iron Board</title><br>
+
 <div class="container">
 	<div class="row">
 		<div class="span8">
@@ -9,11 +10,14 @@
 			
 			<h2>Overall Progress: <span id="text_overallprogress"><%= @average.round(2) %>%</span> </h2>		
 			<div class="progress progress-info progress-striped active">
-						<div class="bar" id="overallprogress" style="width: <%= @average.round(2) %>%" >
-						</div>
-					</div>
+				<div class="bar" id="overallprogress" style="width: <%= @average.round(2) %>%" >
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span8">
 			<div class="well">
-		
 				<!-- subjects is an array of our subjects -->
 				<% last_subject = nil %>
 				<% @user_courses.each do |c| %>
@@ -22,7 +26,8 @@
 						<% if last_subject %>
 							</ul>
 						<% end %>
-						<ul style="list-style: none;"><h2><%= c.course.subject.name %></h2>
+						<ul style="list-style: none;">
+							<h2 id="<%= c.course.subject.name.downcase.gsub(/\s+/, "") %>"><%= c.course.subject.name %></a></h2>
 					<% end %> 
 							<li>
 								<!-- if the course is not treehouse or codeschool show checkbox -->
@@ -59,10 +64,8 @@
 									</div>
 							</li>	
 				<% end %>
-			</div> <!-- well -->
-		</div> <!-- span8 -->
-	</div> <!-- row -->
-
-	<%#= render 'layouts/navigation' %>
-
+											</div> 
+				</div> <!-- well -->
+		<%= render 'layouts/preworknav' %>
+			</div> <!-- row 2 -->
 </div> <!-- container -->
