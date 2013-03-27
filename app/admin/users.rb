@@ -1,4 +1,5 @@
 ActiveAdmin.register User do
+  menu :priority => 2
   index do
     column :id
     column :first_name
@@ -9,22 +10,12 @@ ActiveAdmin.register User do
     column :codeschool_login
     default_actions
   end
+  filter :first_name
+  filter :last_name
   
-  # show do
-  #   user.user_courses.each do |course|
-  #     course.progress
-  #   end
-  # end
+
 
   show :title => :first_name do
-
-
-    # panel "Summary" do
-    #   table_for(user.user_courses) do
-    #     column("Provider")                   {|provider| provider.course.course_provider_id }
-    #     # column("Progress")                   {|course| course.progress }
-    #   end
-    # end
     panel "Student Progress" do
       table_for(user.user_courses) do
         column("Course", :sortable => :name) {|course| (link_to course.course.name, admin_course_path(course)) }

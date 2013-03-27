@@ -1,4 +1,5 @@
 ActiveAdmin.register Event do
+  menu :priority => 5
   index do
     column :name
     column :location

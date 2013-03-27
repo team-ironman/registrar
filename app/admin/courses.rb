@@ -1,11 +1,16 @@
 ActiveAdmin.register Course do
+  menu :priority => 3
+  config.sort_order = "name_asc"
+  config.per_page = 50
   index do
     column :name
+    column :subject, :sortable => "courses.name"
+    column :course_provider, :sortable => "courses.name"
     column :url
-    column :subject
     column :estimated_time
-    column :course_provider
     default_actions
   end
-  
+  filter :name
+  filter :subject
+  filter :course_provider
 end

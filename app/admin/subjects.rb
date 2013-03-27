@@ -1,7 +1,8 @@
 ActiveAdmin.register Subject do
+  menu :priority => 4
   index do
-    column :id
     column :name
     default_actions
-  end  
+  end
+  filter :name  
 end
