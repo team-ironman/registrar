@@ -4,6 +4,12 @@ class UserCourse < ActiveRecord::Base
   belongs_to :user
   belongs_to :course
 
+  scope :incomplete, where('progress < 100')
+
+  def self.incomplete_due(day)
+    includes(:course).where("progress < 100 AND courses.days_due_before_class > ?",day)
+  end
+
   def self.codeschool
     #creates a result set that is all CodeSchool user courses. Using includes will do
     #eager loading, so if the result is used in an iterator it has all the info it needs,
