@@ -28,12 +28,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])
-    @user.save
-    @user.create_associations
-    @user.codeschool_progress
-    @user.all_treehouse_badges
-    @user.treehouse_progress
+    @user = User.create(params[:user])
+
     respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
@@ -47,17 +43,12 @@ class UsersController < ApplicationController
   end
 
   def update_codeschool
-    @user = User.find(params[:id])
-    @user.codeschool_progress
-    # redirect_to (@user, :message => 'updated codeschool')
+    User.find(params[:id]).codeschool_progress
     redirect_to user_prework_path(@user), :alert => "Codeschool progress updated"
   end
 
   def update_treehouse
-    @user = User.find(params[:id])
-    @user.all_treehouse_badges
-    @user.treehouse_progress
-    # redirect_to (@user, :message => 'updated codeschool')
+    User.find(params[:id]).treehouse_progress
     redirect_to user_prework_path(@user), :alert => "Treehouse progress updated"
   end
 
@@ -65,7 +56,6 @@ class UsersController < ApplicationController
     @usercourse = UserCourse.find(params[:id])
     @usercourse.progress = params[:progress]
     @usercourse.save
-
     format.js #{ render json: @user, status: :created, location: @user }    
   end
 

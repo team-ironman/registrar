@@ -2,6 +2,9 @@ Registrar::Application.routes.draw do
 
   match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
 
+  post '/user_courses/update_progress', to: 'user_courses#update_progress', as: 'update_progress'
+
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -14,13 +17,15 @@ Registrar::Application.routes.draw do
   resources :sessions
   resources :users
   resources :courses
-  match ':events/:id' => 'events#show'
 
   match '/prework' => 'prework#index' 
   match 'preworkintro' => 'courses#intro'
   match '/users/:id/update_codeschool' => 'users#update_codeschool'
   match '/users/:id/update_treehouse' => 'users#update_treehouse'
   match '/users/:id/prework' => 'prework#index', as: 'user_prework'
+
+
+  match ':events/:id' => 'events#show'
 
 
   # The priority is based upon order of creation:
