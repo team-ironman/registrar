@@ -10,6 +10,7 @@ Registrar::Application.routes.draw do
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
+  post '/user_courses/update_progress', to: 'user_courses#update_progress', as: 'update_progress'
 
   resources :sessions
   resources :users
@@ -22,7 +23,6 @@ Registrar::Application.routes.draw do
   match '/users/:id/update_treehouse' => 'users#update_treehouse'
   match '/users/:id/prework' => 'prework#index', as: 'user_prework'
 
-  post '/user_courses/update_progress', to: 'user_courses#update_progress', as: 'update_progress'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
