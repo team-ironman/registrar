@@ -13,6 +13,8 @@ class Course < ActiveRecord::Base
   scope :week_three, where('days_due_before_class >= 8 AND days_due_before_class <= 14')
   scope :week_four, where('days_due_before_class >= 1 AND days_due_before_class <= 7')
 
+
+
   def self.all_treehouse
     provider = CourseProvider.where(:name => 'treehouse').limit(1)
     where(:course_provider_id => provider.first.id)
@@ -25,6 +27,10 @@ class Course < ActiveRecord::Base
 
   def self.update_treehouse_badges
     all_treehouse_badges
+  end
+
+  def self.courses_for_user(user_id)
+    includes(:user_courses, :subject).where("user_courses.user_id = #{user_id}").group_by { |c| c.subject.name }
   end
 
   private

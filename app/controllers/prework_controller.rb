@@ -7,7 +7,7 @@ class PreworkController < ApplicationController
       user_id = params[:id]
     end
 
-    @user_courses = UserCourse.all_for_user(user_id)
+    @user_courses = Course.courses_for_user(user_id)
 
 
     @student = User.find(user_id)
@@ -15,7 +15,7 @@ class PreworkController < ApplicationController
     # all_progress = @student.user_courses.select(:progress)
     # progress_array = all_progress.map {|a| a.progress}
     # @average = progress_array.inject{ |sum, el| sum + el }.to_f / progress_array.size
-    @average = @student.overall_progress
+    @average = @student.overall_progress.round(0)
     end
 
 end
