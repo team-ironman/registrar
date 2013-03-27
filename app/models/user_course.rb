@@ -6,7 +6,7 @@ class UserCourse < ActiveRecord::Base
 
   scope :incomplete, where('progress < 100')
 
-  def self.incomplete_due(day)
+  def self.past_due_courses(day)
     includes(:course).where("progress < 100 AND courses.days_due_before_class > ?",day)
   end
 

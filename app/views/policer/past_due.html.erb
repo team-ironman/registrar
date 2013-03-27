@@ -13,7 +13,7 @@
      
       <tr>
         <td colspan="3">
-          <p>Hi, Daniel</p>
+          <p>Hi, <%= @user.first_name.capitalize %></p>
         </td>
       </tr>
      
@@ -24,9 +24,18 @@
       </tr>
 
       <tr>
-        <td>@user_course</td>
-        <td>ESTIMATED TIME</td>   
+        <td><p><strong>COURSE</strong></p></td>
+        <td><p><strong>EST. TIME</strong></p></td>
+        <td><p><strong>PROGRESS %</strong></p></td>
       </tr>
+
+      <% @past_due_user_courses.each do |user_course|%>
+      <tr>
+        <td><%= link_to user_course.course.name, user_course.course.url%></td>
+        <td><%= user_course.course.estimated_time%></td>
+        <td><%= user_course.progress %></td>
+      </tr>
+      <% end %>
 
       <tr>
         <td colspan="3"><p>Thanks,<br> Avi</p></td>
