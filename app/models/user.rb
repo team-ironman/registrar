@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 
   def overall_progress
     courses = self.user_courses
-    average(progress_array(courses)).round(2)
+    average(progress_array(courses)).round(0)
   end
 
   def student_treehouse_progress
