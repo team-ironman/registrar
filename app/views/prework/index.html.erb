@@ -2,18 +2,33 @@
 
 <div class="container">
 	<div class="row">
-		<div class="span8">
+		<div class="span8" align="center">
 			<br>
-			<h3>Courses</h3>
+			<h3>Prework</h3>
 			<h2>Awesome job, <em><%= @student.first_name.capitalize %>!!</em></h2>
-			<h4>Keep it up!</h4>
-			
-			<h2>Overall Progress: <span id="text_overallprogress"><%= @average.round(2) %>%</span> </h2>		
-			<div class="progress progress-info progress-striped active">
-				<div class="bar" id="overallprogress" style="width: <%= @average.round(2) %>%" >
-				</div>
+			<h4>Keep it up!</h4>			
+		</div>
+		
+		<div class="span4">
+			<div class="well affix" data-offset-bottom="200">
+				<ul class="nav nav-list">
+					<h4>Overall Progress: <span id="text_overallprogress"><%= @average.round(2) %>%</span> </h4>		
+					<div class="progress progress-info progress-striped active">
+						<div class="bar" id="overallprogress" style="width: <%= @average.round(2) %>%" ></div></div>
+				<% last_subject = nil %>
+				<% @user_courses.each do |c| %>
+					<% if c.course.subject != last_subject %>
+					<% last_subject = c.course.subject %>
+					<% if last_subject %>
+					<li class="nav-header"><strong><%= link_to c.course.subject.name, '#' + c.course.subject.name.downcase.gsub(/\s+/, '') %></strong></li>
+					<% end %>
+					<% end %>
+				<% end %>
+				</ul>
 			</div>
 		</div>
+
+
 	</div>
 	<div class="row">
 		<div class="span8">
@@ -66,6 +81,6 @@
 				<% end %>
 											</div> 
 				</div> <!-- well -->
-		<%= render 'layouts/preworknav' %>
+		
 			</div> <!-- row 2 -->
 </div> <!-- container -->

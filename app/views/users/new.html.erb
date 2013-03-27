@@ -1,54 +1,18 @@
 <br>
 <div class="container">
+	<div class="row">
+		<div class="span5 offset4">
+		  <h1>New User Sign-Up:</h1>
+		</div>
+	</div>
   <div class="row">
-    <div class="span12">
+  	<div class="span7">
+  		<br><br>
+  		<%= image_tag "http://i1283.photobucket.com/albums/a553/erin_lee1/ironboard-hello_zps90f379ba.jpg" %>
+  	</div>
+    <div class="span5">
       <div class="form-5" id="signupForm" style="height:700px">
-
-      <%= form_for(@user) do |f| %>
-        <% if @user.errors.any? %>
-          
-            <a class="close" data-dismiss="alert">&#215;</a>
-            <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-            
-            <% @user.errors.full_messages.each do |msg| %>
-              <%= content_tag :div, msg %>
-            <% end %>
-            </ul>
-
-        <% end %>
-
-      <h1>New User Sign-Up</h1>
-
-        <%= f.label :first_name %>
-        <%= f.text_field :first_name, :placeholder => 'Avi' %>
-
-          <%= f.label :last_name %>
-        <%= f.text_field :last_name, :placeholder => 'Flombaum' %>
-
-        <%= f.label :phone_number %>
-        <%= f.text_field :phone_number, :placeholder => '555-123-1234' %>
-
-        <%= f.label :email %>
-        <%= f.text_field :email, :placeholder => 'something@flatironschool.com'  %>
-
-        <%= f.label :treehouse_login %>
-        <%= f.text_field :treehouse_login, :placeholder => 'treehouse login'  %>
-
-        <%= f.label :codeschool_login %>
-        <%= f.text_field :codeschool_login, :placeholder => 'codeschool login'  %>
-
-        <%= f.label :password %>
-        <%= f.password_field :password %>        
-
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation %>
-
-
-<br><br>
-        <%= f.submit 'SUBMIT', :class => 'btn btn-warning btn-large' %>
-
-      <% end %>
+        <%= render 'form' %>
       </div>
     </div> <!-- span8 -->
   </div> <!-- row -->
