@@ -1,0 +1,20 @@
+
+<div class="span4">
+	<div class="well affix" data-offset-bottom="200">
+		<ul class="nav nav-list">
+			<h4>Overall Progress: <span id="text_overallprogress"><%= @average.round(2) %>%</span> </h4>		
+			<div class="progress progress-info progress-striped active">
+				<div class="bar" id="overallprogress" style="width: <%= @average.round(2) %>%" ></div></div>
+		<% last_subject = nil %>
+		<% @user_courses.each do |c| %>
+			<% if c.course.subject != last_subject %>
+			<% last_subject = c.course.subject %>
+			<% if last_subject %>
+			<li class="nav-header"><strong><%= link_to c.course.subject.name, '#' + c.course.subject.name.downcase.gsub(/\s+/, '') %></strong></li>
+			<% end %>
+			<% end %>
+		<% end %>
+		</ul>
+	</div>
+</div>
+
