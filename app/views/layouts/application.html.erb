@@ -9,16 +9,19 @@
 <body>
 	<div class="lion navbar navbar-inverse">
 		<div class="navbar-inner">
-			<a class="brand" href="#">Iron Board</a><ul class="nav">
-			<% if current_user %>
-				Logged in as <%= current_user.email %>.
-        <%= link_to "Pre-Work", prework_path %>
-        <%= link_to "Calendar", calendar_path %>
-				<%= link_to "Log Out", logout_path %>
-			<% else %>
-				<li><%= link_to "Sign Up", signup_path %></li>
-				<li><%= link_to "Log in", login_path %></li>
-			<% end %></ul>
+			<a class="brand" href="#">Iron Board</a><ul class="nav-erin">
+
+				<% if current_user %>
+			
+					<li><i class="icon-user icon-white"></i>Logged in as <strong><%= current_user.first_name %></strong>.</li> 
+	        <li><i class="icon-check icon-white"></i> <%= link_to "Pre-Work", prework_path %></li>
+	        <li><i class="icon-calendar icon-white"></i> <%= link_to "Calendar", calendar_path %></li>
+					<li><i class="icon-remove-sign icon-white"></i><%= link_to "Log Out", logout_path %></li>
+				<% else %>
+					<li><%= link_to "Sign Up", signup_path %></li> 
+					<li><%= link_to "Log in", login_path %></li>
+				<% end %></ul>
+			
 		</div>
 	</div>
 <%= yield %>
