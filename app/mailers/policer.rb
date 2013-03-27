@@ -6,9 +6,10 @@ class Policer < ActionMailer::Base
   #
   #   en.policer.past_due.subject
   #
-  def past_due(user)
+  def past_due(user, past_due_user_courses)
     @user = user
-
+    @past_due_user_courses = past_due_user_courses
+    
     mail to: @user.email, subject: "You have past due assignments"
   end
 
