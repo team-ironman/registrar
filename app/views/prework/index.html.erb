@@ -46,7 +46,7 @@
 									<%= link_to c.course.name, c.course.url, {:target=> "_blank"} %>
 									</div> 
 									<div class="span3 offset4" id="hours" align="right">
-										<%= c.course.estimated_time %> <a href="#" id="hours" data-toggle="tooltip" data-placement="right" title="" data-original-title="Tooltip on right">Hours</a>
+										<%= c.course.estimated_time %> <a id="tooltip" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Hours</a>
 									</div>
 								</div> <!-- ends first row with checkbox and course name -->
 										<% if c.progress < 100 %>
