@@ -2,8 +2,21 @@ class UsersController < ApplicationController
 
   layout 'credentials', :only => :new
 
-	def index
-		@users = User.all
+  def index
+    @users = User.all
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+	def update
+		@user = User.find(params[:id])
+    @user.update_attributes(params[:user])
+    @user.save
+    flash.notice = "Updated!"
+
+    redirect_to user_prework_path(@user)
 	end
 
 	def show
