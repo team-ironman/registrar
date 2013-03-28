@@ -31,7 +31,7 @@
           <% else %>
           <% end %><%= link_to course.name, course.url, {:target=> "_blank"} %>:  
           <div style="float: right;">
-          <a class="accordion-toggle" style="display: inline; text-decoration: none; color: #0099cc;" data-toggle="collapse" data-parent="#accordion2" href="#collapse<%= course.name.downcase.gsub(/\s+/, "").gsub('&', "").gsub(/'/, "") %>"><i class="icon-chevron-right"></i></a></div>
+          <a class="accordion-toggle" style="display: inline; text-decoration: none; color: #0099cc;" data-toggle="collapse" data-parent="#accordion2" href="#collapse<%= course.name.downcase.gsub(/\s+/, "").gsub('&', "").gsub(/'/, "").gsub(/:/, "") %>"><i class="icon-chevron-right"></i></a></div>
 
 
     </div>

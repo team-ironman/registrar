@@ -17,3 +17,4 @@
 /config/database.yml
 app/views/.DS_Store
 app/views/layouts/.DS_Store
+.DS_Store
