@@ -1,5 +1,6 @@
 class Scrape
   require "open-uri"
+  include HTTParty
 
   def codeschool_progress(user)
     login = user.codeschool_login
@@ -74,8 +75,22 @@ class Scrape
     form.submit
   end
 
+  # def scrape_treehouse(login)
+  #   login_to_treehouse
+  #   url = "http://www.teamtreehouse.com/#{login}"
+  #   doc = Nokogiri::HTML(open(url))
+  #   all_courses = doc.css("p.light a:first").map {|course| course.text}
+  #   #data is an array of course names
+  #   unique_courses = all_courses.uniq
+  #   #count each type of course name and save it to the completed badges in the user_course table
+  #   progress = {}
+  #   unique_courses.each do |course|
+  #     progress[course.to_sym] = all_courses.count(course)
+  #   end
+  #   progress
+  # end
+
   def scrape_treehouse(login)
-    login_to_treehouse
     url = "http://www.teamtreehouse.com/#{login}"
     doc = Nokogiri::HTML(open(url))
     all_courses = doc.css("p.light a:first").map {|course| course.text}
@@ -88,6 +103,7 @@ class Scrape
     end
     progress
   end
+
 
 
 end 
