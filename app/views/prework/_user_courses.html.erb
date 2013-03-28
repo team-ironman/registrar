@@ -1,49 +1,77 @@
-        <% @user_courses.each do |subject, courses| %>
-          
-          <ul style="list-style: none;">  
-            <h2 id="<%= subject.downcase.gsub(/\s+/, "") %>"><%= subject %></h2>
-          <% courses.each do |course| %>  
-            <li>
-
-              <div class="row">
-                <div class="span5">
-                  <!-- if the course is not treehouse or codeschool show checkbox -->
-                  <% if course.course_provider_id == 0 %>
-                    <% check_value = true if course.user_courses.first.progress > 0 %>
-                      <%= check_box_tag course.user_courses.first.id, 'yes', check_value, :class => 'regular-checkbox' %>
-                  <% else %>
-                    <!-- do nothing -->
-                  <% end %>
-
-                  <!-- when the checkbox is marked the progress bar goes to 100% -->
-                  <% if course.course_provider_id == 2 %>
-                    <%= 'Treehouse || ' %>
-                  <% elsif course.course_provider_id == 1 %>
-                    <%= 'Codeschool || ' %>
-                  <% else %>
-                  <% end %>
-
-                  <%= link_to course.name, course.url, {:target=> "_blank"} %>
-                </div> 
-
-                <div class="span3 offset4" id="hours" align="right">
-                  <%= course.estimated_time %> <a id="tooltip" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Hours</a>
-                </div>
-
-              </div> <!-- ends first row with checkbox and course name -->
-              <% if course.user_courses.first.progress < 100 %>
-                <div class="progress progress-warning progress-striped active">
-              <% else %>
-                <div class="progress progress-warning">
-              <% end %>
-                    <div class="bar" id="bar<%= course.user_courses.first.id %>" style="width: <%= course.user_courses.first.progress %>%" >
-                    </div>
-
-                </div>
+<div class="accordion" id="accordion2">
+  <% @user_courses.each do |subject, courses| %>
+  
+  <ul style="list-style: none;">  
+    <h2 id="<%= subject.downcase.gsub(/\s+/, "") %>"><%= subject %></h2>
+    <div class="subjectdescription">
+      <%= courses.first.subject.description %>
+    </div>
+  <% courses.each do |course| %>  
+    <li>
+      <div class="row">
+        <div class="span7">
 
 
-            </li>     
-
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      
+          <!-- if the course is not treehouse or codeschool show checkbox -->
+          <% if course.course_provider_id == 0 %>
+            <% check_value = true if course.user_courses.first.progress > 0 %>
+              <%= check_box_tag course.user_courses.first.id, 'yes', check_value, :class => 'regular-checkbox' %>
+          <% else %>
+            <!-- do nothing -->
           <% end %>
-            </ul>         
-        <% end %>              
+
+          <!-- when the checkbox is marked the progress bar goes to 100% -->
+          <% if course.course_provider_id == 2 %>
+            <%= 'Treehouse || ' %>
+          <% elsif course.course_provider_id == 1 %>
+            <%= 'Codeschool || ' %>
+          <% else %>
+          <% end %><%= link_to course.name, course.url, {:target=> "_blank"} %>:  
+          <div style="float: right;">
+          <a class="accordion-toggle" style="display: inline; text-decoration: none; color: #0099cc;" data-toggle="collapse" data-parent="#accordion2" href="#collapse<%= course.name.downcase.gsub(/\s+/, "").gsub('&', "").gsub(/'/, "") %>"><i class="icon-chevron-right"></i></a></div>
+
+
+    </div>
+  </div>
+
+    <div id="collapse<%= course.name.downcase.gsub(/\s+/, "").gsub('&', "").gsub(/'/, "") %>" class="accordion-body collapse out">
+      <div class="accordion-inner">
+          <span class="descriptionurl">
+            <%= course.url %>
+          </span>
+          <div class="description">
+            <%= course.description %>
+          </div>
+
+      </div>
+    </div>
+
+
+        </div> 
+      </div> <!-- ends first row with checkbox and course name, description -->
+      <div class="row">
+        <div class="span3 offset4" id="hours" align="right">
+          <%= course.estimated_time %> <a id="tooltip" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Hours</a>
+        </div>
+      </div><!-- ends second row with estimated hours -->
+
+      <% if course.user_courses.first.progress < 100 %>
+        <div class="progress progress-warning progress-striped active">
+      <% else %>
+        <div class="progress progress-warning">
+      <% end %>
+            <div class="bar" id="bar<%= course.user_courses.first.id %>" style="width: <%= course.user_courses.first.progress %>%" >
+            </div>
+
+        </div>
+
+
+    </li>     
+
+  <% end %>
+    </ul>         
+<% end %> 
+</div>             

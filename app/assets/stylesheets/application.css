@@ -38,6 +38,21 @@ body {
 
 
 a {
-	color: #ff6e01;
-	text-decoration: underline;
+	text-decoration: none;
+}
+.description {
+  color: #575656;
+  font-size: 13px;
+  word-spacing: 5px;
+}
+.descriptionurl {
+  font-size: 10px;
+}
+.accordion-group {
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
 }
