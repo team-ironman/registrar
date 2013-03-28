@@ -5,8 +5,6 @@ ActiveAdmin.register_page "Dashboard" do
   content do
   
     panel "Student Progress" do
-      # default_scope includes(:user).order("user.overall_progress")
-      # default_scope :order => 'overall_progress DESC'
       table_for User.all.sort_by {|u| u.overall_progress} do
         column :first_name, :sortable => "first_name"
         column :last_name
