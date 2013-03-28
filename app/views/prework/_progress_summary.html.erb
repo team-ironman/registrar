@@ -1,9 +1,11 @@
-        <ul class="nav nav-list">
-          <h4>Overall Progress: <span id="text_overallprogress"><%= @average %>%</span> </h4>    
-          <div class="progress progress-info progress-striped active">
-            <div class="bar" id="overallprogress" style="width: <%= @average %>%" ></div></div>
-        <% last_subject = nil %>
-        <% @user_courses.each do |subject, courses| %>
-          <li class="nav-header"><strong><%= link_to subject, '#' + subject.downcase.gsub(/\s+/, '') %></strong></li>
-        <% end %>
-        </ul>
+<nav id="highlight-sidebar">
+  <ul class="nav nav-list">
+    <h4>Overall Progress: <span id="text_overallprogress"><%= @average %>%</span> </h4>    
+    <div class="progress progress-info progress-striped active">
+      <div class="bar" id="overallprogress" style="width: <%= @average %>%" ></div></div>
+  <% last_subject = nil %>
+  <% @user_courses.each do |subject, courses| %>
+    <li class="nav-header"><strong><%= link_to subject, '#' + subject.downcase.gsub(/\s+/, '') %></strong></li>
+  <% end %>
+  </ul>
+</nav>
