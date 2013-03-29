@@ -37,7 +37,7 @@ select, textarea, input[type=text], input[type=password], input[type=datetime], 
 }
 
 /*FORM ERROR MESSAGE*/
-.error{ color:#ff6e01;}
+.error{ color:#ff6e01;
 }
 #login-page {
     margin: 35px;
