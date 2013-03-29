@@ -3,9 +3,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <style type="text/css">
-      table, th, td {
-        border: 1px solid black;
-      }
     </style>
   </head>
   <body>
@@ -24,12 +21,18 @@
      
       <tr>
         <td>
-          <p>Welcome to Flatiron. Please use this link to sign up</p>
+          <p>Welcome to Flatiron! Please use the below link to sign up:</p>
         </td>
       </tr>
 
       <tr>
-        <td><p>Thanks,<br> Avi</p></td>
+        <td>
+          <p><%= link_to "Sign up to Iron Board", (url_for(:controller => 'users', :action => 'new', :host => 'localhost:3000')) %></p>
+        </td>
+      </tr>
+
+      <tr>
+        <td><p>Thanks,<br> BOB</p></td>
       </tr>
 
     </table>
