@@ -1,5 +1,5 @@
 require "bundler/capistrano"
-
+  
 set :application, "registrar"
 set :repository,  "git@github.com:flatiron-school/registrar.git"
 
@@ -9,6 +9,7 @@ set :repository,  "git@github.com:flatiron-school/registrar.git"
 set :user, 'deploy'
 set :deploy_to, "/home/#{user}/#{application}"
 set :use_sudo, false
+set :rails_env, "production"
 
 set :scm, :git
 
