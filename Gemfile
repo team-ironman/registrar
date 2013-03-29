@@ -47,6 +47,9 @@ gem 'roadie'
 # http://rubydoc.info/gems/seed_dump/0.4.2/frames
 gem "seed_dump", "~> 0.4.2"
 
+#postgres
+gem "pg"
+
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
