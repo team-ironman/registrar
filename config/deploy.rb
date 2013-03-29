@@ -1,5 +1,5 @@
 require "bundler/capistrano"
-  
+
 set :application, "registrar"
 set :repository,  "git@github.com:flatiron-school/registrar.git"
 
