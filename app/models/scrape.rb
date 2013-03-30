@@ -1,6 +1,6 @@
 class Scrape
   require "open-uri"
-  include HTTParty
+  # include HTTParty
 
   def codeschool_progress(user)
     login = user.codeschool_login
