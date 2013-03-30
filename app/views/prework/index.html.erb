@@ -4,9 +4,9 @@
 	<div class="row">
 		<div class="span8" align="center">
 			<br>
-			<h3>Prework</h3>
-			<h2>Awesome job, <em><%= @student.first_name.capitalize %>!!</em></h2>
-			<h4>Keep it up!</h4>			
+			<%= image_tag "http://i1283.photobucket.com/albums/a553/erin_lee1/ironboard-logo_zps029be7ed.png", :width => "250", :align => "right", :style =>"margin-bottom: 10px" %> 
+			<h2 style="margin-top: 45px;">Awesome job, <em><%= @student.first_name.capitalize %>!!</em></h2>
+			<h4>Keep it up!</h4>	
 		</div>
 		
 		<div class="span4">
@@ -14,8 +14,6 @@
 				<%= render 'progress_summary' %>
 			</div>
 		</div>
-
-
 	</div>
 	<div class="row">
 		<div class="span8">
@@ -25,6 +23,6 @@
 				<%= render 'user_courses' %>
 
 			</div> <!-- well -->
-		
-		</div> <!-- row 2 -->
+		</div> <!-- span8 -->
+	</div> <!-- row -->
 </div> <!-- container -->

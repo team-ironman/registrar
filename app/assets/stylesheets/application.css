@@ -8,7 +8,6 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
  *= require twitter-bootstrap-static/bootstrap
  *= require table.css
  *= require prettyPhoto.css
@@ -30,12 +29,26 @@ html, body {
   -o-background-size: cover;
   background-size:cover;
 }
-body {
-		background-color:#edbb23;
-    background-image:url('http://i1283.photobucket.com/albums/a553/erin_lee1/sep-half_zpsb3f6dde9.png');
-    color: #edbb23;
+div.background {
+  background-image: url('http://i1283.photobucket.com/albums/a553/erin_lee1/4_zpsca0781a8.jpg');
+  background-repeat: no-repeat;
+  -webkit-background-size:cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size:cover;
+  position: fixed;
+  z-index: -6666;
+  width: 100%;
+  height: 100%;
 }
 
+div.body {
+  width: 100%;
+  height: 100%;
+  background-image:url('http://i1283.photobucket.com/albums/a553/erin_lee1/sep-half_zpsb3f6dde9.png');
+  z-index: -555;
+  position: fixed;
+}
 
 a {
 	text-decoration: none;

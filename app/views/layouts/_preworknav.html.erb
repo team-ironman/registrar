@@ -1,10 +1,10 @@
 
 <div class="span4">
 	<div class="well affix" data-offset-bottom="200">
-		<ul class="nav nav-list">
-			<h4>Overall Progress: <span id="text_overallprogress"><%= @average %>%</span> </h4>		
+		<ul class="nav nav-list preworkbar">
+			<li><h4>Overall Progress: <span id="text_overallprogress"><%= @average %>%</span> </h4>		
 			<div class="progress progress-info progress-striped active">
-				<div class="bar" id="overallprogress" style="width: <%= @average %>%" ></div></div>
+				<div class="bar" id="overallprogress" style="width: <%= @average %>%" ></div></div></li>
 		<% last_subject = nil %>
 		<% @user_courses.each do |c| %>
 			<% if c.course.subject != last_subject %>

@@ -2,10 +2,11 @@
   <% @user_courses.each do |subject, courses| %>
   
   <ul style="list-style: none;">  
-    <h2 id="<%= subject.downcase.gsub(/\s+/, "") %>"><%= subject %></h2>
+    <li><h2 id="<%= subject.downcase.gsub(/\s+/, "") %>"><%= subject %></h2>
     <div class="subjectdescription">
       <%= courses.first.subject.description %>
     </div>
+  </li>
   <% courses.each do |course| %>  
     <li>
       <div class="row">
