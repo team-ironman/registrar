@@ -4,8 +4,8 @@ ActiveAdmin.register Course do
   config.per_page = 50
   index do
     column :name
-    column :subject, :sortable => "courses.name"
-    column :course_provider, :sortable => "courses.name"
+    column :subject
+    column :course_provider
     column :url
     column :estimated_time
     default_actions

@@ -15,24 +15,26 @@
 
 /* Outer most container */
 .ec-calendar {
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 11px;
   line-height: 14px;
-  margin: 0;
+  margin: 30px 100px 30px 100px;
   padding: 0;
-  border-bottom: 1px solid #d5d5d5;
+  border-bottom: 1px solid #3A362E;
 }
 
 /* Month name header & links */
 .ec-calendar-header {
-  padding: 5px 0;
+  padding: 10px 0;
   width: 100%;
   table-layout: fixed;
+  margin-bottom: 10px;
 }
 
 .ec-month-name {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
+  color: #4C453D;
 }
 
 .ec-month-nav {
@@ -42,8 +44,9 @@
 /* Containers */
 .ec-body {
   position: relative;
-  border-right: 1px solid #303030;
+  border: 1px solid #3A362E;
   white-space: nowrap;
+  margin-bottom: 0.5px;
 }
 
 /* Day names */
@@ -53,8 +56,7 @@
   left: 0;
   width: 100%;
   table-layout: fixed;
-  padding: 2px 0;
-  background: #303030;
+  background: #4C453D;
   color: white;
 }
 
@@ -68,7 +70,7 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  background: white;
+  background: #e4e4da;
   overflow: hidden;
   border-right: 1px solid #d5d5d5;
 }
@@ -125,17 +127,10 @@ a.ec-day-link {
   background-color: #d7d7ba;
 }
 
-.ec-weekend-day-header {
-  
-}
 
 .ec-other-month-header {
   background-color: #efefef;
   color: #777;
-}
-
-.ec-other-month-bg {
-  
 }
 
 
@@ -161,7 +156,7 @@ a.ec-day-link {
 .ec-event {
   color: white;
   padding-right: 1px;
-  padding-left: 11px;
+  padding-left: 1px;
   -webkit-border-radius: 3px;
   -khtml-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -169,10 +164,6 @@ a.ec-day-link {
   white-space: nowrap;
 }
 
-.ec-event :hover {
-  /* doesn't look as good as js highlighting */
-  /* background-color: #2eac6a; */
-}
 
 .ec-event-bg a {
   color: white;
@@ -234,4 +225,44 @@ a.ec-day-link {
   -webkit-border-radius: 2px;
   -khtml-border-radius: 2px;
   -moz-border-radius: 2px;
+}
+
+/*added by masha*/
+.ec-previous-month {
+  font-size: 13px;
+}
+
+.ec-next-month {
+  font-size: 13px;
+}
+
+.ec-event-time {
+  text-align: right;
+  float: right;
+  padding-right: 10px;
+}
+
+.ec-event a {
+  padding-left: 10px;
+  border-radius: 3px;
+}
+
+.type1 {
+  background-color: #EDBB23;
+}
+
+.type2 {
+  background-color: #A6A67B;
+}
+
+.type3 {
+  background-color: #6F6E73;
+}
+
+.type4 {
+  background-color: #D47F00;
+}
+
+.type5 {
+  background-color: #8C968B;
 }

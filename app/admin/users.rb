@@ -2,7 +2,7 @@ ActiveAdmin.register User do
   menu :priority => 2
   index do
     column :id
-    column :first_name
+    column (:first_name) {|student| (link_to student.first_name, admin_user_path(student)) }
     column :last_name 
     column :email
     column :phone_number
