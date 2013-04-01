@@ -1,3 +1,43 @@
 // Place all the styles related to the user_courses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+        input[type='text']
+        {
+            padding: 5px;
+        }
+        
+        button
+        {
+            width: 30%;
+            height: 30px;
+            font-weight: bold;
+            color: #f00;
+            cursor: pointer;
+        }
+        
+        p, ul
+        {
+            text-align: left;
+        }
+        
+        li { padding: 5px; }
+        
+        #wrapper
+        {
+            margin: 10px auto;
+            width: 300px;
+        }
+        
+        #trial
+        {
+            font-size: 12px;
+            color: #333;
+            text-shadow: 1px 1px 1px #fff;
+            text-align: center;
+            background-color: #ccc;
+            margin: 5px;
+            box-shadow: 2px 2px 8px #999;
+            padding: 5px;
+            height: 53px;
+        }
