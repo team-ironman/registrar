@@ -13,11 +13,10 @@ class Policer < ActionMailer::Base
     mail to: @user.email, subject: "You have past due assignments"
   end
 
+  def welcome(invite)
+    @invite = invite
 
-  def welcome(user)
-    @user = user
-
-    mail to: @user.email, subject: "Welcome to Flatiron!"
+    mail to: @invite.email, subject: "Welcome to Flatiron!"
   end
 
   def weekly(user)

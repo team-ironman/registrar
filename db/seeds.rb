@@ -3,7 +3,7 @@
 # Do not hesitate to tweak this to your needs
 
 AdminUser.create([
-  { :email => "", :encrypted_password => "", :reset_password_token => nil, :reset_password_sent_at => nil, :remember_created_at => nil, :sign_in_count => 0, :current_sign_in_at => nil, :last_sign_in_at => nil, :current_sign_in_ip => nil, :last_sign_in_ip => nil, :created_at => nil, :updated_at => nil }
+  { :email => "admin@example.com", :encrypted_password => "$2a$10$qBt0xv3omBancGCsOAxTz.6Kj4yMKYUjC2BCDh8DtakreNO/On0pq", :reset_password_token => nil, :reset_password_sent_at => nil, :remember_created_at => nil, :sign_in_count => 0, :current_sign_in_at => nil, :last_sign_in_at => nil, :current_sign_in_ip => nil, :last_sign_in_ip => nil, :created_at => nil, :updated_at => nil }
 ], :without_protection => true )
 
 
@@ -47,20 +47,26 @@ Course.create([
 
 
 CourseProvider.create([
-  { :name => "code school", :created_at => 1, :updated_at => 1 },
-  { :name => "treehouse", :created_at => 1, :updated_at => 1 }
+  { :name => "code school", :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17" },
+  { :name => "treehouse", :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17" }
 ], :without_protection => true )
 
 
 
 Event.create([
   { :name => "NYC on Rails", :start_at => "2013-03-28 19:00:00", :end_at => "2013-03-28 21:00:00", :created_at => "2013-03-26 18:04:56", :updated_at => "2013-03-26 18:04:56", :location => nil, :address => nil, :event_type_id => nil }
-  ], :without_protection => true )
+], :without_protection => true )
 
 
 
 EventType.create([
   { :name => nil, :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17" }
+], :without_protection => true )
+
+
+
+Invite.create([
+  { :first_name => nil, :last_name => nil, :email => nil, :token => nil, :token_used => false, :created_at => nil, :updated_at => nil }
 ], :without_protection => true )
 
 
@@ -72,19 +78,19 @@ Semester.create([
 
 
 Subject.create([
-  { :name => "The Web", :created_at => "2013-03-20 00:29:03", :updated_at => "2013-03-20 00:29:03", :display_order => 0, :description => nil },
+  { :name => "The Web", :created_at => "2013-03-20 00:29:03", :updated_at => "2013-03-20 00:29:03", :display_order => 0, :description => "The goal of this section is for you to understand the basics of the web. What web servers are, how code is interpreted, basic things like that." },
   { :name => "Term Definitions", :created_at => "2013-03-20 00:29:03", :updated_at => "2013-03-20 00:29:03", :display_order => 0, :description => nil },
-  { :name => "The Command Line", :created_at => "2013-03-20 00:29:03", :updated_at => "2013-03-20 00:29:03", :display_order => 0, :description => nil },
-  { :name => "SQL & Databases", :created_at => "2013-03-20 00:29:03", :updated_at => "2013-03-20 00:29:03", :display_order => 0, :description => nil },
-  { :name => "Hypertext Markup Language", :created_at => "2013-03-20 00:29:03", :updated_at => "2013-03-20 00:29:03", :display_order => 0, :description => nil },
-  { :name => "Cascading Style Sheets", :created_at => "2013-03-20 00:29:03", :updated_at => "2013-03-20 00:29:03", :display_order => 0, :description => nil },
-  { :name => "Git: Version Control", :created_at => "2013-03-20 00:29:03", :updated_at => "2013-03-20 00:29:03", :display_order => 0, :description => nil },
-  { :name => "Basics", :created_at => 1, :updated_at => 1, :display_order => 0, :description => nil },
-  { :name => "Javascript", :created_at => 1, :updated_at => 1, :display_order => 0, :description => nil },
-  { :name => "Ruby", :created_at => 1, :updated_at => 1, :display_order => 0, :description => nil },
-  { :name => "Rails", :created_at => 1, :updated_at => 1, :display_order => 0, :description => nil },
-  { :name => "Testing", :created_at => 1, :updated_at => 1, :display_order => 0, :description => nil },
-  { :name => "Best Practices", :created_at => 1, :updated_at => 1, :display_order => 0, :description => nil }
+  { :name => "The Command Line", :created_at => "2013-03-20 00:29:03", :updated_at => "2013-03-20 00:29:03", :display_order => 0, :description => "Familiarity with a shell environment is crucial to being a functional developer. There are no good interactive tutorials for command lines, so complete the following reading." },
+  { :name => "SQL & Databases", :created_at => "2013-03-20 00:29:03", :updated_at => "2013-03-20 00:29:03", :display_order => 0, :description => "This section is all about understanding what databases are and how to query them for data." },
+  { :name => "Hypertext Markup Language", :created_at => "2013-03-20 00:29:03", :updated_at => "2013-03-20 00:29:03", :display_order => 0, :description => "The source of all content on the web, HTML is a crucial markup syntax to understand. We will be covering very little HTML through the course and we seriously expect you to know what the basic tags are and when to use them." },
+  { :name => "Cascading Style Sheets", :created_at => "2013-03-20 00:29:03", :updated_at => "2013-03-20 00:29:03", :display_order => 0, :description => "While HTML tells the browser what different parts of the page are, CSS says what those pieces should look like." },
+  { :name => "Git: Version Control", :created_at => "2013-03-20 00:29:03", :updated_at => "2013-03-20 00:29:03", :display_order => 0, :description => "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency." },
+  { :name => "Basics", :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17", :display_order => 0, :description => "Certain aspects of coding are fundamental, learn them through javascript and ruby." },
+  { :name => "Javascript", :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17", :display_order => 0, :description => "" },
+  { :name => "Ruby", :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17", :display_order => 0, :description => "\"My conscience won’t let me call Ruby a computer language. That would imply that the language works primarily on the computer’s terms. That the language is designed to accomodate the computer, first and foremost. That therefore, we, the coders, are foreigners, seeking citizenship in the computer’s locale. It’s the computer’s language and we are translators for the world.\n\nBut what do you call the language when your brain begins to think in that language? When you start to use the language’s own words and colloquialisms to express yourself. Say, the computer can’t do that. How can it be the computer’s language? It is ours, we speak it natively!\n\nWe can no longer truthfully call it a computer language. It is coderspeak. It is the language of our thoughts.\"\n\n_why's poignant guide to ruby" },
+  { :name => "Rails", :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17", :display_order => 0, :description => nil },
+  { :name => "Testing", :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17", :display_order => 0, :description => nil },
+  { :name => "Best Practices", :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17", :display_order => 0, :description => nil }
 ], :without_protection => true )
 
 
@@ -96,7 +102,7 @@ User.create([
   { :email => "daniel.gantz@gmail.com", :codeschool_login => "firstgeneration", :treehouse_login => "firstgeneration", :created_at => "2013-03-27 18:29:15", :updated_at => "2013-03-27 18:29:15", :phone_number => "123-456-7890", :first_name => "Daniel", :last_name => "Gantz", :password_digest => "$2a$10$hh6na1AEYkp/8gm81bcYSOrF6OaE0esGz3cCqb/RyAbTyWQl0wyO6" },
   { :email => "tyebud@gmail.com", :codeschool_login => "tylermdavis", :treehouse_login => "tylerdavis", :created_at => "2013-03-27 18:41:27", :updated_at => "2013-03-27 18:41:27", :phone_number => "8583540054", :first_name => "Tyler", :last_name => "Davis", :password_digest => "$2a$10$SEGrwOq4F3hF0bvngNgJWuXc1JnUpz6oqobPE6giZ0a2MbWsu/N6e" },
   { :email => "victoria.m.friedman@gmail.com", :codeschool_login => "victoriamfriedman", :treehouse_login => "victoriafriedman", :created_at => "2013-03-27 18:43:27", :updated_at => "2013-03-27 18:43:27", :phone_number => "434-466-1525", :first_name => "Victoria", :last_name => "Friedman", :password_digest => "$2a$10$pcXCP.jkHZ7fYQdAepyMDu0MXbZjDSJBsGo5fqGTuFBDP5uL4nRJ2" }
-  ], :without_protection => true )
+], :without_protection => true )
 
 
 
