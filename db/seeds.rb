@@ -47,8 +47,8 @@ Course.create([
 
 
 CourseProvider.create([
-  { :name => "code school", :created_at => 1, :updated_at => 1 },
-  { :name => "treehouse", :created_at => 1, :updated_at => 1 }
+  { :name => "code school", :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17" },
+  { :name => "treehouse", :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17" }
 ], :without_protection => true )
 
 

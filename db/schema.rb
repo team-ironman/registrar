@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(:version => 20130328203431) do
     t.integer  "treehouse_badges"
     t.integer  "course_provider_id"
     t.integer  "days_due_before_class"
-    t.text     "description",           :limit => 65535
+    t.text     "description"#,           :limit => 65535
   end
 
   create_table "event_types", :force => true do |t|
