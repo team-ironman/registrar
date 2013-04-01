@@ -47,8 +47,8 @@ Course.create([
 
 
 CourseProvider.create([
-  { :name => "code school", :created_at => 1, :updated_at => 1 },
-  { :name => "treehouse", :created_at => 1, :updated_at => 1 }
+  { :name => "code school", :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17" },
+  { :name => "treehouse", :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17" }
 ], :without_protection => true )
 
 
@@ -79,12 +79,12 @@ Subject.create([
   { :name => "Hypertext Markup Language", :created_at => "2013-03-20 00:29:03", :updated_at => "2013-03-20 00:29:03", :display_order => 0, :description => nil },
   { :name => "Cascading Style Sheets", :created_at => "2013-03-20 00:29:03", :updated_at => "2013-03-20 00:29:03", :display_order => 0, :description => nil },
   { :name => "Git: Version Control", :created_at => "2013-03-20 00:29:03", :updated_at => "2013-03-20 00:29:03", :display_order => 0, :description => nil },
-  { :name => "Basics", :created_at => 1, :updated_at => 1, :display_order => 0, :description => nil },
-  { :name => "Javascript", :created_at => 1, :updated_at => 1, :display_order => 0, :description => nil },
-  { :name => "Ruby", :created_at => 1, :updated_at => 1, :display_order => 0, :description => nil },
-  { :name => "Rails", :created_at => 1, :updated_at => 1, :display_order => 0, :description => nil },
-  { :name => "Testing", :created_at => 1, :updated_at => 1, :display_order => 0, :description => nil },
-  { :name => "Best Practices", :created_at => 1, :updated_at => 1, :display_order => 0, :description => nil }
+  { :name => "Basics", :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17", :display_order => 0, :description => nil },
+  { :name => "Javascript", :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17", :display_order => 0, :description => nil },
+  { :name => "Ruby", :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17", :display_order => 0, :description => nil },
+  { :name => "Rails", :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17", :display_order => 0, :description => nil },
+  { :name => "Testing", :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17", :display_order => 0, :description => nil },
+  { :name => "Best Practices", :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17", :display_order => 0, :description => nil }
 ], :without_protection => true )
 
 
