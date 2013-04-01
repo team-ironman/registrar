@@ -3,7 +3,7 @@
 # Do not hesitate to tweak this to your needs
 
 AdminUser.create([
-  { :email => "admin@example.com", :encrypted_password => "$2a$10$iOAYY0TZT6j9eX65iENNne2WGDRUy/OzfuZvQ5iGISkkxNz.fBTlu", :reset_password_token => nil, :reset_password_sent_at => nil, :remember_created_at => nil, :sign_in_count => 0, :current_sign_in_at => nil, :last_sign_in_at => nil, :current_sign_in_ip => nil, :last_sign_in_ip => nil, :created_at => nil, :updated_at => nil }
+  { :email => "admin@example.com", :encrypted_password => "$2a$10$qBt0xv3omBancGCsOAxTz.6Kj4yMKYUjC2BCDh8DtakreNO/On0pq", :reset_password_token => nil, :reset_password_sent_at => nil, :remember_created_at => nil, :sign_in_count => 0, :current_sign_in_at => nil, :last_sign_in_at => nil, :current_sign_in_ip => nil, :last_sign_in_ip => nil, :created_at => nil, :updated_at => nil }
 ], :without_protection => true )
 
 
