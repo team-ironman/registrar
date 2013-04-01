@@ -25,6 +25,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    # @token = params[:token]
   end
 
   def create
