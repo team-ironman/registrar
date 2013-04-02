@@ -10,4 +10,6 @@ $(function () {
   	$(this).children().eq(0).toggleClass('icon-chevron-right icon-chevron-down');
   });
 
+  // $('#highlight-sidebar').scrollspy();
+
 });
