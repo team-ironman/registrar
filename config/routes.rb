@@ -20,13 +20,14 @@ Registrar::Application.routes.draw do
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
   post '/user_courses/update_progress', to: 'user_courses#update_progress', as: 'update_progress'
+  get 'prework', to: 'prework#index', as: 'prework'
+  get 'profile', to: 'users#edit', as: 'edit_current_user'
 
   resources :sessions
   resources :users
   resources :courses
 
-  match '/prework' => 'prework#index' 
-  match 'preworkintro' => 'courses#intro'
+ 
   match '/users/:id/update_codeschool' => 'users#update_codeschool'
   match '/users/:id/update_treehouse' => 'users#update_treehouse'
   match '/users/:id/prework' => 'prework#index', as: 'user_prework'
@@ -84,7 +85,8 @@ Registrar::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'sessions#new'
+
+  root :to => 'prework#index'
 
   # See how all your routes lay out with "rake routes"
 
