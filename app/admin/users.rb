@@ -1,14 +1,17 @@
 ActiveAdmin.register User do
   menu :priority => 2
+  config.sort_order = "last_name_asc"
   index do
-    column :id
-    column (:full_name) {|student| (link_to student.full_name, admin_user_path(student)) }
-    column :email
-    column :phone_number
-    column :treehouse_login
-    column :codeschool_login
-    default_actions
-  end
+    # table_for User.all.sort_by {|u| u.full_name} do
+      column :id
+      column :full_name
+      column :email
+      column :phone_number
+      column :treehouse_login
+      column :codeschool_login
+      default_actions
+    end
+  # end
   filter :first_name
   filter :last_name
   
@@ -30,7 +33,7 @@ ActiveAdmin.register User do
     attributes_table_for user do
       row("Total Treehouse") { number_to_percentage user.student_treehouse_progress }
       row("Total CodeSchool") { number_to_percentage user.student_codeschool_progress }
-      end
     end
+  end
 
 end
