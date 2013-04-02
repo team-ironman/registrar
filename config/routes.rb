@@ -1,5 +1,7 @@
 Registrar::Application.routes.draw do
 
+  get "directory/index"
+
   resources :invites
 
 

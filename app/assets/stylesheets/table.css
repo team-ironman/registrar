@@ -1,1 +1,76 @@
-﻿
+﻿/* GENERAL */
+
+table.displaya thead tr {
+  background:#4c453d;
+  height: 30px; 
+}
+table.displaya thead th {
+  border-right: 1px solid #ccc;
+  color: #ff6e01;
+  font-size: 12px; 
+}
+table.displaya thead th:last-of-type { border-right: none; }
+table.displaya tbody {
+  border-top: 1px solid #bbb;
+  border-bottom: 1px solid #bbb;
+}
+table.displaya tr.odd { background-color: #fff; }
+table.displaya tr.even { background-color: #f6f6f6; }
+table.displaya td { padding: 8px 10px; border-right: 1px solid #ccc; }
+table.displaya tbody tr:hover { background-color: #ddd; }
+
+.displaya { width: 100%; }
+
+
+
+/
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * DataTables display
+ */
+table.displaya {
+  margin: 0 auto;
+  clear: both;
+  width: 100%;
+}
+
+table.displaya thead th {
+  padding: 3px 18px 3px 10px;
+  border-bottom: 1px solid black;
+  font-weight: bold;
+  cursor: pointer;
+  * cursor: hand;
+}
+
+table.displaya tfoot th {
+  padding: 3px 18px 3px 10px;
+  border-top: 1px solid black;
+  font-weight: bold;
+}
+
+table.displaya tr.heading2 td {
+  border-bottom: 1px solid #aaa;
+}
+
+table.displaya td {
+  padding: 3px 10px;
+}
+
+table.displaya td.center {
+  text-align: center;
+}
+
+tr.odd {
+  background-color: #E2E4FF;
+}
+
+tr.even {
+  background-color: white;
+}
+
+
+
+
+
+
+
+
