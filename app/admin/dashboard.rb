@@ -6,9 +6,8 @@ ActiveAdmin.register_page "Dashboard" do
 
     panel "Student Progress" do
       table_for User.all.sort_by {|u| u.overall_progress} do
-        column :first_name, :sortable => "first_name"
-        column :last_name
-        column "Overall Progress %", :sortable => ".overall_progress" do |student|
+        column :full_name
+        column "Overall Progress %" do |student|
           link_to (number_to_percentage student.overall_progress), admin_user_path(student)
         end
       end

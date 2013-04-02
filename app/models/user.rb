@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   has_many :user_courses
   has_many :courses, through: :user_courses
 
+  has_many :user_events
+  has_many :events, through: :user_events
+
 	accepts_nested_attributes_for :user_courses
 
   has_secure_password
@@ -59,6 +62,15 @@ class User < ActiveRecord::Base
     self.user_courses.build(:course_id => course.id).save
   end
 
+  def full_name
+    [first_name, last_name].join(' ')
+  end
+
+  # def full_name=(name)
+  #   split = name.split(' ',2)
+  #   self.first_name = split.first
+  #   self.last_name = split.last
+  # end
 
   private 
   

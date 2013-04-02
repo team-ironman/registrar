@@ -15,7 +15,7 @@
      
       <tr>
         <td>
-          <p>Hi, <%= @user.first_name %></p>
+          <p>Hi, <%= @invite.first_name %></p>
         </td>
       </tr>
      
@@ -27,10 +27,8 @@
 
       <tr>
         <td>
-          <p><%= link_to "Sign up to Iron Board", (url_for(:controller => 'users', :action => 'new', :host => 'localhost:3000')) %></p>
+          <p><%= link_to "Sign up to Iron Board", signup_url(@invite.token) %></p>
         </td>
-      </tr>
-
       <tr>
         <td><p>Thanks,<br> BOB</p></td>
       </tr>

@@ -2,8 +2,7 @@ ActiveAdmin.register User do
   menu :priority => 2
   index do
     column :id
-    column (:first_name) {|student| (link_to student.first_name, admin_user_path(student)) }
-    column :last_name 
+    column (:full_name) {|student| (link_to student.full_name, admin_user_path(student)) }
     column :email
     column :phone_number
     column :treehouse_login
@@ -25,7 +24,6 @@ ActiveAdmin.register User do
       end
     end
     active_admin_comments
-
   end
 
   sidebar "Summary", :only => :show do
