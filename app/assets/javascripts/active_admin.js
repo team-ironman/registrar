@@ -24,3 +24,12 @@ $(function(){
   });
 });
       // $('#new_event li:not(#event_event_type_input)')[0].reset();
+
+$(function(){
+    if($('#event_event_type_id').val() === '3') {
+      $('#event_users_input').show();
+    } else {
+      $('#event_users_input').hide();
+    };
+  });
+});

@@ -22,6 +22,12 @@ ActiveAdmin.register Event do
     f.buttons
   end
 
+  show do
+    panel "" do
+      table_for(event.user_events) do
+        column("Assigned to")    {|event| event.user.full_name }
+      end
+    end
+  end
   
-
 end
