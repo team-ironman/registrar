@@ -32,4 +32,3 @@ $(function(){
       $('#event_users_input').hide();
     };
   });
-});
