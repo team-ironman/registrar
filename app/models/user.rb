@@ -54,7 +54,7 @@ class User < ActiveRecord::Base
   end
 
   def create_associations
-    courses = Course.all.reject { |course| self.courses.include?(course)}
+    courses = Course.all.reject { |course| self.courses.include?(course) }
     courses.each { |course| add_course_to_user(course) }
   end
 
