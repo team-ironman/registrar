@@ -26,6 +26,13 @@
 			
 		</div>
 	</div>
+
+<div class="flash">
+	<% if flash[:notice] %>
+		<p id='notice'><%= flash[:notice] %></p>
+	<% end %>
+</div>
+
 <%= yield %>
 <%= render 'layouts/footer' %>
 

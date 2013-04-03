@@ -2,9 +2,6 @@ Registrar::Application.routes.draw do
 
   get "directory/index"
 
-  resources :invites
-
-
   match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
 
   post '/user_courses/update_progress', to: 'user_courses#update_progress', as: 'update_progress'
@@ -20,7 +17,7 @@ Registrar::Application.routes.draw do
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
   post '/user_courses/update_progress', to: 'user_courses#update_progress', as: 'update_progress'
-  get 'prework', to: 'prework#index', as: 'prework'
+  get '/prework', to: 'prework#index', as: 'prework'
   get 'profile', to: 'users#edit', as: 'edit_current_user'
 
   resources :sessions
@@ -86,7 +83,7 @@ Registrar::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
 
-  root :to => 'prework#index'
+  root :to => 'application#index'
 
   # See how all your routes lay out with "rake routes"
 

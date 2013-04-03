@@ -1,14 +1,19 @@
 class ApplicationController < ActionController::Base
+
   protect_from_forgery
 
   def authorize
   	redirect_to login_url, alert: "Not authorized" if current_user.nil?
   end
 
-  # def allowed?
-  #   redirect_to root_path, alert: "Not authorized for this user" if current_user.id!=params[:id].to_i
-  # end
 
+  def index
+    if current_user 
+      redirect_to prework_path, :notice => flash[:notice]
+    else
+      redirect_to new_session_path, :notice => flash[:notice]
+    end
+  end
 
   private
   def current_user
