@@ -15,7 +15,6 @@ class Policer < ActionMailer::Base
 
   def welcome(invite)
     @invite = invite
-
     mail to: @invite.email, subject: "Welcome to Flatiron!"
   end
 

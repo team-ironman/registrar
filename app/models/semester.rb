@@ -1,6 +1,6 @@
 class Semester < ActiveRecord::Base
   attr_accessible :end, :name, :start
 
-  has_many :invites
+  has_many :users
 
 end
