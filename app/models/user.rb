@@ -78,7 +78,7 @@ class User < ActiveRecord::Base
   require 'SecureRandom'
   
   def setup_token
-    if self.new_record?
+    if self.new_record? && self.password_digest != '' 
       token = SecureRandom.hex
       self.password_digest=token
       self.token=token
@@ -90,7 +90,9 @@ class User < ActiveRecord::Base
   end
      
   def send_welcome_email
+    if $GLOBAL_SETTINGS['email_on_create_user'] == true
      Policer.welcome(self).deliver
+    end
   end
 
 end
