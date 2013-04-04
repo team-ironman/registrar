@@ -27,11 +27,11 @@
 		</div>
 	</div>
 
-<div class="alert">
 	<% if flash[:notice] %>
-		<p id='notice'><%= flash[:notice] %></p>
+		<div class="flash_float alert">
+			<p id='notice'><%= flash[:notice] %></p>
+		</div>
 	<% end %>
-</div>
 
 <%= yield %>
 <%= render 'layouts/footer' %>
