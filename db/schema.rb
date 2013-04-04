@@ -57,12 +57,12 @@ ActiveRecord::Schema.define(:version => 20130403153356) do
     t.string   "url"
     t.decimal  "estimated_time"
     t.integer  "subject_id"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.integer  "treehouse_badges"
     t.integer  "course_provider_id"
     t.integer  "days_due_before_class"
-    t.text     "description"
+    t.text     "description",           :limit => 65535
   end
 
   create_table "event_types", :force => true do |t|
@@ -103,10 +103,10 @@ ActiveRecord::Schema.define(:version => 20130403153356) do
 
   create_table "subjects", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
-    t.integer  "display_order", :default => 0
-    t.text     "description"
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
+    t.integer  "display_order",                :default => 0
+    t.text     "description",   :limit => 255
   end
 
   create_table "user_courses", :force => true do |t|
