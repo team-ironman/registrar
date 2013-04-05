@@ -75,7 +75,7 @@ class User < ActiveRecord::Base
   # end
 
   private 
-  require 'SecureRandom'
+  require 'securerandom'
   
   def setup_token
     if self.new_record? && self.password == '' 
