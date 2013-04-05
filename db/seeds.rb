@@ -64,13 +64,6 @@ EventType.create([
 ], :without_protection => true )
 
 
-
-Invite.create([
-  { :first_name => nil, :last_name => nil, :email => nil, :token => nil, :token_used => false, :created_at => nil, :updated_at => nil }
-], :without_protection => true )
-
-
-
 Semester.create([
   { :start => nil, :end => nil, :name => nil, :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17" }
 ], :without_protection => true )

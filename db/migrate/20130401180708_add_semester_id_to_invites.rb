@@ -1,5 +1,8 @@
 class AddSemesterIdToInvites < ActiveRecord::Migration
   def change
-    add_column :invites, :semester_id, :integer
+    # create_table :invites do |t|
+    # end
+
+    # add_column :invites, :semester_id, :integer    
   end
 end

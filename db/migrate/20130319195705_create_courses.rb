@@ -5,7 +5,6 @@ class CreateCourses < ActiveRecord::Migration
       t.string :url
       t.decimal :estimated_time
       t.integer :subject_id
-
       t.timestamps
     end
   end

@@ -82,17 +82,6 @@ ActiveRecord::Schema.define(:version => 20130403153356) do
     t.integer  "event_type_id"
   end
 
-  create_table "invites", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
-    t.integer  "token"
-    t.boolean  "token_used",  :default => false
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
-    t.integer  "semester_id"
-  end
-
   create_table "semesters", :force => true do |t|
     t.date     "start"
     t.date     "end"
