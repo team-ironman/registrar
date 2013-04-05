@@ -78,7 +78,7 @@ class UsersController < ApplicationController
 
   private
     def load_user
-
+      binding.pry
       if params[:token]
         if @user = User.find_by_token(params[:token])
           session[:user_id] = @user.id

@@ -1,3 +1,3 @@
 $GLOBAL_SETTINGS = {
-  email_on_create_user: false,
+  email_on_create_user: true,
 }
