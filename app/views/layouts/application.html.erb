@@ -6,7 +6,7 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body data-spy="scroll" data-target=".preworkbar">
+<body>
 <div class="background"></div><div class="body"></div>
 	<div class="lion navbar navbar-inverse">
 		<div class="navbar-inner">
@@ -14,8 +14,9 @@
 			<a class="brand">Iron Board : <strong><%= current_user.first_name %></strong></a>
 			<ul class="nav-erin">
 	        <li><i class="icon-check icon-white"></i> <%= link_to "Pre-Work", prework_path %></li>
+	        <li><i class="icon-check icon-white"></i> <%= link_to "Class Directory", directory_index_path %></li>
 	        <li><i class="icon-calendar icon-white"></i> <%= link_to "Calendar", calendar_path %></li>
-	        <li><i class="icon-user icon-white"></i> <%= link_to "Edit", edit_user_path(current_user) %></li> 
+	        <li><i class="icon-user icon-white"></i> <%= link_to "Edit", edit_current_user_path %></li> 
 					<li><i class="icon-remove-sign icon-white"></i> <%= link_to "Log Out", logout_path %></li>
 				<% else %>
 					<li><%= link_to "Sign Up", signup_path %></li> 
@@ -25,6 +26,13 @@
 			
 		</div>
 	</div>
+
+	<% if flash[:notice] %>
+		<div class="flash_float alert">
+			<p id='notice'><%= flash[:notice] %></p>
+		</div>
+	<% end %>
+
 <%= yield %>
 <%= render 'layouts/footer' %>
 

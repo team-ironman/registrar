@@ -1,0 +1,32 @@
+
+<div class="container">
+<h1>Class Directory</h1>
+<%= image_tag "http://i1283.photobucket.com/albums/a553/erin_lee1/ironboard-logo_zps029be7ed.png", :width => "300", :align => "right" %>
+  
+  <div class="btn-group semester">
+  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+    <%= "Select Semester" %>
+    <span class="caret"></span>
+  </a>
+  <script>
+    $(function(){
+      $("ul.directory a").click(function(){
+        $.getScript($(this).attr("href"))
+        return false;
+      })
+    })
+  </script>
+  <ul class="dropdown-menu directory">
+    <% Semester.all.each do |semester| %>
+      <li><%= link_to semester.name, directory_path(:semester_id => semester.id) %></li>
+    <% end %>
+  </ul>
+</div>
+<p class="test">TEST</p>
+  <div class="row">
+    <div class="span8 directory" align="center">
+      <%= render 'student_table' %>
+    </div>
+  </div>
+</div>
+</br>

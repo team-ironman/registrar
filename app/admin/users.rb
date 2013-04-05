@@ -4,6 +4,7 @@ ActiveAdmin.register User do
   index do
     # table_for User.all.sort_by {|u| u.full_name} do
       column :id
+      column :semester
       column :full_name
       column :email
       column :phone_number
@@ -15,6 +16,18 @@ ActiveAdmin.register User do
   filter :first_name
   filter :last_name
   
+
+  form do |f|
+    f.inputs do
+      f.input :first_name
+      f.input :last_name
+      f.input :email
+      f.input :semester
+
+    end
+    f.actions
+  end
+
 
 
   show :title => :first_name do

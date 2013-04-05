@@ -1,4 +1,4 @@
-<div class="accordion" id="accordion2">
+<div class="accordion" data-spy="scroll" data-target="#highlight-sidebar" id="accordion2">
   <% @user_courses.each do |subject, courses| %>
   
   <ul style="list-style: none;">  
@@ -19,20 +19,21 @@
           <!-- if the course is not treehouse or codeschool show checkbox -->
           <% if course.course_provider_id == 0 %>
             <% check_value = true if course.user_courses.first.progress > 0 %>
-              <%= check_box_tag course.user_courses.first.id, 'yes', check_value, :class => 'regular-checkbox' %>
+              <%= check_box_tag course.user_courses.first.id, 'yes', check_value, :class => 'regular-checkbox', :style => "margin: 3px;" %>
           <% else %>
             <!-- do nothing -->
           <% end %>
 
           <!-- when the checkbox is marked the progress bar goes to 100% -->
           <% if course.course_provider_id == 2 %>
-            <%= 'Treehouse || ' %>
+            <%= image_tag 'treehouse.png', :width => '25px', :style => "padding: 3px;" %> 
           <% elsif course.course_provider_id == 1 %>
-            <%= 'Codeschool || ' %>
-          <% else %>
-          <% end %><%= link_to course.name, course.url, {:target=> "_blank"} %>:  
+            <%= image_tag 'codeschool.png', :width => '25px', :style => "padding: 3px;" %> 
+          <% else %> 
+          <% end %><%= link_to course.name, course.url, {:target=> "_blank"} %> :  
           <div style="float: right;">
-          <a class="accordion-toggle" style="display: inline; text-decoration: none; color: #0099cc;" data-toggle="collapse" data-parent="#accordion2" href="#collapse<%= course.name.downcase.gsub(/\s+/, "").gsub('&', "").gsub(/'/, "").gsub(/:/, "") %>"><i class="icon-chevron-right"></i></a></div>
+            <a class="accordion-toggle" style="display: inline; text-decoration: none; color: #0099cc;" data-toggle="collapse" data-parent="#accordion2" href="#collapse<%= course.name.downcase.gsub(/\s+/, "").gsub('&', "").gsub(/'/, "").gsub(/:/, "") %>"><i class="icon-chevron-right" style="margin-top: 7px;"></i></a>
+          </div>
 
 
     </div>
@@ -53,7 +54,20 @@
 
         </div> 
       </div> <!-- ends first row with checkbox and course name, description -->
+     
+
       <div class="row">
+        <div class="span3" style="float:left">
+
+
+          <!-- This is where the timer would be. Button is non-functional at the moment -->
+          
+
+          <button id="btn-custom">Start</button>
+          <!-- <a href="./">Reset</a> -->
+        
+        </div>
+
         <div class="span3 offset4" id="hours" align="right">
           <%= course.estimated_time %> <a id="tooltip" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Hours</a>
         </div>

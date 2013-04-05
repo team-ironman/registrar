@@ -1,0 +1,19 @@
+<table class="displaya">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Number</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <% @users.each do |student| %>
+        <tr class="odd">
+          <td><%= student.full_name %></td>
+          <td><%= student.phone_number %></td>
+          <td><%= student.email %></td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>

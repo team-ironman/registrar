@@ -29,6 +29,8 @@
 <%= f.label :password_confirmation %>
 <%= f.password_field :password_confirmation, :placeholder => "password" %>
 
+<%= hidden_field_tag :token, params[:token] %>
+
 <%= f.submit 'SUBMIT', :class => 'btn btn-warning btn-large' %>
 <% end %>
 			  <br>
