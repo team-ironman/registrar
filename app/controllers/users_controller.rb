@@ -78,16 +78,18 @@ class UsersController < ApplicationController
 
   private
     def load_user
-      binding.pry
-      if params[:token]
+      if !params[:token].blank?
         if @user = User.find_by_token(params[:token])
           session[:user_id] = @user.id
         end
       elsif params[:id] && (current_user.id == params[:id].to_i)
+        puts 2
         @user = current_user
       elsif params[:id] && (current_user.id != params[:id].to_i)
+        puts 3
         redirect_to root_url, notice: "Don't try to be someone you're not."        
       elsif !params[:id] && current_user
+        puts 4
         @user = current_user
       else
         redirect_to root_url, notice: "Oops"
