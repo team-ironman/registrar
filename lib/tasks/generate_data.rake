@@ -110,16 +110,20 @@ namespace :default_data  do
     ], :without_protection => true )
   end
 
-
-  task :events => :environment do
-    Event.create([
-      { :name => "NYC on Rails", :start_at => "2013-03-28 19:00:00", :end_at => "2013-03-28 21:00:00", :created_at => "2013-03-26 18:04:56", :updated_at => "2013-03-26 18:04:56", :location => nil, :address => nil, :event_type_id => nil }
+  task :event_types => :environment do
+    EventType.create([
+      { :name => "NYC on Rails", :created_at => "2013-03-27 20:15:01.775631", :updated_at => "2013-03-28 18:21:20.747612" },
+      { :name => "Flatiron Bonding Events", :created_at => "2013-03-27 20:15:01.775631", :updated_at => "2013-03-28 18:21:20.747612" },
+      { :name => "Blog Post", :created_at => "2013-03-27 20:15:01.775631", :updated_at => "2013-03-28 18:21:20.747612" },
+      { :name => "Speaker", :created_at => "2013-03-27 20:15:01.775631", :updated_at => "2013-03-28 18:21:20.747612" },
+      { :name => "Techie Event", :created_at => "2013-03-27 20:15:01.775631", :updated_at => "2013-03-28 18:21:20.747612" },
+      { :name => "NYC on Rails Presenter", :created_at => "2013-03-27 20:15:01.775631", :updated_at => "2013-03-28 18:21:20.747612" }
     ], :without_protection => true )
   end
 
-  task :event_types => :environment do
-    EventType.create([
-      { :name => nil, :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17" }
+  task :events => :environment do
+    Event.create([
+      { :name => "NYC on Rails", :start_at => "2013-03-28 19:00:00", :end_at => "2013-03-28 21:00:00", :created_at => "2013-03-26 18:04:56", :updated_at => "2013-03-26 18:04:56", :location => nil, :address => nil, :event_type_id => 1 }
     ], :without_protection => true )
   end
 
