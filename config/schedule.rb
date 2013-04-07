@@ -19,6 +19,9 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 10.minutes do
+set :environment, "development"
+set :output, "log/cron.log"
+
+every 12.hours do
   rake "update_progress"
 end
