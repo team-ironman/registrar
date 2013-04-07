@@ -90,7 +90,7 @@ class User < ActiveRecord::Base
   end
      
   def send_welcome_email
-    if $GLOBAL_SETTINGS['email_on_create_user'] == true
+    if $GLOBAL_SETTINGS[:email_on_create_user] == false
      Policer.welcome(self).deliver
     end
   end
