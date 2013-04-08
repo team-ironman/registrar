@@ -17,7 +17,7 @@
     <div class="accordion-heading">
       
           <!-- if the course is not treehouse or codeschool show checkbox -->
-          <% if course.course_provider_id != 1 || course.course_provider_id != 2 %>
+          <% if course.course_provider_id != 1 && course.course_provider_id != 2 %>
             <% check_value = true if course.user_courses.first.progress > 0 %>
               <%= check_box_tag course.user_courses.first.id, 'yes', check_value, :class => 'regular-checkbox', :style => "margin: 3px;" %>
           <% else %>
