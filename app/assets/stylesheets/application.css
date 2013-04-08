@@ -29,6 +29,7 @@ html, body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size:cover;
+  padding-bottom: 55px;
 }
 div.background {
   background-image: url('http://i1283.photobucket.com/albums/a553/erin_lee1/4_zpsca0781a8.jpg');
