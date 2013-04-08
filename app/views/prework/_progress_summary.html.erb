@@ -5,10 +5,10 @@
       <div class="bar" id="overallprogress" style="width: <%= @average %>%" >
       </div>
     </div>
-      <ul class="nav nav-list testingit">
+      <ul class="nav nav-list">
   <% last_subject = nil %>
   <% @user_courses.each do |subject, courses| %>
-    <li class="nav-header"><%= link_to subject, '#' + subject.downcase.gsub(/\s+/, '').gsub('&', "") %></li>
+    <li><%= link_to subject, '#' + subject.downcase.gsub(/\s+/, '').gsub('&', "") %></li>
   <% end %>
   </ul>
 </nav>

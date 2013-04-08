@@ -10,7 +10,7 @@
 			<% if c.course.subject != last_subject %>
 			<% last_subject = c.course.subject %>
 			<% if last_subject %>
-			<li class="nav-header"><strong><%= link_to c.course.subject.name, '#' + c.course.subject.name.downcase.gsub(/\s+/, '') %></strong></li>
+			<li><strong><%= link_to c.course.subject.name, '#' + c.course.subject.name.downcase.gsub(/\s+/, '') %></strong></li>
 			<% end %>
 			<% end %>
 		<% end %>
