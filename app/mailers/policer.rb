@@ -6,16 +6,16 @@ class Policer < ActionMailer::Base
   #
   #   en.policer.past_due.subject
   #
-  def past_due(user, past_due_user_courses)
-    @user = user
-    @past_due_user_courses = past_due_user_courses
-    
-    mail to: @user.email, subject: "You have past due assignments"
-  end
 
   def welcome(invite)
     @invite = invite
     mail to: @invite.email, subject: "Welcome to Flatiron!"
+  end
+
+  def get_started(user)
+    @user = user
+
+    mail to: @user.email, subject: "Get Started On Your Prework"
   end
 
   def weekly(user)
@@ -23,5 +23,13 @@ class Policer < ActionMailer::Base
 
     mail to: @user.email, subject: "Prework Weekly Notice"
   end
+
+  def past_due(user, past_due_user_courses)
+    @user = user
+    @past_due_user_courses = past_due_user_courses
+    
+    mail to: @user.email, subject: "You have past due assignments"
+  end
+
 
 end
