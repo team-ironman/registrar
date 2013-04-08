@@ -1,12 +1,11 @@
 Registrar::Application.routes.draw do
 
   get "/directory", to: 'directory#index', as: 'directory'
+  get 'directory/index' => 'directory#index', as: 'directory'
 
-  match 'directory/index' => 'directory#index', as: 'directory'
   match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
 
   post '/user_courses/update_progress', to: 'user_courses#update_progress', as: 'update_progress'
-
 
   ActiveAdmin.routes(self)
 
@@ -25,13 +24,12 @@ Registrar::Application.routes.draw do
   resources :users
   resources :courses
 
- 
   match '/users/:id/update_codeschool' => 'users#update_codeschool'
   match '/users/:id/update_treehouse' => 'users#update_treehouse'
   match '/users/:id/prework' => 'prework#index', as: 'user_prework'
   match '/signup/:token' => 'users#new'
 
-  match ':events/:id' => 'events#show'
+  match 'events/:id' => 'events#show'
 
 
   # The priority is based upon order of creation:

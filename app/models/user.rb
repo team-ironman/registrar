@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   before_validation :setup_token
-  after_create :setup_new_user, :send_welcome_email
+  after_create :setup_new_user
 
   def overall_progress
     courses = self.user_courses
@@ -45,14 +45,21 @@ class User < ActiveRecord::Base
 
   def update_progress
     scrape = Scrape.new
-    scrape.codeschool_progress(self)
-    scrape.treehouse_progress(self)
+    scrape.codeschool_progress(self) if !codeschool_login.blank?
+    scrape.treehouse_progress(self) if !treehouse_login.blank?
   end 
 
   def self.create_associations_all_users
     User.all.each do |user|
       user.create_associations
     end
+  end
+
+  def self.find_by_token(token)
+    user = where(:token => token).first
+    return "Invalid token" if user==nil 
+    return "Token already used" if !user.token_date_accepted.blank? 
+    return user
   end
 
   def create_associations
@@ -74,25 +81,28 @@ class User < ActiveRecord::Base
   #   self.last_name = split.last
   # end
 
+  def send_welcome_email
+     Policer.welcome(self).deliver
+  end
+
   private 
   require 'securerandom'
   
   def setup_token
-    if self.new_record? && self.password == '' 
+    if self.new_record? && self.password_digest.blank?
       token = SecureRandom.hex
-      self.password_digest=token
+      self.password=token
+      self.password_confirmation=token
       self.token=token
     end
   end
 
   def setup_new_user
     create_associations
+    update_progress
+    send_welcome_email if $GLOBAL_SETTINGS[:email_on_create_user] == true
   end
      
-  def send_welcome_email
-    if $GLOBAL_SETTINGS[:email_on_create_user] == false
-     Policer.welcome(self).deliver
-    end
-  end
+
 
 end
