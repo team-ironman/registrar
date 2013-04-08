@@ -6,8 +6,22 @@ function BlogDefaults() {
   $('#event_start_at_5i').val('00');
   $('#event_end_at_4i').val('09');
   $('#event_end_at_5i').val('00');
+  }
+
+function NYCPresenterDefaults() {
+  $('#event_name').val("NYC on Rails Presentation");
+  $('#event_start_at_4i').val('19');
+  $('#event_start_at_5i').val('00');
+  $('#event_end_at_4i').val('21');
+  $('#event_end_at_5i').val('00');
+  }
+
+function LocationDefaults() {
   $('#event_location').val("Flatiron School");
   $('#event_address').val("33 West 26th St.");
+}
+
+function DateDefaults() {  
   $('#event_start_at_1i').change(function(){
     var value = $(this).val();
     $('#event_end_at_1i').val(value);
@@ -22,17 +36,24 @@ function BlogDefaults() {
     });
   }
 
-// this is to select users for blog post when event type is selected, otherwise hidden, also uses function above to populate default values
+// this is to select users for blog post/NYC on Rails presentation when event type is selected, otherwise hidden, also uses function above to populate default values
 $(function(){
   $('#event_users_input').hide();
   $('#event_event_type_id').change(function(){
     if($(this).val() === '3') {
       $('#event_users_input').show();
        BlogDefaults();
+       DateDefaults();
+       LocationDefaults();
+    } else if ($(this).val() === '6') {
+      $('#event_users_input').show();
+       NYCPresenterDefaults();
+       DateDefaults();
+       LocationDefaults();
     } else {
       $('#event_users_input').hide();
       // $('#new_event li:not(#event_event_type_input)').val('');
-    };
+    }
   });
 });
       // $('#new_event li:not(#event_event_type_input)')[0].reset();
@@ -44,5 +65,11 @@ $(function(){
       $('#event_users_input').show();
     } else {
       $('#event_users_input').hide();
-    };
+    }
   });
+
+$(function(){
+  $('#event_event_type_id').change(function(){
+  DateDefaults();
+  });
+});
