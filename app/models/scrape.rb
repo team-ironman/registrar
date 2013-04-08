@@ -19,14 +19,16 @@ class Scrape
   def treehouse_progress(user)
     login = user.treehouse_login
     progress_hash = scrape_treehouse(login)
-    user_courses = UserCourse.treehouse_for_user(user)
-    user_courses.each do |user_course|
-      if progress_hash.has_key?(user_course.course.name.to_sym)
-       user_course.treehouse_badges_completed = progress_hash[user_course.course.name.to_sym]
-       user_course.progress = (user_course.treehouse_badges_completed.round(2) / user_course.course.treehouse_badges.round(2)) * 100
-       user_course.save
-      end
+    if progress_hash != false
+      user_courses = UserCourse.treehouse_for_user(user)
+      user_courses.each do |user_course|
+        if progress_hash.has_key?(user_course.course.name.to_sym)
+         user_course.treehouse_badges_completed = progress_hash[user_course.course.name.to_sym]
+         user_course.progress = (user_course.treehouse_badges_completed.round(2) / user_course.course.treehouse_badges.round(2)) * 100
+         user_course.save
+        end
 
+      end
     end
   end
 
@@ -51,7 +53,13 @@ class Scrape
   # use scrape method to get hash of user progress
   def scrape_codeschool(login)
     url = "http://www.codeschool.com/users/#{login}"
-    doc = Nokogiri::HTML(open(url))
+    begin
+      doc = Nokogiri::HTML(open(url))
+    rescue => e
+      Rails.logger.info "Oops! #{e}"
+      Rails.logger.info "Attempted to scrape Codeschool with login #{login}"
+      return false
+    end
     completed_course_list = {}
     completed_courses = doc.css("li.course.card-a.alt.course-complete a").map {|course| course.text}
     completed_courses.each do |course|
@@ -92,7 +100,14 @@ class Scrape
 
   def scrape_treehouse(login)
     url = "http://www.teamtreehouse.com/#{login}"
-    doc = Nokogiri::HTML(open(url))
+    begin
+      doc = Nokogiri::HTML(open(url))
+    rescue => e
+      Rails.logger.info "Oops! #{e}"
+      Rails.logger.info "Attempted to scrape Treehouse with login #{login}"
+      return false
+    end
+
     all_courses = doc.css("p.light a:first").map {|course| course.text}
     #data is an array of course names
     unique_courses = all_courses.uniq
