@@ -94,7 +94,21 @@ class User < ActiveRecord::Base
     Policer.get_started(self).deliver
   end
 
+  def week_one_courses
+    UserCourse.includes(:course).where("courses.days_due_before_class > ? AND user_id = ?", 21, self.id)
+  end
 
+  def week_two_courses
+    UserCourse.includes(:course).where("courses.days_due_before_class >= ? AND courses.days_due_before_class <= ? AND user_id = ?", 15, 21, self.id)
+  end
+
+  def week_three_courses
+    UserCourse.includes(:course).where("courses.days_due_before_class >= ? AND courses.days_due_before_class <= ? AND user_id = ?", 8, 14, self.id)
+  end
+
+  def week_four_courses
+    UserCourse.includes(:course).where("courses.days_due_before_class <= ? AND user_id = ?", 7, self.id)
+  end
 
   private 
   require 'securerandom'
@@ -102,9 +116,9 @@ class User < ActiveRecord::Base
   def setup_token
     if self.new_record? && self.password_digest.blank?
       token = SecureRandom.hex
-      self.password=token
-      self.password_confirmation=token
-      self.token=token
+      self.password = token
+      self.password_confirmation = token
+      self.token = token
     end
   end
 

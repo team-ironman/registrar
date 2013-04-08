@@ -8,12 +8,6 @@ class Course < ActiveRecord::Base
 
   after_create :create_associations_all_users
 
-  scope :week_one, where('days_due_before_class > 21')
-  scope :week_two, where('days_due_before_class >= 15 AND days_due_before_class <= 21')
-  scope :week_three, where('days_due_before_class >= 8 AND days_due_before_class <= 14')
-  scope :week_four, where('days_due_before_class >= 1 AND days_due_before_class <= 7')
-
-
 
   def self.all_treehouse
     provider = CourseProvider.where(:name => 'treehouse').limit(1)
@@ -32,6 +26,7 @@ class Course < ActiveRecord::Base
   def self.courses_for_user(user_id)
     includes(:user_courses, :subject).where("user_courses.user_id = #{user_id}").group_by { |c| c.subject.name }
   end
+  
 
   private
   def create_associations_all_users
