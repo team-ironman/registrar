@@ -17,6 +17,8 @@
  *= require navigation.css
  *= require flash.css
  */
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:400,500);
+
 html, body {
     height: 100%
 }
@@ -46,7 +48,6 @@ a {
 .description {
   color: #575656;
   font-size: 13px;
-  word-spacing: 5px;
 }
 .descriptionurl {
   font-size: 10px;
