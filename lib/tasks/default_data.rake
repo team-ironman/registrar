@@ -67,7 +67,8 @@ namespace :default_data  do
   task :course_providers => :environment do
     CourseProvider.create([
       { :name => "code school", :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17" },
-      { :name => "treehouse", :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17" }
+      { :name => "treehouse", :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17" },
+      { :name => "other", :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17" }
     ], :without_protection => true )
   end
 
@@ -78,7 +79,7 @@ namespace :default_data  do
       { :name => "Technology Foundations", :url => "http://teamtreehouse.com/library/websites/technology-foundations", :estimated_time => 2.0, :subject_id => 1, :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-22 17:29:53", :treehouse_badges => 1, :course_provider_id => 2, :days_due_before_class => 28, :description => "Graphic basics is for developers and designers alike, to become familiar with the difference between vector and raster, units and increments and saving for the web." },
       { :name => "Aesthetic Foundations", :url => "http://teamtreehouse.com/library/websites/aesthetic-foundations", :estimated_time => 2.5, :subject_id => 1, :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-22 14:56:04", :treehouse_badges => 3, :course_provider_id => 2, :days_due_before_class => 28, :description => "Aesthetic Foundations will cover the elements and principles of art, along with color theory. This basic knowledge will provide a design language that enables more effective communication amongst designers and other team members." },
       { :name => "Learn the Command Line the Hard Way", :url => "http://cli.learncodethehardway.org/book/", :estimated_time => 3.0, :subject_id => 3, :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17", :treehouse_badges => nil, :course_provider_id => 0, :days_due_before_class => 28, :description => "The venerable Zed Shaw gives us a short book about your shell." },
-      { :name => "Command Line Basics", :url => "http://blog.teamtreehouse.com/command-line-basics", :estimated_time => 0.5, :subject_id => 3, :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17", :treehouse_badges => nil, :course_provider_id => 2, :days_due_before_class => 28, :description => nil },
+      { :name => "Command Line Basics", :url => "http://blog.teamtreehouse.com/command-line-basics", :estimated_time => 0.5, :subject_id => 3, :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17", :treehouse_badges => nil, :course_provider_id => 0, :days_due_before_class => 28, :description => nil },
       { :name => "Bash Basics", :url => "https://gist.github.com/a8a7ca963e37e0b108b9", :estimated_time => 0.5, :subject_id => 3, :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17", :treehouse_badges => nil, :course_provider_id => 0, :days_due_before_class => 28, :description => nil },
       { :name => "Learn SQL the Hardway", :url => "http://sql.learncodethehardway.org/book/", :estimated_time => 4.0, :subject_id => 4, :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17", :treehouse_badges => nil, :course_provider_id => 0, :days_due_before_class => 28, :description => nil },
       { :name => "Google's MySQL Tutorial", :url => "http://code.google.com/edu/tools101/mysql.html", :estimated_time => 2.0, :subject_id => 4, :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17", :treehouse_badges => nil, :course_provider_id => 0, :days_due_before_class => 28, :description => nil },

@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 		@user = load_user
     @user.update_attributes(params[:user])
     if @user.save
+      @user.update_progress
       flash.notice = "Updated!"
       redirect_to prework_path
     else
