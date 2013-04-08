@@ -99,7 +99,6 @@ class User < ActiveRecord::Base
 
   def setup_new_user
     create_associations
-    update_progress
     send_welcome_email if $GLOBAL_SETTINGS[:email_on_create_user] == true
   end
      

@@ -22,6 +22,6 @@
 set :environment, "development"
 set :output, "log/cron.log"
 
-every 12.hours do
+every 2.minutes do
   rake "update_progress"
 end
