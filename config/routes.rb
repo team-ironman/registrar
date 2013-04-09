@@ -1,8 +1,7 @@
 Registrar::Application.routes.draw do
 
   get "/directory", to: 'directory#index', as: 'directory'
-  get 'directory/index' => 'directory#index', as: 'directory'
-
+  
   match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
 
   post '/user_courses/update_progress', to: 'user_courses#update_progress', as: 'update_progress'
@@ -22,6 +21,9 @@ Registrar::Application.routes.draw do
   post '/user_courses/update_progress', to: 'user_courses#update_progress', as: 'update_progress'
   get '/prework', to: 'prework#index', as: 'prework'
   get 'profile', to: 'users#edit', as: 'edit_current_user'
+
+  get '/complete_signup', to: 'users#complete_signup', as: 'complete_signup' 
+  post '/complete_signup', to: 'users#complete_signup_update'
 
   resources :sessions
   resources :users

@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
-
+  before_filter :authorize
   protect_from_forgery
 
   def authorize
-  	redirect_to login_url, alert: "Not authorized" if current_user.nil?
+  	redirect_to new_session_url, alert: "Not authorized" if current_user.nil?
   end
 
 
