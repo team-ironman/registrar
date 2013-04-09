@@ -77,10 +77,22 @@
             <!-- <span id="count0">0</span> -->
         <% end %>
 
+
         
         </div>
 
-      </div>
+
+
+            <!--<button id="btn-custom">Start</button>-->
+            <!-- <a href="./">Reset</a> -->
+          
+          </div>
+
+          <div class="span3 offset4" id="hours" align="right">
+            <%= course.estimated_time %> <a id="tooltip" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Hours</a>
+          </div>
+        </div><!-- ends second row with estimated hours -->
+
         <div class="row">
           <div class="span7">
           <% if course.user_courses.first.progress < 100 %>
