@@ -1,28 +1,56 @@
-function secondstotime(secs)
-{
-    var t = new Date(1970,0,1);
-    t.setSeconds(secs);
-    var s = t.toTimeString().substr(0,8);
-    if(secs > 86399)
-      s = Math.floor((t - Date.parse("1/1/70")) / 3600000) + s.substr(2);
-    return s;
+function secondsToHms(d) {
+  d = Number(d);
+  var h = Math.floor(d / 3600);
+  var m = Math.floor(d % 3600 / 60);
+  var s = Math.floor(d % 3600 % 60);
+  if (h < 10) {h="0"+h} 
+  if (m < 10) {m="0"+m} 
+  if (s < 10) {s="0"+s} 
+  return (h + ":" + m + ":" + s);
+  // return ((h + ":") + (m > 0 ? (h > 0 && m < 10 ? "00" : "") + m + ":" : "00:") + (s < 10 ? "0" : "") + s); 
+  
+
+  // if (h < 10 || m < 10 || s < 10)
+  //   return h
+  // return (h + ":" + m + ":" + s);
 }
 
-var Stopwatch1 = new (function() {
-    var $stopwatch, // Stopwatch element on the page
-        incrementTime = 70, // Timer speed in milliseconds
-        currentTime = 0, // Current time in hundredths of a second
-        updateTimer = function() {
-            $stopwatch.html(secondstotime(currentTime));
-            currentTime += incrementTime / 10;
-        },
-        init = function() {
-            $stopwatch = $('#stopwatch');
-            Stopwatch1.Timer = $.timer(updateTimer, incrementTime, true);
-        };
-    this.resetStopwatch = function() {
-        currentTime = 0;
-        this.Timer.stop().once();
-    };
-    $(init);
+$(function(){ //Anonymous function, to not leak variables to the global scope
+  var intervals = [];
+  function increase(i){
+      return function(){
+          var elem = $("#count"+i);
+          elem.val(parseFloat(elem.val()) + 1);
+          var sec = elem.val();
+          var elema = $("#count"+i+"a");
+          elema.val(secondsToHms(sec));
+      }
+  }
+  
+  function startclock(i){
+      increase(i)();
+      intervals[i] = setInterval(increase(i), 1000);
+  }
+  
+  function clear(i){
+      clearInterval(intervals[i]);
+  }
+
+  // Start timer on "Start"
+  $('input[name=start]').click(function() {
+    var i = $(this).parent().attr("id").split("_")[1];
+      startclock(i);
+  });
+  
+  // // Stop timer on "stop"
+  $('input[name=stop]').click(function(i) {
+      var i = $(this).parent().attr("id").split("_")[1];
+      clear(i);
+  });
+  
+  // // Restart timer on "restart"
+  // $('input[name=reset]').each(function(i) {
+  //     $(this).next().val(0);
+  //     $(this).click(clear(i));
+  // });
 });
