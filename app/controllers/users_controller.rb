@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   # before_filter :authorize, :except => [:new]
   # before_filter :load_user_to_edit, :only => [:edit, :update]
+  skip_before_filter :authorize, :only => [:complete_signup, :update]
   layout 'credentials', :only => :new
 
   def edit
