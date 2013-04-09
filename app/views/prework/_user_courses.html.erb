@@ -60,19 +60,20 @@
         <div class="row">
           <div class="span3" style="float:left">
 
+          <!-- This is where the timer would be. Button is non-functional at the moment -->
 
-            <!-- This is where the timer would be. Button is non-functional at the moment -->
-            
+        <%= div_for(course) do %>
+          <%#= content_tag( :span, 0 ,:id => "count#{course.id}") %>
+            <input type="submit" name="start" value="start" />
+            <input type="submit" name="stop" value="stop" />
+            <input type="text" name="timer" id="count<%=course.id%>" value="00:00:00"/>
+            <input type="text" name="timer" id="count<%=course.id%>a" value="00:00:00"/>
+            <%#= content_tag( :span, '00:00:00' ,:id => "count#{course.id}") %>
+            <!-- <span id="count0">0</span> -->
+        <% end %>
 
-            <!--<button id="btn-custom">Start</button>-->
-            <!-- <a href="./">Reset</a> -->
-          
-          </div>
-
-          <div class="span3 offset4" id="hours" align="right">
-            <%= course.estimated_time %> <a id="tooltip" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Hours</a>
-          </div>
-        </div><!-- ends second row with estimated hours -->
+        
+        </div>
 
         <% if course.user_courses.first.progress < 100 %>
           <div class="progress progress-warning progress-striped active">

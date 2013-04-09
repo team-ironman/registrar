@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require user_courses
+//= require timetracker
 //= require_tree .
 //  $(document).ready(function(){
             

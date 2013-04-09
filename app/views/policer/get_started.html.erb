@@ -1,1 +1,45 @@
-TEST EMAIL
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td colspan="3">
+          <h1>THE FLATIRON SCHOOL</h1>
+        </td>
+      </tr>
+     
+      <tr>
+        <td colspan="3">
+          <p>Hi, <%= @user.first_name.capitalize %></p>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="3">
+          <p>Thanks for signing up with Ironboard! Don't waste any time and get started with these courses!:</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td><p><strong>COURSE</strong></p></td>
+        <td><p><strong>EST. TIME</strong></p></td>
+        <td><p><strong>PROGRESS %</strong></p></td>
+      </tr>
+
+      <% @user.week_one_courses.each do |user_course| %>
+      <tr>
+        <td><%= link_to user_course.course.name, user_course.course.url%></td>
+        <td><%= user_course.course.estimated_time%></td>
+        <td><%= user_course.progress%></td>
+      </tr>
+      <% end %>
+
+      <tr>
+        <td colspan="3"><p>Thanks,<br> Avi</p></td>
+      </tr>
+    </table>
+  </body>
+</html>
