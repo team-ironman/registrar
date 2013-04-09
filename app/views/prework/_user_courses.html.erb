@@ -61,10 +61,17 @@
 
 
           <!-- This is where the timer would be. Button is non-functional at the moment -->
-          
 
-          <!--<button id="btn-custom">Start</button>-->
-          <!-- <a href="./">Reset</a> -->
+        <%= div_for(course) do %>
+          <%#= content_tag( :span, 0 ,:id => "count#{course.id}") %>
+            <input type="submit" name="start" value="start" />
+            <input type="submit" name="stop" value="stop" />
+            <input type="text" name="timer" id="count<%=course.id%>" value="00:00:00"/>
+            <input type="text" name="timer" id="count<%=course.id%>a" value="00:00:00"/>
+            <%#= content_tag( :span, '00:00:00' ,:id => "count#{course.id}") %>
+            <!-- <span id="count0">0</span> -->
+        <% end %>
+
         
         </div>
 
