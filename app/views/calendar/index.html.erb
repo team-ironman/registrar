@@ -1,4 +1,5 @@
 <!-- Probably move the stylesheet to you layout. Also make sure you include the javascript. -->
+
 <%= stylesheet_link_tag "event_calendar" %>
 
 <%= raw(event_calendar) %>
@@ -6,3 +7,4 @@
 <script type="text/javascript"> $(".ec-event-bg").css("background", "none"); </script>
 
 <div style="height:200px"></div>     
+<%= render 'modal' %>

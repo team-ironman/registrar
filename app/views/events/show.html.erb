@@ -1,18 +1,4 @@
-<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-   <div class="modal-header">
-   <h4 id="myModalLabel"><%= @event.name %></h4>
-  </div>
-
-  <!-- 
-  <div class="modal-body">
-    <p>One fine body…</p>
-  </div> -->
-  <!-- <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    <button class="btn btn-primary">Save changes</button> -->
-
-        
-  <div class="modal-body">
+  
     <p id="notice"><%= notice %></p>
     Type: <%= @event.event_type.name %></br>
     Location: <%= @event.location %></br>
@@ -21,11 +7,4 @@
     Ends: <%= @event.end_at.strftime("%m/%d/%Y at %I:%M%p") %></br>
     <%= link_to 'Back to Calendar', calendar_path %>
     </p>
-  </div> <!-- modal-body -->
-
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-  </div>
-
-</div>
 
