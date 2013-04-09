@@ -32,8 +32,9 @@ class UsersController < ApplicationController
 
 
   def complete_signup_update
-    puts "running complete signup update"
     @user = User.find_by_token(params[:token])
+    raise @user
+
     @user.password_digest=nil
     @user.update_attributes(params[:user])
     
