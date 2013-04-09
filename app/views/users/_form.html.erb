@@ -1,3 +1,11 @@
+<script type="text/javascript">
+
+    $(function () {
+        $("[rel='tooltip']").tooltip();
+        $('#tip').hover(function() {changeTooltipColorTo('#f00')});
+    });
+</script>
+
 <%= form_for(@user) do |f| %>
   <ul>
 <% @user.errors.full_messages.each do |error| %>
@@ -15,7 +23,7 @@
 <%= f.text_field :phone_number, :placeholder => '555-123-1234' %>
 
 <%= f.label :email %>
-<%= f.text_field :email, :placeholder => 'something@flatironschool.com'  %>
+<%= f.text_field :email, :placeholder => 'something@flatironschool.com', :'data-container' => "false", :'data-placement' => "right", :rel => 'tooltip', :title => 'Enter your Flatiron School email address here' %>
 
 <%= f.label :treehouse_login %>
 <%= f.text_field :treehouse_login, :placeholder => 'treehouse login'  %>
@@ -33,5 +41,4 @@
 
 <%= f.submit 'UPDATE', :class => 'btn btn-warning btn-large' %>
 <% end %>
-			  <br>
-			  <br>
+			  
