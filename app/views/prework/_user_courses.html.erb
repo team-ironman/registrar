@@ -1,9 +1,9 @@
 <div id="to-scroll">
-  <div class="accordion" data-spy="scroll" data-target="#highlight-sidebar" id="accordion2">
+  <div class="accordion" id="accordion2">
     <% @user_courses.each do |subject, courses| %>
     
     <ul style="list-style: none;">  
-      <li><h2 id="<%= subject.downcase.gsub(/\s+/, "").gsub('&', "") %>"><%= subject %></h2>
+      <li><h2 id="<%= subject.downcase.gsub(/\s+/, "").gsub('&', "").gsub(':', "") %>"><%= subject %></h2>
       <div class="subjectdescription">
         <%= courses.first.subject.description %>
       </div>
