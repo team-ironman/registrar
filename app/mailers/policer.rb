@@ -18,10 +18,11 @@ class Policer < ActionMailer::Base
     mail to: @user.email, subject: "Get Started On Your Prework"
   end
 
-  def weekly(user)
+  def weekly(user, weekly_courses)
     @user = user
+    @selected_weeks_courses = weekly_courses
 
-    mail to: @user.email, subject: "Prework Weekly Notice"
+    mail to: @user.email, subject: "Prework Courses Due This Week"
   end
 
   def past_due(user, past_due_user_courses)

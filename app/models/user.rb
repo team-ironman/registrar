@@ -85,10 +85,25 @@ class User < ActiveRecord::Base
      Policer.welcome(self).deliver
   end
 
+  def newly_enrolled?
+    (Time.now - self.token_date_accepted) < 5
+  end
 
   def send_get_started_email
     Policer.get_started(self).deliver
   end
+
+  
+
+  def self.send_weekly_email    
+    selected_weeks_courses = "week_two_courses"
+    @semester = Semester.first
+    @semester.users.each do |user|
+      Policer.weekly(user, selected_weeks_courses).deliver
+    end
+
+  end
+
 
   def week_one_courses
     UserCourse.includes(:course).where("courses.days_due_before_class > ? AND user_id = ?", 21, self.id)
@@ -105,6 +120,8 @@ class User < ActiveRecord::Base
   def week_four_courses
     UserCourse.includes(:course).where("courses.days_due_before_class <= ? AND user_id = ?", 7, self.id)
   end
+
+
 
   private 
   require 'securerandom'
