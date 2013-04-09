@@ -43,7 +43,8 @@ $(function(){ //Anonymous function, to not leak variables to the global scope
   // Start timer on "Start"
   $('input[name=start]').click(function() {
     var i = $(this).attr("id").split("_")[1];
-      startclock(i);
+    clear(i);
+    startclock(i);
   });
   
   // Stop timer on "stop"
