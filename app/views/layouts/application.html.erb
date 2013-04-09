@@ -11,7 +11,7 @@
 	<div class="lion navbar navbar-inverse">
 		<div class="navbar-inner">
 			<% if current_user %>
-			<a class="brand">Iron Board : <strong><%= current_user.first_name %></strong></a>
+			<a href="/" class="brand">Iron Board : <strong><%= current_user.first_name %></strong></a>
 			<ul class="nav-erin">
 	        <li><i class="icon-check icon-white"></i> <%= link_to "Pre-Work", prework_path %></li>
 	        <li><i class="icon-list-alt icon-white"></i> <%= link_to "Class Directory", directory_path %></li>
