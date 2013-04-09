@@ -1,3 +1,5 @@
+
+
 function secondsToHms(d) {
   d = Number(d);
   var h = Math.floor(d / 3600);
@@ -17,6 +19,7 @@ function hmsToSeconds(hms) {
 }
 
 $(function(){ //Anonymous function, to not leak variables to the global scope
+  $('input[name=timer]').hide();
   var intervals = [];
   function increase(i){
       return function(){
