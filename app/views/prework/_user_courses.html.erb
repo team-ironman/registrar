@@ -1,99 +1,93 @@
-<div id="to-scroll">
-  <div class="accordion" id="accordion2">
-    <% @user_courses.each do |subject, courses| %>
-    
-    <ul style="list-style: none;">  
-      <li><h2 id="<%= subject.downcase.gsub(/\s+/, "").gsub('&', "").gsub(':', "") %>"><%= subject %></h2>
-      <div class="subjectdescription">
-        <%= courses.first.subject.description %>
-      </div>
-    </li>
-    <% courses.each do |course| %>  
-      <li>
-        <div class="row">
-          <div class="span7">
+<div class="accordion" id="accordion2">
+  <% @user_courses.each do |subject, courses| %>
+  
+  <ul style="list-style: none;">  
+    <li><h2 id="<%= subject.downcase.gsub(/\s+/, "").gsub('&', "").gsub(':', "") %>"><%= subject %></h2>
 
+    <div class="subjectdescription">
+      <%= courses.first.subject.description %>
+    </div>
 
-    <div class="accordion-group">
-      <div class="accordion-heading">
-        
-            <!-- if the course is not treehouse or codeschool show checkbox -->
-            <% if course.course_provider_id != 1 && course.course_provider_id != 2 %>
-              <% check_value = true if course.user_courses.first.progress > 0 %>
-                <%= check_box_tag course.user_courses.first.id, 'yes', check_value, :class => 'regular-checkbox', :style => "margin: 3px;" %>
-            <% else %>
-              <!-- do nothing -->
-            <% end %>
+  </li>
+  <% courses.each do |course| %>  
+    <li>
+      <div class="row">
+        <div class="span7">
 
-            <!-- when the checkbox is marked the progress bar goes to 100% -->
-            <% if course.course_provider_id == 2 %>
-              <%= image_tag 'treehouse.png', :width => '25px', :style => "padding: 3px;" %> 
-            <% elsif course.course_provider_id == 1 %>
-              <%= image_tag 'codeschool.png', :width => '25px', :style => "padding: 3px;" %> 
-            <% else %> 
-            <% end %><%= link_to course.name, course.url, {:target=> "_blank"} %> :  
+          <div class="accordion-group">
+            <div class="accordion-heading">
+      
+          <!-- if the course is not treehouse or codeschool show checkbox -->
+          <% if course.course_provider_id != 1 && course.course_provider_id != 2 %>
+            <% check_value = true if course.user_courses.first.progress > 0 %>
+              <%= check_box_tag course.user_courses.first.id, 'yes', check_value, :class => 'regular-checkbox', :style => "margin: 3px;" %>
+          <% else %>
+            <!-- do nothing -->
+          <% end %>
+
+          <!-- when the checkbox is marked the progress bar goes to 100% -->
+          <% if course.course_provider_id == 2 %>
+            <%= image_tag 'treehouse.png', :width => '25px', :style => "padding: 3px;" %> 
+          <% elsif course.course_provider_id == 1 %>
+            <%= image_tag 'codeschool.png', :width => '25px', :style => "padding: 3px;" %> 
+          <% else %> 
+          <% end %><%= link_to course.name, course.url, {:target=> "_blank"} %> :  
             <div style="float: right;">
               <a class="accordion-toggle" style="display: inline; text-decoration: none; color: #0099cc;" data-toggle="collapse" data-parent="#accordion2" href="#collapse<%= course.name.downcase.gsub(/\s+/, "").gsub('&', "").gsub(/'/, "").gsub(/:/, "") %>"><i class="icon-chevron-right" style="margin-top: 7px;"></i></a>
             </div>
+            </div>
+          </div>
 
+          <div id="collapse<%= course.name.downcase.gsub(/\s+/, "").gsub('&', "").gsub(/'/, "") %>" class="accordion-body collapse out">
+            <div class="accordion-inner">
+              <span class="descriptionurl">
+                <%= course.url %>
+              </span>
+              <div class="description">
+                <%= course.description %>
+              </div>
+            </div>
+          </div>
+     
 
-      </div>
+      <div class="row">
+        <div class="span3" style="float:left">
+
+        <!-- This is where the timer would be. Button is non-functional at the moment -->
+
+          <%= div_for(course) do %>
+            <input type="text" name="timer" id="count<%=course.user_courses.first.id%>" value="<%=course.user_courses.first.time_elapsed%>"/>
+
+            <input type="text" name="timerHMS" id="count<%=course.user_courses.first.id%>a" value="<%=course.user_courses.first.secondstohms%>"/>
+            <input type="submit" name="start" value="start" id="count_<%=course.user_courses.first.id%>"/>
+            <input type="submit" name="stop" value="stop" id="count_<%=course.user_courses.first.id%>"/>
+          <% end %>
+        </div>
+        <div class="span3" style="float:right;text-align:right" >
+          <span class="hours">Estimated time to complete: <%= course.estimated_time %> <a id="tooltip" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Hours</a></span>
+          </div>
+        </div>
+      </div><!-- ends second row with estimated hours -->
     </div>
 
-      <div id="collapse<%= course.name.downcase.gsub(/\s+/, "").gsub('&', "").gsub(/'/, "") %>" class="accordion-body collapse out">
-        <div class="accordion-inner">
-            <span class="descriptionurl">
-              <%= course.url %>
-            </span>
-            <div class="description">
-              <%= course.description %>
-            </div>
-
-        </div>
-      </div>
-
-
-          </div> 
-        </div> <!-- ends first row with checkbox and course name, description -->
-       
-
-        <div class="row">
-          <div class="span3" style="float:left">
-
-          <!-- This is where the timer would be. Button is non-functional at the moment -->
-
-        <%= div_for(course) do %>
-          <%#= content_tag( :span, 0 ,:id => "count#{course.id}") %>
-            <input type="submit" name="start" value="start" />
-            <input type="submit" name="stop" value="stop" />
-            <input type="text" name="timer" id="count<%=course.id%>" value="00:00:00"/>
-            <input type="text" name="timer" id="count<%=course.id%>a" value="00:00:00"/>
-            <%#= content_tag( :span, '00:00:00' ,:id => "count#{course.id}") %>
-            <!-- <span id="count0">0</span> -->
+      <div class="row">
+        <div class="span7">
+        <% if course.user_courses.first.progress < 100 %>
+          <div class="progress progress-warning progress-striped active">
+        <% else %>
+          <div class="progress progress-warning">
         <% end %>
-
-        
+              <div class="bar" id="bar<%= course.user_courses.first.id %>" style="width: <%= course.user_courses.first.progress %>%" >
+              </div>
+          </div>
         </div>
       </div>
-        <div class="row">
-          <div class="span7">
-          <% if course.user_courses.first.progress < 100 %>
-            <div class="progress progress-warning progress-striped active">
-          <% else %>
-            <div class="progress progress-warning">
-          <% end %>
-                <div class="bar" id="bar<%= course.user_courses.first.id %>" style="width: <%= course.user_courses.first.progress %>%" >
-                </div>
-            </div>
-            </div>
-            </div>
 
+    </li>     
 
-      </li>     
+  <% end %>
+  </ul>         
+<% end %> 
 
-    <% end %>
-      </ul>         
-  <% end %> 
-  </div>         
-  <div style="height:100px"></div>     
-</div>
+</div>         
+<div style="height:100px"></div>     

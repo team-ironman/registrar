@@ -12,11 +12,10 @@ class UserCoursesController < ApplicationController
   end
 
   def update_time_spent
+    @user_course = UserCourse.find(params[:user_course_id].to_i)
     @user_course.time_spent = params[:time_spent]
     @user_course.save
-    respond_to do |format|
-      format.js
-    end
+    render :nothing => true
   end
 
 
