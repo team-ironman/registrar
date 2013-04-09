@@ -19,8 +19,8 @@
 	        <li><i class="icon-user icon-white"></i> <%= link_to "Edit", edit_current_user_path %></li> 
 					<li><i class="icon-remove-sign icon-white"></i> <%= link_to "Log Out", logout_path %></li>
 				<% else %>
-					<li><%= link_to "Sign Up", signup_path %></li> 
-					<li><%= link_to "Log in", login_path %></li>
+					<li><i class="icon-check icon-white"></i><%= link_to "Sign Up", signup_path %></li> 
+					<li><i class="icon-check icon-white"></i><%= link_to "Log in", login_path %></li>
 				<% end %>
 			</ul>
 			
