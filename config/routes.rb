@@ -23,6 +23,9 @@ Registrar::Application.routes.draw do
   get '/prework', to: 'prework#index', as: 'prework'
   get 'profile', to: 'users#edit', as: 'edit_current_user'
 
+  get '/complete_signup', to: 'users#complete_signup', as: 'complete_signup' 
+  post '/complete_signup', to: 'users#complete_signup_update'
+
   resources :sessions
   resources :users
   resources :courses

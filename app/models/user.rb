@@ -86,10 +86,6 @@ class User < ActiveRecord::Base
   end
 
 
-  def newly_enrolled?
-    (Time.now - self.token_date_accepted) < 5
-  end
-
   def send_get_started_email
     Policer.get_started(self).deliver
   end
