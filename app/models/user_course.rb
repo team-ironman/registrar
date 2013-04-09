@@ -34,6 +34,23 @@ class UserCourse < ActiveRecord::Base
     includes(:course => :subject).where(:user_id => user_id).order('subjects.display_order')
   end
 
+  def time_elapsed
+    if self.time_spent.nil?
+      0
+    else
+      seconds = self.time_spent.to_i
+    end
+  end
+
+  def secondstohms
+    if self.time_spent.nil?
+      "00:00:00"
+    else
+      seconds = self.time_spent.to_i
+      Time.at(seconds).utc.strftime("%H:%M:%S")
+    end
+  end
+
 end
 
 

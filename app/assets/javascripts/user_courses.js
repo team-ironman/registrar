@@ -14,12 +14,4 @@ $(function () {
 
   // $('#highlight-sidebar').scrollspy();
 
-  $('input[type=checkbox]').change(function(){
-    var duration = $('#clock'+i).val();
-    $.post('/user_courses/update_progress', { user_course_id: this.id, time_spent: duration}, function(data) {
-      
-    });
-  });
-
-
 });

@@ -37,6 +37,7 @@ ActiveAdmin.register User do
         column("Progress")                   {|course| course.progress }
         column("Subject")                    {|course| course.course.subject.name }
         column("Provider")                   {|course| course.course.course_provider_id }
+        column("Time Spent")                   {|course| course.secondstohms }
       end
     end
     active_admin_comments
