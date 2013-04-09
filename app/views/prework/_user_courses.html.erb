@@ -67,14 +67,12 @@
           <!-- This is where the timer would be. Button is non-functional at the moment -->
 
         <%= div_for(course) do %>
-          <%#= content_tag( :span, 0 ,:id => "count#{course.id}") %>
-            <input type="submit" name="start" value="start" id="count_<%=course.user_courses.first.id%>"/>
-            <input type="submit" name="stop" value="stop" id="count_<%=course.user_courses.first.id%>"/>
-            <input type="text" name="timer" id="count<%=course.user_courses.first.id%>" value="<%=course.user_courses.first.time_elapsed%>"/>
+          <input type="text" name="timer" id="count<%=course.user_courses.first.id%>" value="<%=course.user_courses.first.time_elapsed%>"/>
 
-            <input type="text" name="timerHMS" id="count<%=course.user_courses.first.id%>a" value="<%=course.user_courses.first.secondstohms%>"/>
-            <%#= content_tag( :span, '00:00:00' ,:id => "count#{course.id}") %>
-            <!-- <span id="count0">0</span> -->
+          <input type="text" name="timerHMS" id="count<%=course.user_courses.first.id%>a" value="<%=course.user_courses.first.secondstohms%>"/>
+          <input type="submit" name="start" value="start" id="count_<%=course.user_courses.first.id%>"/>
+          <input type="submit" name="stop" value="stop" id="count_<%=course.user_courses.first.id%>"/>
+
         <% end %>
 
 

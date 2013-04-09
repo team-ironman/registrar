@@ -14,6 +14,7 @@
  *= require main.css 
  *= require bootstrap_and_overrides.css 
  *= require login.css
+ *= require timer.css
  *= require navigation.css
  *= require flash.css
  */
