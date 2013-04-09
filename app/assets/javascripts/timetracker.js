@@ -57,9 +57,12 @@ $(function(){ //Anonymous function, to not leak variables to the global scope
 
 
   $('input[name=timerHMS]').change(function() {
+    var i = $(this).attr("id").split("",6)[5];
     var time = $(this).val();
     var sec = hmsToSeconds(time);
-     $(this).prev().val(sec);
+    $(this).prev().val(sec);
+    $.post('/user_courses/update_time_spent', { user_course_id: i, time_spent: sec}, function(data) { 
+      });
   })
   
   // // Restart timer on "restart"
