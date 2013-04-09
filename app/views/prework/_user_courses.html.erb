@@ -74,15 +74,17 @@
 
         
         </div>
+      </div>
+        <div class="row">
 
-        <% if course.user_courses.first.progress < 100 %>
-          <div class="progress progress-warning progress-striped active">
-        <% else %>
-          <div class="progress progress-warning">
-        <% end %>
-              <div class="bar" id="bar<%= course.user_courses.first.id %>" style="width: <%= course.user_courses.first.progress %>%" >
-              </div>
-
+          <% if course.user_courses.first.progress < 100 %>
+            <div class="progress progress-warning progress-striped active">
+          <% else %>
+            <div class="progress progress-warning">
+          <% end %>
+                <div class="bar" id="bar<%= course.user_courses.first.id %>" style="width: <%= course.user_courses.first.progress %>%" >
+                </div>
+        </div>
           </div>
 
 
