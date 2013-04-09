@@ -8,6 +8,8 @@ Registrar::Application.routes.draw do
   post '/user_courses/update_progress', to: 'user_courses#update_progress', as: 'update_progress'
   post '/user_courses/update_time_spent', to: 'user_courses#update_time_spent', as: 'update_time_spent'
 
+  get '/intro' => 'courses#intro'
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
