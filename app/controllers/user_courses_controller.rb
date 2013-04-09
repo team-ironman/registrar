@@ -11,5 +11,13 @@ class UserCoursesController < ApplicationController
 	  end
   end
 
+  def update_time_spent
+    @user_course.time_spent = params[:time_spent]
+    @user_course.save
+    respond_to do |format|
+      format.js
+    end
+  end
+
 
 end
