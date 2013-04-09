@@ -1,6 +1,6 @@
-.course {
+/*.course {
   line-height: 2em;
-}
+}*/
 
 .course input[type="submit"] {
   color: white;
@@ -24,4 +24,10 @@
 
 .course input[name="stop"] {
   background-color: skyblue;
+}
+
+span.hours {
+  display: block;
+  margin-top: 10px;
+  opacity: .3;
 }
