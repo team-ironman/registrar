@@ -32,8 +32,8 @@ class UsersController < ApplicationController
 
 
   def complete_signup_update
-    puts "running complete signup update"
     @user = User.find_by_token(params[:token])
+
     @user.password_digest=nil
     @user.update_attributes(params[:user])
     
@@ -60,7 +60,11 @@ class UsersController < ApplicationController
 
   def complete_signup
     @user = User.find_by_token(params[:token])
-    render 'edit'
+    if @user.is_a?(String)
+      redirect_to new_session_path, :notice => @user
+    else
+      render 'edit'
+    end
   end
 
  
