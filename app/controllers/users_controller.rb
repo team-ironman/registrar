@@ -67,7 +67,7 @@ class UsersController < ApplicationController
     end
   end
 
- 
+
   def update_codeschool
     User.find(params[:id]).codeschool_progress
     redirect_to user_prework_path(@user), :alert => "Codeschool progress updated"
@@ -87,17 +87,15 @@ class UsersController < ApplicationController
 
   private
   
-    def load_user
-      if params[:id] && (current_user.id == params[:id].to_i)
-        @user = current_user
-      elsif params[:id] && (current_user.id != params[:id].to_i)
-        redirect_to root_url, notice: "Don't try to be someone you're not."        
-      elsif !params[:id] && current_user
-        @user = current_user
-      else
-        redirect_to root_url, notice: "Oops"
-      end
-      @user
+  # Returns user, allow if user_id is current user or admin logged in
+  def load_user
+    user_id = params[:id].blank? ? current_user.id : params[:id].to_i
+    if user_id == current_user.id || current_admin_user
+      user = User.find(user_id)
+    else
+      redirect_to root_path, notice: "Don't try to be someone you're not." 
     end
+    user
+  end
 
 end
