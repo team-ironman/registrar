@@ -129,21 +129,15 @@ border-radius: 4px;
 }
  
 .fade-in.one {
-  -webkit-animation-delay: 0.7s;
-  -moz-animation-delay: 0.7s;
-  animation-delay: 0.7s;
+  -webkit-animation-delay: 0.2s;
+  -moz-animation-delay: 0.2s;
+  animation-delay: 0.2s;
 }
  
 .fade-in.two {
-  -webkit-animation-delay: 1.2s;
-  -moz-animation-delay:1.2s;
-  animation-delay: 1.2s;
-}
-
-.fade-in.three {
--webkit-animation-delay: 1.6s;
--moz-animation-delay: 1.6s;
-animation-delay: 1.6s;
+  -webkit-animation-delay: .7s;
+  -moz-animation-delay:.7s;
+  animation-delay: .7s;
 }
 
 .fade-out {
