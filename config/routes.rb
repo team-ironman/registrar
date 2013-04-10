@@ -34,8 +34,7 @@ Registrar::Application.routes.draw do
   match '/users/:id/prework' => 'prework#index', as: 'user_prework'
   match '/signup/:token' => 'users#new'
 
-  match 'events/:id' => 'events#show'
-
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

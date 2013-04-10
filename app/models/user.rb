@@ -85,10 +85,40 @@ class User < ActiveRecord::Base
      Policer.welcome(self).deliver
   end
 
+  def newly_enrolled?
+    (Time.now - self.token_date_accepted) < 5
+  end
 
   def send_get_started_email
     Policer.get_started(self).deliver
   end
+
+  # This method is under construction.
+  # May not be used anyway.
+  # def send_past_due_email
+  #   days_before_class = (Time.now - Semester.start)
+
+  #   past_due_user_courses = self.user_courses.past_due_courses(days_before_class)
+
+  #   Policer.past_due(user, past_due_user_courses).deliver
+  # end
+
+  def send_scolding_email
+    users_emails = 
+    subject
+    body
+    Policer.scolding(users_emails, subject, body).deliver
+  end
+
+  def self.send_weekly_email    
+    selected_weeks_courses = "week_two_courses"
+    @semester = Semester.first
+    @semester.users.each do |user|
+      Policer.weekly(user, selected_weeks_courses).deliver
+    end
+
+  end
+
 
   def week_one_courses
     UserCourse.includes(:course).where("courses.days_due_before_class > ? AND user_id = ?", 21, self.id)
@@ -105,6 +135,11 @@ class User < ActiveRecord::Base
   def week_four_courses
     UserCourse.includes(:course).where("courses.days_due_before_class <= ? AND user_id = ?", 7, self.id)
   end
+
+  def past_due_courses(days_before_semester)
+    UserCourse.includes(:course).where("user_courses.progress < 100 AND courses.days_due_before_class > ? AND user_id = ?", days_before_semester, self.id)
+  end
+
 
   private 
   require 'securerandom'
@@ -123,6 +158,4 @@ class User < ActiveRecord::Base
     send_welcome_email if $GLOBAL_SETTINGS[:email_on_create_user] == true
   end
      
-
-
 end
