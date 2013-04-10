@@ -27,12 +27,7 @@
 		</div>
 	</div>
 
-	<% if flash[:notice] %>
-		<div class="flash_float alert">
-			<p id='notice'><%= flash[:notice] %></p>
-		</div>
-	<% end %>
-
+<%= render partial: "layouts/flash_messages", flash: flash %>
 <%= yield %>
 
 <%= render 'layouts/footer' %>

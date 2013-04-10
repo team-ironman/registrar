@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     if current_user 
       redirect_to prework_path, :notice => flash[:notice]
     else
-      redirect_to new_session_path, :notice => flash[:notice]
+      redirect_to new_session_path, :success => flash[:success]
     end
   end
 
