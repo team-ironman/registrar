@@ -152,3 +152,4 @@ class User < ActiveRecord::Base
     create_associations
     send_welcome_email if $GLOBAL_SETTINGS[:email_on_create_user] == true
   end
+end
