@@ -1,6 +1,7 @@
 Registrar::Application.routes.draw do
 
   get "/directory", to: 'directory#index', as: 'directory'
+  get '/directory/:id', to: 'directory#show'
   
   match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
 

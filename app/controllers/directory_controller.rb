@@ -1,12 +1,17 @@
 class DirectoryController < ApplicationController
 
   def index
-    semester_id = params[:semester_id] || current_user.semester_id
-    @users = User.where(:semester_id => semester_id)
+    @users = User.all
     respond_to do |format|
       format.js {}
       format.html {}
     end
+  end
+
+  def show
+    semester = params[:id].to_i
+    @users = User.where(:semester_id => semester)
+    render :partial => "student_table"
   end
 
 end
