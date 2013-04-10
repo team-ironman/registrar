@@ -4,11 +4,10 @@ $(function(){
 			event.preventDefault()
 			$.get($(this).attr('href'), function(data){
 				$('.modal-body').append(data); // injecting the show html (modal) here
+				$('.eventful:not(.eventful:last)').remove();
 				$('#myModal').modal('toggle');	
 			})	
 		})
 	})
 })
 
-
- // --take a function, attach click handler to both of them so when this is called it'll attach to the right event ---
