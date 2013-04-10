@@ -30,4 +30,9 @@ span.hours {
   display: block;
   margin-top: 10px;
   opacity: .3;
+  font-size: 12px;
+}
+
+.hours:hover {
+  opacity: 1;
 }
