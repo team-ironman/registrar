@@ -1,6 +1,6 @@
 class UserCoursesController < ApplicationController
 
-	def update_progress
+	def update_average
 	  @user_course = load_user_course(params[:user_course_id])
 	  @user_course.progress = params[:progress]
 	  @user_course.save
@@ -9,6 +9,13 @@ class UserCoursesController < ApplicationController
 	  respond_to do |format|
 	    format.js
 	  end
+  end
+
+  def update_progress
+    user_id = session[:user_id]
+    @user = User.find(user_id)
+    @user.update_progress
+    redirect_to prework_path
   end
 
   def update_time_spent

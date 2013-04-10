@@ -203,15 +203,15 @@ select, textarea, input[type=text], input[type=password], input[type=datetime], 
     font-size: 13px;
 }
 .form-5 input::-webkit-input-placeholder {
-    color: rgba(255, 204, 51, .3);
+    color: rgba(255, 204, 51, .7);
 }
  
 .form-5 input:-moz-placeholder {
-    color: rgba(255, 204, 51, .3);
+    color: rgba(255, 204, 51, .7);
 }
  
 .form-5 input:-ms-input-placeholder {
-    color: rgba(255, 204, 51, .3);
+    color: rgba(255, 204, 51, .7);
 }
 .form-5 input[type=text]:hover,
 .form-5 input[type=password]:hover {

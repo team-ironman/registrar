@@ -4,7 +4,8 @@ Registrar::Application.routes.draw do
   
   match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
 
-  post '/user_courses/update_progress', to: 'user_courses#update_progress', as: 'update_progress'
+  post '/user_courses/update_average', to: 'user_courses#update_average', as: 'update_average'
+  get '/user_courses/update_progress', to: 'user_courses#update_progress', as: 'update_progress'
   post '/user_courses/update_time_spent', to: 'user_courses#update_time_spent', as: 'update_time_spent'
 
   get '/intro' => 'courses#intro'
