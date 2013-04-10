@@ -181,6 +181,8 @@ select, textarea, input[type=text], input[type=password], input[type=datetime], 
     /* Size and position */
     width: 100%;
     padding: 8px 4px 8px 10px;
+    margin-right: auto;
+    margin-left: auto;
     margin-bottom: 15px;
  
     /* Styles */
