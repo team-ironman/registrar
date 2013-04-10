@@ -1,10 +1,10 @@
 class User < ActiveRecord::Base
   attr_accessible :codeschool_login, :email, :first_name, :treehouse_login, :phone_number, :last_name, :password, :password_confirmation, :token, :semester_id
-  validates :first_name, :last_name, :email, :semester, :presence => true
-  validates :phone_number, :codeschool_login, :treehouse_login, :password, :password_confirmation, :presence => true, :on => :update
-  validates :first_name, :last_name, :uniqueness => true
+  # validates :first_name, :last_name, :email, :semester, :presence => true
+  # validates :phone_number, :codeschool_login, :treehouse_login, :password, :password_confirmation, :presence => true, :on => :update
+  # validates :first_name, :last_name, :uniqueness => true
   validates_format_of :email, :with => /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/, :on => :update
-  validates_format_of :phone_number, :with =>  /\d[0-9]\)*\z/, :on => :update
+  # validates_format_of :phone_number, :with =>  /\d[0-9]\)*\z/, :on => :update
 
   has_many :user_courses, :dependent => :destroy
   has_many :courses, through: :user_courses
