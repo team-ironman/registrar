@@ -1,9 +1,10 @@
 class User < ActiveRecord::Base
   attr_accessible :codeschool_login, :email, :first_name, :treehouse_login, :phone_number, :last_name, :password, :password_confirmation, :token, :semester_id
-  # validates :first_name, :last_name, :phone_number, :email, :codeschool_login, :treehouse_login, :presence => true
-  # validates :first_name, :last_name, :phone_number, :email, :codeschool_login, :treehouse_login, :uniqueness => true
-  # validates_format_of :email, :with => /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/ 
-  # validates_format_of :phone_number, :with =>  /\d[0-9]\)*\z/
+  validates :first_name, :last_name, :email, :semester, :presence => true
+  validates :phone_number, :codeschool_login, :treehouse_login, :password, :password_confirmation, :presence => true, :on => :update
+  validates :first_name, :last_name, :uniqueness => true
+  validates_format_of :email, :with => /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/, :on => :update
+  validates_format_of :phone_number, :with =>  /\d[0-9]\)*\z/, :on => :update
 
   has_many :user_courses, :dependent => :destroy
   has_many :courses, through: :user_courses
@@ -74,12 +75,6 @@ class User < ActiveRecord::Base
   def full_name
     [first_name, last_name].join(' ')
   end
-
-  # def full_name=(name)
-  #   split = name.split(' ',2)
-  #   self.first_name = split.first
-  #   self.last_name = split.last
-  # end
 
   def send_welcome_email
      Policer.welcome(self).deliver
@@ -157,5 +152,3 @@ class User < ActiveRecord::Base
     create_associations
     send_welcome_email if $GLOBAL_SETTINGS[:email_on_create_user] == true
   end
-     
-end
