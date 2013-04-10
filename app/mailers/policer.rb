@@ -25,6 +25,14 @@ class Policer < ActionMailer::Base
     mail to: @user.email, subject: "Prework Courses Due This Week"
   end
 
+  def scolding(users_emails, subject, body)
+    @body = body
+
+
+    mail to: users_emails, subject: "#{subject}"
+
+  end
+
   def past_due(user, past_due_user_courses)
     @user = user
     @past_due_user_courses = past_due_user_courses
