@@ -1,9 +1,10 @@
 class User < ActiveRecord::Base
   attr_accessible :codeschool_login, :email, :first_name, :treehouse_login, :phone_number, :last_name, :password, :password_confirmation, :token, :semester_id
-  # validates :first_name, :last_name, :phone_number, :email, :codeschool_login, :treehouse_login, :presence => true
-  # validates :first_name, :last_name, :phone_number, :email, :codeschool_login, :treehouse_login, :uniqueness => true
-  # validates_format_of :email, :with => /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/ 
-  # validates_format_of :phone_number, :with =>  /\d[0-9]\)*\z/
+  validates :first_name, :last_name, :email, :semester, :presence => true
+  validates :phone_number, :codeschool_login, :treehouse_login, :password, :password_confirmation, :presence => true, :on => :update
+  validates :first_name, :last_name, :uniqueness => true
+  validates_format_of :email, :with => /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/, :on => :update
+  validates_format_of :phone_number, :with =>  /\d[0-9]\)*\z/, :on => :update
 
   has_many :user_courses, :dependent => :destroy
   has_many :courses, through: :user_courses
@@ -75,20 +76,44 @@ class User < ActiveRecord::Base
     [first_name, last_name].join(' ')
   end
 
-  # def full_name=(name)
-  #   split = name.split(' ',2)
-  #   self.first_name = split.first
-  #   self.last_name = split.last
-  # end
-
   def send_welcome_email
      Policer.welcome(self).deliver
   end
 
+  def newly_enrolled?
+    (Time.now - self.token_date_accepted) < 5
+  end
 
   def send_get_started_email
     Policer.get_started(self).deliver
   end
+
+  # This method is under construction.
+  # May not be used anyway.
+  # def send_past_due_email
+  #   days_before_class = (Time.now - Semester.start)
+
+  #   past_due_user_courses = self.user_courses.past_due_courses(days_before_class)
+
+  #   Policer.past_due(user, past_due_user_courses).deliver
+  # end
+
+  def send_scolding_email
+    users_emails = 
+    subject
+    body
+    Policer.scolding(users_emails, subject, body).deliver
+  end
+
+  def self.send_weekly_email    
+    selected_weeks_courses = "week_two_courses"
+    @semester = Semester.first
+    @semester.users.each do |user|
+      Policer.weekly(user, selected_weeks_courses).deliver
+    end
+
+  end
+
 
   def week_one_courses
     UserCourse.includes(:course).where("courses.days_due_before_class > ? AND user_id = ?", 21, self.id)
@@ -106,6 +131,11 @@ class User < ActiveRecord::Base
     UserCourse.includes(:course).where("courses.days_due_before_class <= ? AND user_id = ?", 7, self.id)
   end
 
+  def past_due_courses(days_before_semester)
+    UserCourse.includes(:course).where("user_courses.progress < 100 AND courses.days_due_before_class > ? AND user_id = ?", days_before_semester, self.id)
+  end
+
+
   private 
   require 'securerandom'
   
@@ -122,7 +152,4 @@ class User < ActiveRecord::Base
     create_associations
     send_welcome_email if $GLOBAL_SETTINGS[:email_on_create_user] == true
   end
-     
-
-
 end
