@@ -1,4 +1,7 @@
 Registrar::Application.routes.draw do
+  
+  ActiveAdmin.routes(self)
+  devise_for :admin_users, ActiveAdmin::Devise.config
 
   get "/directory", to: 'directory#index', as: 'directory'
   get '/directory/:id', to: 'directory#show'
@@ -12,10 +15,6 @@ Registrar::Application.routes.draw do
   post '/user_courses/update_time_spent', to: 'user_courses#update_time_spent', as: 'update_time_spent'
 
   get '/intro' => 'courses#intro'
-
-  ActiveAdmin.routes(self)
-
-  devise_for :admin_users, ActiveAdmin::Devise.config
 
   # get 'user/new:token' 
 

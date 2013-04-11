@@ -16,8 +16,8 @@ class PreworkController < ApplicationController
 
 # Load user courses, allow if user_id is current user or admin logged in
   def load_user_courses
-    user_id = params[:id].blank? ? current_user.id : params[:id].to_i
-    if user_id == current_user.id || current_admin_user
+    user_id = params[:id].blank? ? authorized_user.id : params[:id].to_i
+    if user_id == authorized_user.id || current_admin_user
       user_courses = Course.courses_for_user(user_id)
     else
       redirect_to root_url, notice: "Don't try to be someone you're not."    
