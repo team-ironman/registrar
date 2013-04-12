@@ -29,7 +29,7 @@ class UserCoursesController < ApplicationController
   
     def load_user_course(user_course_id)
       user_course = UserCourse.find(user_course_id)
-      return user_course if user_course.user_id == current_user.id
+      return user_course if user_course.user_id == authorized_user.id
       "No access to user course or none exists."
     end
 

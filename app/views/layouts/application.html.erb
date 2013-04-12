@@ -10,8 +10,8 @@
 <div class="background"></div><div class="body"></div>
 	<div class="lion navbar navbar-inverse">
 		<div class="navbar-inner">
-			<% if current_user %>
-			<% @user = current_user if !@user %>
+			<% if authorized_user %>
+			<% @user = authorized_user if !@user %>
 			<a href="/" class="brand">Iron Board : <strong><%= @user.first_name %></strong></a>
 			<ul class="nav-erin">
 	        <li><i class="icon-check icon-white"></i> <%= link_to "Pre-Work", prework_path %></li>
