@@ -4,6 +4,6 @@ class RemoveLimitFromDescriptionOnCourses < ActiveRecord::Migration
   end
 
   def down
-    change_column :courses, :description, :text, :limit => '65535'
+    change_column :courses, :description, :text
   end
 end
