@@ -3,6 +3,9 @@ Registrar::Application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :admin_users, ActiveAdmin::Devise.config
 
+  resources :emails
+
+
   get "/directory", to: 'directory#index', as: 'directory'
   get '/directory/:id', to: 'directory#show'
   get "/events/:id", to: 'events#show', as: 'events'
@@ -36,6 +39,8 @@ Registrar::Application.routes.draw do
   match '/users/:id/update_treehouse' => 'users#update_treehouse'
   match '/users/:id/prework' => 'prework#index', as: 'user_prework'
   match '/signup/:token' => 'users#new'
+
+  get 'progress', to: 'progress#index', as: 'progress'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

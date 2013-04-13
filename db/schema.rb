@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130403153356) do
+ActiveRecord::Schema.define(:version => 20130410193404) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -63,6 +63,20 @@ ActiveRecord::Schema.define(:version => 20130403153356) do
     t.integer  "course_provider_id"
     t.integer  "days_due_before_class"
     t.text     "description",           :limit => 255
+  end
+
+  create_table "email_users", :force => true do |t|
+    t.integer  "email_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "emails", :force => true do |t|
+    t.string   "subject"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "event_types", :force => true do |t|
@@ -129,6 +143,7 @@ ActiveRecord::Schema.define(:version => 20130403153356) do
     t.string   "token"
     t.datetime "token_date_accepted"
     t.integer  "semester_id"
+    t.time     "last_emailed"
   end
 
 end

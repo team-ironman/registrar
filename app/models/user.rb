@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
   has_many :user_events, :dependent => :destroy
   has_many :events, through: :user_events
 
+  has_many :email_users, :dependent => :destroy
+  has_many :emails, through: :email_users
+
   belongs_to :semester
 
 	accepts_nested_attributes_for :user_courses
