@@ -58,5 +58,11 @@ module Registrar
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # extra stuff to ignore before filter on the admin side. As per http://stackoverflow.com/questions/6209663/how-to-skip-a-before-filter-for-devises-sessionscontroller/6738208#6738208
+    config.to_prepare do
+      Devise::SessionsController.skip_before_filter :authorize
+    end
+
   end
 end
