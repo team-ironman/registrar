@@ -1148,12 +1148,44 @@ h5 {
 .icos-zoom-out {background: url(../img/icos/zoom-out.png); background-size: 14px 14px;}
 
 
-@media (max-width: 360px){
+
+@media (max-width: 639px){
+/*Calendar Adsjustments*/
+.form-4 {width: 400px !important;
+	}
+body {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+}
+
+
+@media (max-width: 479px){
 /*Calendar Adsjustments*/
 .fc-header {margin-top:15px;}
 .fc-header-title h2{font-size:10px; }
 .fc-header-right {display:none}
+
+.form-4 {width: 250px !important;
+	}
+
+body {
+	padding-left: 0px;
+	padding-right: 0px;
 }
+
+}
+
+@media (max-width: 319px){
+/*Calendar Adsjustments*/
+.form-4 {width: 190px !important;
+	}
+body {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+}
+
 
 
         input[type='text']
