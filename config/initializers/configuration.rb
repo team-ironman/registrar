@@ -5,8 +5,8 @@ class Configuration
     current_semester: 1
   }  
 
-  def settings
-    @global_settings
+  def self.settings
+    @settings
   end
 
 end
