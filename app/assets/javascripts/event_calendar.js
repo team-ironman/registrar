@@ -1,24 +1,35 @@
-// /*
-//  * Smart event highlighting
-//  * Handles for when events span rows, or don't have a background color
-//  */
+$(function() {
+  $("td.ec-event-cell div").each(function(){
+  if($(this).text().length > 30) {
+    $(this).height(30);
+    }
+  });
+});
+
+
+
+/*
+ * Smart event highlighting
+ * Handles for when events span rows, or don't have a background color
+ */
 // Event.observe(window, "load", function() {
 //   var highlight_color = "#2EAC6A";
   
-//   // highlight events that have a background color
-//   $$(".ec-event-bg").each(function(ele) {
-//     ele.observe("mouseover", function(evt) {
-//       event_id = ele.readAttribute("data-event-id");
-//       event_class_name = ele.readAttribute("data-event-class");
-//       $("ec-"+event_class_name+"-"+event_id).setStyle({ backgroundColor: highlight_color });
-//     });
-//     ele.observe("mouseout", function(evt) {
-//       event_id = ele.readAttribute("data-event-id");
-//       event_class_name = ele.readAttribute("data-event-class");
-//       event_color = ele.readAttribute("data-color");
-//       $("ec-"+event_class_name+"-"+event_id).setStyle({ backgroundColor: event_color });
-//     });
-//   });
+  // highlight events that have a background color
+  // $$(".ec-event-bg").each(function(ele) {
+  //   ele.observe("mouseover", function(evt) {
+  //     event_id = ele.readAttribute("data-event-id");
+  //     event_time = ele.readAttribute("ec-event-time");
+  //     event_class_name = ele.readAttribute("data-event-class");
+  //     $("ec-"+event_class_name+"-"+event_id).setStyle({ backgroundColor: highlight_color });
+  //   });
+  //   ele.observe("mouseout", function(evt) {
+  //     event_id = ele.readAttribute("data-event-id");
+  //     event_class_name = ele.readAttribute("data-event-class");
+  //     event_color = ele.readAttribute("data-color");
+  //     $("ec-"+event_class_name+"-"+event_id).setStyle({ backgroundColor: event_color });
+  //   });
+  // });
   
 //   // highlight events that don't have a background color
 //   $$(".ec-event-no-bg").each(function(ele) {

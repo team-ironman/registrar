@@ -160,8 +160,8 @@ a.ec-day-link {
   -webkit-border-radius: 3px;
   -khtml-border-radius: 3px;
   -moz-border-radius: 3px;
-  overflow: hidden;
-  white-space: nowrap;
+/*  overflow: hidden;*/
+  white-space: inherit;
 }
 
 

@@ -17,6 +17,13 @@ module CalendarHelper
       :next_month_text => month_link(@shown_month.next_month) + " >>" }
   end
 
+  def display_event_time(event, day)
+    time = event.start_at
+    format = (time.min == 0) ? "%l %p" : "%l:%M %p"
+    t = time.strftime(format)
+    %(<span class="ec-event-time">#{t}</span>)
+  end
+
   def event_calendar
     # args is an argument hash containing :event, :day, and :options
     calendar event_calendar_opts do |args|
