@@ -87,7 +87,3 @@ $(function(){
   });
 });
 
-$(document).ready(function() {
-  $(".datepicker").datepicker( "option", "dateFormat", 'D, d M yy' );
-
-});
