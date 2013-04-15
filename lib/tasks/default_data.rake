@@ -34,6 +34,8 @@ namespace :default_data  do
   end
 
   task :users => :environment do
+    orig_val = $GLOBAL_SETTINGS['email_on_create_user']
+    $GLOBAL_SETTINGS['email_on_create_user'] = false
     User.create([
       { :email => "masha.rikhter@flatironschool.com", :codeschool_login => "mrikhter", :treehouse_login => "masharikhter", :created_at => "2013-03-27 18:23:52", :updated_at => "2013-03-27 18:23:52", :phone_number => "404-966-1321", :first_name => "Masha", :last_name => "Rikhter", :password_digest => "$2a$10$BgvkMx9pfcNAOQXz.gcbxuXi/PbxyuXCy4ultWLJGfPf4pAZHKYxy" },
       { :email => "hunternz@gmail.com", :codeschool_login => "aspectratio", :treehouse_login => "aspectratio", :created_at => "2013-03-27 18:25:18", :updated_at => "2013-03-27 18:25:18", :phone_number => "347 875 7279", :first_name => "Tim", :last_name => "Hunter", :password_digest => "$2a$10$iOAYY0TZT6j9eX65iENNne2WGDRUy/OzfuZvQ5iGISkkxNz.fBTlu" },
@@ -42,6 +44,7 @@ namespace :default_data  do
       { :email => "s1@ykr.me", :codeschool_login => "tylermdavis", :treehouse_login => "tylerdavis", :created_at => "2013-03-27 18:41:27", :updated_at => "2013-03-27 18:41:27", :phone_number => "8583540054", :first_name => "Tyler", :last_name => "Davis", :password_digest => "$2a$10$SEGrwOq4F3hF0bvngNgJWuXc1JnUpz6oqobPE6giZ0a2MbWsu/N6e" },
       { :email => "s2@ykr.me", :codeschool_login => "victoriamfriedman", :treehouse_login => "victoriafriedman", :created_at => "2013-03-27 18:43:27", :updated_at => "2013-03-27 18:43:27", :phone_number => "434-466-1525", :first_name => "Victoria", :last_name => "Friedman", :password_digest => "$2a$10$pcXCP.jkHZ7fYQdAepyMDu0MXbZjDSJBsGo5fqGTuFBDP5uL4nRJ2" }
     ], :without_protection => true )
+    $GLOBAL_SETTINGS['email_on_create_user'] = orig_val
   end
 
   task :subjects => :environment do
