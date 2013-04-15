@@ -155,7 +155,9 @@ namespace :default_data  do
 
   task :semesters => :environment do
     Semester.create([
-      { :start => DateTime.new(2013,2,4), :end => DateTime.new(2013,4,26), :name => 'Spring 2013', :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17" }
+      { :start => DateTime.new(2013,2,4), :end => DateTime.new(2013,4,26), :name => 'Spring 2013', :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17" },
+      { :start => DateTime.new(2013,6,3), :end => DateTime.new(2013,8,23), :name => 'Summer 2013', :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17" },
+      { :start => DateTime.new(2013,9,23), :end => DateTime.new(2013,12,12), :name => 'Fall 2013', :created_at => "2013-03-28 19:56:17", :updated_at => "2013-03-28 19:56:17" }
     ], :without_protection => true )
   end
 
