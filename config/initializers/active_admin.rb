@@ -1,4 +1,5 @@
 ActiveAdmin.setup do |config|
+  config.skip_before_filter :authorize
 
   # == Site Title
   #
@@ -124,7 +125,7 @@ ActiveAdmin.setup do |config|
   # Active Admin resources and pages from here.
   #
   # config.before_filter :do_something_awesome
-  config.skip_before_filter :authorize
+
 
 
   # == Register Stylesheets & Javascripts

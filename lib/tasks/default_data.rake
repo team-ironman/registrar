@@ -131,8 +131,25 @@ namespace :default_data  do
 
   task :events => :environment do
     Event.create([
-      { :name => "NYC on Rails", :start_at => "2013-03-28 19:00:00", :end_at => "2013-03-28 21:00:00", :created_at => "2013-03-26 18:04:56", :updated_at => "2013-03-26 18:04:56", :location => nil, :address => nil, :event_type_id => 1 }
+      { :name => "NYC on Rails", :start_at => "2013-03-28 19:00:00", :end_at => "2013-03-28 21:00:00", :created_at => "2013-03-26 18:04:56", :updated_at => "2013-03-26 18:04:56", :location => "Flatiron School", :address => "33 West 26th St.", :event_type_id => 1 },
+      { :name => "Hip-Hop Dance Class", :start_at => "2013-04-15 19:30:00", :end_at => "2013-04-15 21:00:00", :created_at => "2013-03-26 18:04:56", :updated_at => "2013-03-26 18:04:56", :location => "Flatiron School", :address => "33 West 26th St.", :event_type_id => 2 },
+      { :name => "Blog Due", :start_at => "2013-04-18 09:00:00", :end_at => "2013-04-18 09:00:00", :created_at => "2013-03-26 18:04:56", :updated_at => "2013-03-26 18:04:56", :location => "Flatiron School", :address => "33 West 26th St.", :event_type_id => 3},
+      { :name => "Nikki Stevens, Refinery29 CTO", :start_at => "2013-04-17 16:00:00", :end_at => "2013-04-17 17:00:00", :created_at => "2013-03-26 18:04:56", :updated_at => "2013-03-26 18:04:56", :location => "Flatiron School", :address => "33 West 26th St.", :event_type_id => 4 },
+      { :name => "NY Tech Meetup", :start_at => "2013-05-07 19:00:00", :end_at => "2013-05-07 22:00:00", :created_at => "2013-03-26 18:04:56", :updated_at => "2013-03-26 18:04:56", :location => "NYU Skirball Center For The Performing Arts", :address => "566 Laguardia Place", :event_type_id => 5 },
+      { :name => "NYC on Rails Presentation", :start_at => "2013-04-25 19:00:00", :end_at => "2013-04-25 21:00:00", :created_at => "2013-03-26 18:04:56", :updated_at => "2013-03-26 18:04:56", :location => "Flatiron School", :address => "33 West 26th St.", :event_type_id => 6 }
     ], :without_protection => true )
+  end
+
+  task :user_events => :environment do
+    UserEvent.create([
+      { :user_id => 1, :event_id => 3, :created_at => "2013-03-26 18:04:56", :updated_at => "2013-03-26 18:04:56" },
+      { :user_id => 2, :event_id => 3, :created_at => "2013-03-26 18:04:56", :updated_at => "2013-03-26 18:04:56" },
+      { :user_id => 3, :event_id => 3, :created_at => "2013-03-26 18:04:56", :updated_at => "2013-03-26 18:04:56" },
+      { :user_id => 4, :event_id => 3, :created_at => "2013-03-26 18:04:56", :updated_at => "2013-03-26 18:04:56" },
+      { :user_id => 1, :event_id => 6, :created_at => "2013-03-26 18:04:56", :updated_at => "2013-03-26 18:04:56" },
+      { :user_id => 2, :event_id => 6, :created_at => "2013-03-26 18:04:56", :updated_at => "2013-03-26 18:04:56" },
+      { :user_id => 3, :event_id => 6, :created_at => "2013-03-26 18:04:56", :updated_at => "2013-03-26 18:04:56" }
+      ], :without_protection => true )
   end
 
   task :semesters => :environment do

@@ -8,7 +8,8 @@ class ApplicationController < ActionController::Base
 
 
   def index
-    if authorized_user 
+    binding.pry
+    if authorized_user
       redirect_to prework_path, :notice => flash[:notice]
     else
       redirect_to new_session_path, :success => flash[:success]

@@ -52,11 +52,9 @@ $(function(){
        LocationDefaults();
     } else {
       $('#event_users_input').hide();
-      // $('#new_event li:not(#event_event_type_input)').val('');
     }
   });
 });
-      // $('#new_event li:not(#event_event_type_input)')[0].reset();
 
 
 // this is to show the users selected on the edit page
@@ -68,8 +66,28 @@ $(function(){
     }
   });
 
+
+// NYC on Rails Defaults
+$(function(){
+  $('#event_event_type_id').change(function(){
+    if($(this).val() === '1') {
+      NYCPresenterDefaults();
+      $('#event_name').val("NYC on Rails Meetup");
+      LocationDefaults();
+    } else if ($(this).val() === '4') {
+      LocationDefaults();
+    }
+  });
+});
+
+//autofill dates
 $(function(){
   $('#event_event_type_id').change(function(){
   DateDefaults();
   });
+});
+
+$(document).ready(function() {
+  $(".datepicker").datepicker( "option", "dateFormat", 'D, d M yy' );
+
 });
