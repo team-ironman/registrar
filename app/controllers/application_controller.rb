@@ -8,7 +8,6 @@ class ApplicationController < ActionController::Base
 
 
   def index
-    binding.pry
     if authorized_user
       redirect_to prework_path, :notice => flash[:notice]
     else
