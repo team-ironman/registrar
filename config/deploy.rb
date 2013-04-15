@@ -27,6 +27,7 @@ role :db, "192.81.213.114", :primary => true
 # these http://github.com/rails/irs_process_scripts
 
 before "bundle:install", "customs:config"
+after "bundle:install", "customs:update_crontab"
 
 # If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
@@ -35,13 +36,15 @@ namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
-
 end
 
 namespace(:customs) do
   task :config do
     run "#{sudo} ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   end
+  task :update_crontab, :roles => :app, :except => { :no_release => true } do
+    run "cd #{release_path} && bundle exec whenever --update-crontab #{application}"
+  end    
 end
 
 
