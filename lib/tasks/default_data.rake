@@ -22,6 +22,7 @@ namespace :default_data  do
     :courses,
     :event_types,
     :events,
+    :user_events,
     :semesters
     ] do
   end
@@ -149,7 +150,7 @@ namespace :default_data  do
       { :user_id => 1, :event_id => 6, :created_at => "2013-03-26 18:04:56", :updated_at => "2013-03-26 18:04:56" },
       { :user_id => 2, :event_id => 6, :created_at => "2013-03-26 18:04:56", :updated_at => "2013-03-26 18:04:56" },
       { :user_id => 3, :event_id => 6, :created_at => "2013-03-26 18:04:56", :updated_at => "2013-03-26 18:04:56" }
-      ], :without_protection => true )
+    ], :without_protection => true )
   end
 
   task :semesters => :environment do
