@@ -1,0 +1,44 @@
+<script type="text/javascript">
+
+    $(function () {
+        $("[rel='tooltip']").tooltip();
+        $('#tip').hover(function() {changeTooltipColorTo('#f00')});
+    });
+</script>
+
+<%= form_for(@user) do |f| %>
+  <ul>
+<% @user.errors.full_messages.each do |error| %>
+  <li><%= error %></li>
+<% end %>
+</ul>
+
+<%= f.label :first_name %>
+<%= f.text_field :first_name, :placeholder => 'Avi' %>
+
+<%= f.label :last_name %>
+<%= f.text_field :last_name, :placeholder => 'Flombaum' %>
+
+<%= f.label :phone_number %>
+<%= f.text_field :phone_number, :placeholder => '555-123-1234' %>
+
+<%= f.label :email %>
+<%= f.text_field :email, :placeholder => 'something@flatironschool.com', :'data-container' => "false", :'data-placement' => "right", :rel => 'tooltip', :title => 'Enter your Flatiron School email address here' %>
+
+<%= f.label :treehouse_login %>
+<%= f.text_field :treehouse_login, :placeholder => 'treehouse login', :'data-container' => "false", :'data-placement' => "right", :rel => 'tooltip', :title => 'Enter your Treehouse username found under Profile > Edit Account' %>
+
+<%= f.label :codeschool_login %>
+<%= f.text_field :codeschool_login, :placeholder => 'codeschool login', :'data-container' => "false", :'data-placement' => "right", :rel => 'tooltip', :title => 'Enter your Code School username found in your profile' %>
+
+<%= f.label :password %>
+<%= f.password_field :password, :placeholder => "password" %>        
+
+<%= f.label :password_confirmation %>
+<%= f.password_field :password_confirmation, :placeholder => "password" %>
+
+<%= hidden_field_tag :token, params[:token] %>
+
+<%= f.submit 'UPDATE', :class => 'btn btn-warning btn-large' %>
+<% end %>
+			  
