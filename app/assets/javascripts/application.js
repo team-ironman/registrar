@@ -13,38 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+$(document).ready(function(){
+	$([rel=tooltip]").tooltip();
+	}
+);     
 //= require user_courses
 //= require timetracker
 //= require_tree .
-//  $(document).ready(function(){
-            
-            
-//     //timer actions
-//     $("#btn-custom").click(function(){
-//         switch($(this).html().toLowerCase())
-//         {
-//             case "start":
-//                 s = parseInt($("input[name='s']").val());
-//                 if(isNaN(s))
-//                 {
-//                     s = 0;
-//                     $("input[name='s']").val(0);
-//                 }
-//                 $("#trial").timer("start", {seconds:s});
-//                 $(this).html("Pause");
-//                 $("input[name='s']").attr("disabled", "disabled");
-//                 break;
-            
-//             case "resume":
-//                 $("#trial").timer("resume");
-//                 $(this).html("Pause")
-//                 break;
-            
-//             case "pause":
-//                 $("#trial").timer("pause");
-//                 $(this).html("Resume")
-//                 break;
-//         }
-//     });
-
-// });

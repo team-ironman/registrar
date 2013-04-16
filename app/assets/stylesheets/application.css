@@ -187,3 +187,7 @@ animation-delay: 10s;
   position:relative;
   top:1px;
 }
+
+.tooltip.right {
+  width: 150px;
+}
