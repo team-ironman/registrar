@@ -57,7 +57,7 @@ class UsersController < ApplicationController
 
     # If user gets saved correctly, send email, update progress and log them in.
     if @user.save
-      @user.send_get_started_email if @user.token !=nil
+      @user.send_get_started_email unless @user.token == nil
       @user.update_progress
       session[:user_id] = @user.id
       flash.notice = "Updated!"
