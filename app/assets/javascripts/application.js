@@ -13,10 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-$(document).ready(function(){
-	$("[rel=tooltip]").tooltip();
-	}
-);     
 //= require user_courses
 //= require timetracker
+$(document).ready(function(){
+       $("[rel=tooltip]").tooltip();
+       }
+);
 //= require_tree .
