@@ -1,4 +1,4 @@
-class EmailUsers < ActiveRecord::Base
+class EmailUser < ActiveRecord::Base
   attr_accessible :email_id, :user_id
 
   belongs_to :emails
