@@ -24,7 +24,7 @@ class Course < ActiveRecord::Base
   end
 
   def self.courses_for_user(user_id)
-    includes(:user_courses, :subject).where("user_courses.user_id = #{user_id}").group_by { |c| c.subject.name }
+    includes(:user_courses, :subject).order(:display_order).where("user_courses.user_id = #{user_id}").group_by { |c| c.subject.name }
   end
   
 
