@@ -154,6 +154,6 @@ class User < ActiveRecord::Base
 
   def setup_new_user
     create_associations
-    send_welcome_email if Configuration.settings[:email_on_create_user] == true
+    send_welcome_email if Configuration.settings[:email_on_create_user] == true unless self.token == nil
   end
 end

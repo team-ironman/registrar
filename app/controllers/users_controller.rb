@@ -4,11 +4,22 @@ class UsersController < ApplicationController
   skip_before_filter :authorize, :only => [:complete_signup, :update, :new, :create]
   layout 'credentials', :only => :new
 
-  def edit
-    @user = load_user
+  def new
+    @user = User.new
   end
 
-  def show
+  def create
+    @user = User.new(params[:user])
+    
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to prework_path, notice: "You are now signed up!"
+    else
+      render action: "new"
+    end
+  end
+
+  def edit
     @user = load_user
   end
 
@@ -31,6 +42,11 @@ class UsersController < ApplicationController
 	end
 
 
+  def show
+    @user = load_user
+  end
+
+
   def complete_signup_update
     @user = User.find_by_token(params[:token])
 
@@ -41,7 +57,7 @@ class UsersController < ApplicationController
 
     # If user gets saved correctly, send email, update progress and log them in.
     if @user.save
-      @user.send_get_started_email
+      @user.send_get_started_email if @user.token !=nil
       @user.update_progress
       session[:user_id] = @user.id
       flash.notice = "Updated!"
@@ -50,21 +66,6 @@ class UsersController < ApplicationController
       render action: "edit" 
       flash.notice = "Problem!"
     end
-  end
-
-  def create
-    @user = User.new(params[:user])
-    
-    if @user.save
-      session[:user_id] = @user.id
-      redirect_to prework_path, notice: "You are now signed up!"
-    else
-      redirect_to :back, notice: "You are now signed up!"
-    end
-  end
-
-  def new
-    @user = User.new
   end
 
 
