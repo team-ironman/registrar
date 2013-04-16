@@ -1,11 +1,12 @@
 
 task :update_progress => :environment do
-  puts "#{Time.now} updating_progress #{ENV['RAILS_ENV']}"
-  update_dots=''
+  start = Time.now
+  log_string = "#{start} updating_progress #{ENV['RAILS_ENV']}"
   User.find_each do |user|
-    update_dots<<'.'
+    log_string<<'.'
     user.update_progress
     sleep 1
   end
-  puts update_dots
+  log_string << (Time.now - start).to_s
+  puts log_string
 end
