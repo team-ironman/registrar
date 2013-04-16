@@ -13,4 +13,28 @@ ActiveAdmin.register Course do
   filter :name
   filter :subject
   filter :course_provider
+
+  form do |f|
+    f.inputs do
+      f.input :name
+      f.input :description
+      f.input :subject
+      f.input :course_provider
+      f.input :url
+      f.input :estimated_time, :label => "Estimated Hours to Complete"
+    end
+    f.actions
+  end
+
+  show do |event|
+    attributes_table do
+      row :name
+      row :description
+      row :subject
+      row :course_provider
+      row :url
+      row :estimated_time
+      row :treehouse_badges
+    end
+  end
 end

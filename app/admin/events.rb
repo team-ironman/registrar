@@ -22,7 +22,14 @@ ActiveAdmin.register Event do
     f.buttons
   end
 
-  show do
+  show do |event|
+    attributes_table do
+      row :name
+      row :location
+      row :start_at
+      row :end_at
+      row :event_type
+    end
     panel "" do
       table_for(event.user_events) do
         column("Assigned to")    {|event| event.user.full_name }
