@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 $(document).ready(function(){
-	$([rel=tooltip]").tooltip();
+	$("[rel=tooltip]").tooltip();
 	}
 );     
 //= require user_courses
