@@ -19,7 +19,7 @@
 
 # Learn more: http://github.com/javan/whenever
 
-set :environment, "development"
+set :environment, ENV['RAILS_ENV']
 set :output, "log/cron.log"
 
 every 2.minutes do
