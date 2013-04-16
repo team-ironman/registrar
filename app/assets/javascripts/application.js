@@ -18,6 +18,7 @@
 //= require emails
 //= require event_calendar
 //= require timetracker
+//= require calendar_modal
 //= require user_courses
 //= require timetracker
 //= require active_admin
