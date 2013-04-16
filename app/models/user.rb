@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
 
   before_validation :setup_token
   after_create :setup_new_user
+  after_save :update_progress
 
   def overall_progress
     courses = self.user_courses
