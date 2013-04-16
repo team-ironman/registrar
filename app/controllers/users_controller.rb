@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   # before_filter :authorize, :except => [:new]
   # before_filter :load_user_to_edit, :only => [:edit, :update]
-  skip_before_filter :authorize, :only => [:complete_signup, :update]
+  skip_before_filter :authorize, :only => [:complete_signup, :update, :new, :create]
   layout 'credentials', :only => :new
 
   def edit
@@ -52,6 +52,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def create
+    @user = User.new(params[:user])
+    
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to prework_path, notice: "You are now signed up!"
+    else
+      redirect_to :back, notice: "You are now signed up!"
+    end
+  end
 
   def new
     @user = User.new
