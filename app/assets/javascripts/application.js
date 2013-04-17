@@ -12,14 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require ui-noty
-//= require bootstrap
-//= require directory
-//= require emails
-//= require event_calendar
-//= require timetracker
-//= require calendar_modal
+//= require twitter/bootstrap    
 //= require user_courses
 //= require timetracker
-//= require active_admin
-//= require twitter/bootstrap
+$(document).ready(function(){
+	$("[rel=tooltip]").tooltip();
+	}
+); 
+//= require_tree .
+>>>>>>> javascript fix to tooltip & timetracker
