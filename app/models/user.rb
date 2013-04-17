@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   validates_format_of :email, :with => /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
   # validates_format_of :phone_number, :with =>  /\d[0-9]\)*\z/, :on => :update
 
+
   has_many :user_courses, :dependent => :destroy
   has_many :courses, through: :user_courses
 
