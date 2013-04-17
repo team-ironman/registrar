@@ -87,3 +87,27 @@ $(function(){
   });
 });
 
+// this is to send a get request to the email new action
+
+//set variable for action url
+var action = "/admin/emails/new?user_ids=";
+
+//make an array of the selected checkbox
+var checkbox_vals = [];
+
+//on click of checkbox, add chosen checkbox value to the array
+$(function(){
+  $('.user_ids').click(function(){
+
+    $('.user_ids').each(function(){
+      alert($(this).attr('checked'));
+        
+    });
+
+
+  //push onto array checkbox_vals, take it off the array when unchecked
+  });
+});
+//set the form action to end with the array of checkboxes
+//  $('.button_to').attr('action', action+checkbox_vals);
+//}

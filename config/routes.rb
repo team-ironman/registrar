@@ -3,8 +3,6 @@ Registrar::Application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  resources :emails
-
 
   get "/directory", to: 'directory#index', as: 'directory'
   get '/directory/:id', to: 'directory#show'
@@ -34,6 +32,7 @@ Registrar::Application.routes.draw do
   resources :sessions
   resources :users
   resources :courses
+  resources :emails
 
   match '/users/:id/update_codeschool' => 'users#update_codeschool'
   match '/users/:id/update_treehouse' => 'users#update_treehouse'
