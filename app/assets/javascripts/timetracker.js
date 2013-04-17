@@ -26,7 +26,7 @@ $(function(){ //Anonymous function, to not leak variables to the global scope
           var elem = $("#count"+i);
           elem.val(parseFloat(elem.val()) + 1);
           var sec = elem.val();
-          var elema = $("#count"+i+"a");
+          var elema = $("#count-"+i);
           elema.val(secondsToHms(sec));
       }
   }
@@ -58,7 +58,7 @@ $(function(){ //Anonymous function, to not leak variables to the global scope
 
 
   $('input[name=timerHMS]').change(function() {
-    var i = $(this).attr("id").split("",6)[5];
+    var i = $(this).attr("id").split("-")[1];
     var time = $(this).val();
     var sec = hmsToSeconds(time);
     $(this).prev().val(sec);
@@ -66,9 +66,4 @@ $(function(){ //Anonymous function, to not leak variables to the global scope
       });
   })
   
-  // // Restart timer on "restart"
-  // $('input[name=reset]').each(function(i) {
-  //     $(this).next().val(0);
-  //     $(this).click(clear(i));
-  // });
 });

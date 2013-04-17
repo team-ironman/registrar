@@ -58,7 +58,7 @@
           <%= div_for(course) do %>
             <input type="text" name="timer" id="count<%=course.user_courses.first.id%>" value="<%=course.user_courses.first.time_elapsed%>"/>
 
-            <input type="text" name="timerHMS" id="count<%=course.user_courses.first.id%>a" value="<%=course.user_courses.first.secondstohms%>"/>
+            <input type="text" name="timerHMS" id="count-<%=course.user_courses.first.id%>" value="<%=course.user_courses.first.secondstohms%>"/>
             <input type="submit" name="start" value="start" id="count_<%=course.user_courses.first.id%>"/>
             <input type="submit" name="stop" value="stop" id="count_<%=course.user_courses.first.id%>"/>
           <% end %>
