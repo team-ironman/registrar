@@ -25,11 +25,11 @@ class Policer < ActionMailer::Base
     mail to: @user.email, subject: "Prework Courses Due This Week"
   end
 
-  def scolding(users_emails, subject, body)
+  def scolding(user_emails, subject, body)
     @body = body
 
 
-    mail to: users_emails, subject: "#{subject}"
+    mail to: @user_emails, subject: "#{subject}"
 
   end
 

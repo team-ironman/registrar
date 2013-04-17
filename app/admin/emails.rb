@@ -9,31 +9,32 @@ ActiveAdmin.register Email do
 
     def create
       # collect user ids
-      users_id_array = params[:user_ids].split(" ").map {|u| u.to_i}
-      
+      user_ids_array = params[:user_ids].split(" ").map {|u| u.to_i}
       #test this method later: users_id_array = %w(params[:user_ids])
 
       # convert user ids to User objects
-      users_array = users_id_array.map {|user| User.find(user)}
+      users_array = user_ids_array.map {|user| User.find(user)}
 
       # instantiate an email with subject and body from params
       @email = Email.new(params[:email])
-      #@email.users = users_array
 
-      users_id_array.each do |user|
-        @email.email_users.build(:user_id => user)
+      #build the associations
+      user_ids_array.each { |id| @email.email_users.build(:user_id => id) }
+
+      #save the email and assign the subject, body, and email address for the mailer.
+      if @email.save
+        body = params[:email][:body]
+        subject = params[:email][:subject]
+        user_emails = users_array.map { |user| user.email }
+    
+        Policer.scolding(user_emails, subject, body).deliver
+        
+        # have users updated with a new last Emailed date.
+        users_array.each { |user| user.last_emailed = Time.now }
+      
       end
 
-      if @email.save
-        @body = params[:email][:body]
-        @subject = params[:email][:body]
-        @users = params
-
-      redirect_to dashboard_path
-
-      # have users updated with a new last Emailed date.
-
+        redirect_to dashboard_path
     end
   end
-
 end
