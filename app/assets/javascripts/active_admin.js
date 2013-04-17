@@ -106,7 +106,6 @@ $(function(){
       checkbox_vals.push($(this).val())
     } else {
       // remove this value from the array
-      checkbox_vals.
     }
 
     
