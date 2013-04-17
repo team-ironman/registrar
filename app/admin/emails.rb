@@ -5,11 +5,13 @@ ActiveAdmin.register Email do
     def new
       @user_ids = params[:user_ids]
       @email = Email.new
+      # @email.user_ids = @user_ids.split("-")
     end
 
     def create
+      # debugger
       # collect user ids
-      user_ids_array = params[:user_ids].split(" ").map {|u| u.to_i}
+      user_ids_array = params[:user_ids].split("-").map {|u| u.to_i}
       #test this method later: users_id_array = %w(params[:user_ids])
 
       # convert user ids to User objects
