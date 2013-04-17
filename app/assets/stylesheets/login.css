@@ -169,7 +169,7 @@ select, textarea, input[type=text], input[type=password], input[type=datetime], 
     margin-bottom: 0px;
     /* Font styles */
     font-family: 'Helvetica Neue', sans-serif;
-    color: #fff;
+    color: #ff6e01;
 }
  
 .form-5 h1 {
@@ -276,4 +276,16 @@ select, textarea, input[type=text], input[type=password], input[type=datetime], 
  
 .no-placeholder .form-5 label {
     display: block;
+}
+
+.form-5 ul {
+    text-align: center;
+    list-style-type: none;
+    margin-left: 0px;
+}
+
+.form-5 li {
+    text-align: center;
+    list-style: none;
+    
 }

@@ -144,7 +144,7 @@ class User < ActiveRecord::Base
   require 'securerandom'
   
   def setup_token
-    if self.new_record? && self.password_digest.blank?
+    if self.new_record? && self.password_digest.nil? && self.semester_id.present?
       token = SecureRandom.hex
       self.password = token
       self.password_confirmation = token
