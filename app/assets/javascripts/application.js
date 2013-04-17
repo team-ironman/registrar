@@ -20,4 +20,4 @@ $(document).ready(function(){
 	}
 ); 
 //= require_tree .
->>>>>>> javascript fix to tooltip & timetracker
+
