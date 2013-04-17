@@ -3,6 +3,15 @@
 namespace :default_data  do
   desc "create default data"
 
+
+  task :reset => [:environment, 
+    'db:drop', 
+    'db:create', 
+    'db:migrate', 
+    :create_all
+    ] do
+  end
+
   task :destroy_all => :environment do
     AdminUser.destroy_all
     User.destroy_all
