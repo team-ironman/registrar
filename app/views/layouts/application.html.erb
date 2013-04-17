@@ -4,6 +4,17 @@
   <title>Registrar</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+
+	<!-- NOTY -->
+  <%= javascript_include_tag "noty/jquery.noty" %>
+  <%= javascript_include_tag "noty/layouts/top" %>
+  <%= javascript_include_tag "noty/layouts/topLeft" %>
+  <%= javascript_include_tag "noty/layouts/topRight" %>
+  <%= javascript_include_tag "noty/layouts/topCenter" %>
+  <%= javascript_include_tag "noty/themes/default" %>
+  <%= javascript_include_tag "ui-noty.js" %>
+  <!-- END NOTY -->
+
   <%= csrf_meta_tags %>
 </head>
 <body data-spy="scroll" data-target="#highlight-sidebar">
