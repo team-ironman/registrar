@@ -98,16 +98,28 @@ var checkbox_vals = [];
 //on click of checkbox, add chosen checkbox value to the array
 $(function(){
   $('.user_ids').click(function(){
+    $(this).val();
+    $(this).attr("value")
+    // is the checkbox being turned on or off?
+    if ($(this).is(":checked")){
+      // add this value to the array
+      checkbox_vals.push($(this).val())
+    } else {
+      // remove this value from the array
+      checkbox_vals.
+    }
 
-    $('.user_ids').each(function(){
-      alert($(this).attr('checked'));
+    
+    console.log(checkbox_vals)
+    // $('.user_ids').each(function(){
+    //   alert($(this).attr('checked'));
         
-    });
+    // });
 
 
   //push onto array checkbox_vals, take it off the array when unchecked
   });
 });
 //set the form action to end with the array of checkboxes
-//  $('.button_to').attr('action', action+checkbox_vals);
+//  $('form.button_to').attr('action', action+checkbox_vals);
 //}
