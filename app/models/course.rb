@@ -27,7 +27,9 @@ class Course < ActiveRecord::Base
   end
  
   def get_badge_count
-    if self.course_provider.name.downcase.strip == 'treehouse'
+
+
+    if self.course_provider && self.course_provider.name.downcase.strip == 'treehouse'
       Scrape.new.get_badge_count_for_treehouse_course(self.id)
     end
   end
