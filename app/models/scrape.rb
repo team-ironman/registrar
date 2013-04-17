@@ -35,7 +35,6 @@ class Scrape
 
   # gets the number of badges for each codeschool course
   def get_badge_count_for_treehouse_courses
-    login_to_treehouse
     courses = Course.all_treehouse
     courses.each do |course|
       doc = Nokogiri::HTML(open(course.url))
@@ -44,6 +43,16 @@ class Scrape
       course.treehouse_badges = total_number_of_badges
       course.save
     end   
+  end
+
+  # gets the number of badges for each codeschool course
+  def get_badge_count_for_treehouse_course(course_id)
+    course = Course.find(course_id)
+    doc = Nokogiri::HTML(open(course.url))
+    data = doc.css("div.module-topper h3").text
+    total_number_of_badges = data.split(" ").first
+    course.treehouse_badges = total_number_of_badges
+    course.save
   end
 
 
