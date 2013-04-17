@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   # validates :first_name, :last_name, :uniqueness => true
   validates_format_of :email, :with => /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
   # validates_format_of :phone_number, :with =>  /\d[0-9]\)*\z/, :on => :update
+  validates_uniqueness_of :email
 
 
   has_many :user_courses, :dependent => :destroy
@@ -64,7 +65,7 @@ class User < ActiveRecord::Base
   def self.find_by_token(token)
     user = where(:token => token).first
     return "Invalid token" if user==nil 
-    return "Token already used" if !user.token_date_accepted.blank? 
+    return "Token already used - please login with your username and password." if !user.token_date_accepted.blank? 
     return user
   end
 
