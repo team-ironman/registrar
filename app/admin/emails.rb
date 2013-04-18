@@ -26,12 +26,12 @@ ActiveAdmin.register Email do
       if @email.save
         body = params[:email][:body]
         subject = params[:email][:subject]
-        user_emails = users_array.map { |user| user.email; user.save }
+        user_emails = users_array.map { |user| user.email }
         # debugger
         Policer.scolding(user_emails, subject, body).deliver
         
         # have users updated with a new last Emailed date.
-        users_array.each { |user| user.last_emailed = Time.now }
+        users_array.each { |user| user.last_emailed = Time.now; user.save }
       
       end
 
