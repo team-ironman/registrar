@@ -12,17 +12,17 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap    
-//= require user_courses
+//= require ui-noty
+//= require bootstrap
+//= require directory
+//= require emails
+//= require event_calendar
 //= require timetracker
 //= require calendar_modal
-//= require event_calendar
-//= require emails
+//= require user_courses
+//= require timetracker
 //= require active_admin
-//= require directory
-$(document).ready(function(){
-	$("[rel=tooltip]").tooltip();
-	}
-); 
-//= require_tree .
+//= require twitter/bootstrap
+
+
 
