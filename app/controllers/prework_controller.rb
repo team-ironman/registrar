@@ -1,7 +1,6 @@
 class PreworkController < ApplicationController
 
   def index
-
     @user_courses = load_user_courses
     @user = User.find(@user_id)
 

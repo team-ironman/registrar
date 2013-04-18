@@ -5,11 +5,12 @@ ActiveAdmin.register Email do
     def new
       @user_ids = params[:user_ids]
       @email = Email.new
+      # @email.user_ids = @user_ids.split("-")
     end
 
     def create
       # collect user ids
-      user_ids_array = params[:user_ids].split(" ").map {|u| u.to_i}
+      user_ids_array = params[:more_user_ids].split("-").map {|u| u.to_i}
       #test this method later: users_id_array = %w(params[:user_ids])
 
       # convert user ids to User objects
@@ -26,7 +27,7 @@ ActiveAdmin.register Email do
         body = params[:email][:body]
         subject = params[:email][:subject]
         user_emails = users_array.map { |user| user.email }
-    
+        # debugger
         Policer.scolding(user_emails, subject, body).deliver
         
         # have users updated with a new last Emailed date.
@@ -34,7 +35,7 @@ ActiveAdmin.register Email do
       
       end
 
-        redirect_to dashboard_path
+        redirect_to admin_dashboard_path
     end
   end
 end

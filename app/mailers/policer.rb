@@ -27,6 +27,7 @@ class Policer < ActionMailer::Base
 
   def scolding(user_emails, subject, body)
     @body = body
+    @user_emails = user_emails
 
 
     mail to: @user_emails, subject: "#{subject}"
