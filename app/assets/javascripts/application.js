@@ -15,6 +15,11 @@
 //= require twitter/bootstrap    
 //= require user_courses
 //= require timetracker
+//= require calendar_modal
+//= require event_calendar
+//= require emails
+//= require active_admin
+//= require directory
 $(document).ready(function(){
 	$("[rel=tooltip]").tooltip();
 	}
