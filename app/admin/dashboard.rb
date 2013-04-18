@@ -9,7 +9,7 @@
 ActiveAdmin::Dashboards.build do
 
     section "Student Progress" do
-
+      
       table_for Semester.first.users do |t|
         t.column("Name")            { |n| n.full_name }
         t.column("Progress")        { |n| number_to_percentage(n.overall_progress, precision: 0) }
