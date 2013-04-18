@@ -26,7 +26,7 @@ ActiveAdmin.register Email do
       if @email.save
         body = params[:email][:body]
         subject = params[:email][:subject]
-        user_emails = users_array.map { |user| user.email }
+        user_emails = users_array.map { |user| user.email; user.save }
         # debugger
         Policer.scolding(user_emails, subject, body).deliver
         
