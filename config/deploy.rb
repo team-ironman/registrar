@@ -39,9 +39,12 @@ namespace :deploy do
 end
 
 namespace(:customs) do
+
   task :config do
     run "#{sudo} ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+    run "#{sudo} ln -nfs #{shared_path}/config/environments/private_settings.rb #{release_path}/config/environments/private_settings.rb"
   end
+
   task :update_crontab, :roles => :app, :except => { :no_release => true } do
     run "cd #{release_path} && bundle exec whenever --update-crontab #{application}"
   end    
