@@ -26,7 +26,8 @@ role :db, "192.81.213.114", :primary => true
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
 
-before "bundle:install", "customs:config"
+# before "bundle:install", "customs:config"
+before "deploy:assets:precompile", "customs:config"
 after "bundle:install", "customs:update_crontab"
 
 # If you are using Passenger mod_rails uncomment this:
