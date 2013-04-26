@@ -49,12 +49,6 @@ namespace :default_data  do
     Configuration.settings[:email_on_create_user] = false
 
     User.create([
-      { :email => "masha.rikhter@flatironschool.com", :codeschool_login => "mrikhter", :treehouse_login => "masharikhter", :created_at => "2013-03-27 18:23:52", :updated_at => "2013-03-27 18:23:52", :phone_number => "404-966-1321", :first_name => "Masha", :last_name => "Rikhter", :password_digest => "$2a$10$BgvkMx9pfcNAOQXz.gcbxuXi/PbxyuXCy4ultWLJGfPf4pAZHKYxy", :semester_id => 1 },
-      { :email => "hunternz@gmail.com", :codeschool_login => "aspectratio", :treehouse_login => "aspectratio", :created_at => "2013-03-27 18:25:18", :updated_at => "2013-03-27 18:25:18", :phone_number => "347 875 7279", :first_name => "Tim", :last_name => "Hunter", :password_digest => "$2a$10$iOAYY0TZT6j9eX65iENNne2WGDRUy/OzfuZvQ5iGISkkxNz.fBTlu", :semester_id => 1 },
-      { :email => "email.erin@gmail.com", :codeschool_login => "erinlee", :treehouse_login => "erinlee", :created_at => "2013-03-27 18:26:47", :updated_at => "2013-03-27 18:26:47", :phone_number => "555-112-1234", :first_name => "jose", :last_name => "rodriguez", :password_digest => "$2a$10$Im6mcMwM9aRLRVMG2nLGHumZ3f/dpfKU7ksoe5MskFWlnOu8P6V9O", :semester_id => 1 },
-      { :email => "daniel.gantz@gmail.com", :codeschool_login => "firstgeneration", :treehouse_login => "firstgeneration", :created_at => "2013-03-27 18:29:15", :updated_at => "2013-03-27 18:29:15", :phone_number => "123-456-7890", :first_name => "Daniel", :last_name => "Gantz", :password_digest => "$2a$10$hh6na1AEYkp/8gm81bcYSOrF6OaE0esGz3cCqb/RyAbTyWQl0wyO6", :semester_id => 1 },
-      { :email => "s1@ykr.me", :codeschool_login => "tylermdavis", :treehouse_login => "tylerdavis", :created_at => "2013-03-27 18:41:27", :updated_at => "2013-03-27 18:41:27", :phone_number => "8583540054", :first_name => "Tyler", :last_name => "Davis", :password_digest => "$2a$10$SEGrwOq4F3hF0bvngNgJWuXc1JnUpz6oqobPE6giZ0a2MbWsu/N6e", :semester_id => 1 },
-      { :email => "s2@ykr.me", :codeschool_login => "victoriamfriedman", :treehouse_login => "victoriafriedman", :created_at => "2013-03-27 18:43:27", :updated_at => "2013-03-27 18:43:27", :phone_number => "434-466-1525", :first_name => "Victoria", :last_name => "Friedman", :password_digest => "$2a$10$pcXCP.jkHZ7fYQdAepyMDu0MXbZjDSJBsGo5fqGTuFBDP5uL4nRJ2", :semester_id => 1 }
     ], :without_protection => true )
 
     Configuration.settings[:email_on_create_user] = orig_val
