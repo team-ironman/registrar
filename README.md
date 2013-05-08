@@ -1,6 +1,6 @@
-# Reigstrar
+# Registrar
 
-A webapp for administering pre-work to students at The Flatiron School
+A webapp for administering pre-work to students at The Flatiron School.
 
 ##Configuration: 
 
