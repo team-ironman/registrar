@@ -13,8 +13,8 @@ ActiveAdmin::Dashboards.build do
  # include ActionView::Helpers::DateHelper
 
     section "Student Progress" do
-      
-      table_for Semester.first.users do |t|
+
+      table_for Semester.find(params[:semester_id] || 1).users do |t|
         t.column("Name")            { |n| n.full_name }
         t.column("Progress")        { |n| number_to_percentage(n.overall_progress, precision: 0) }
         t.column("Past Due")        { |n| "#{n.past_due_courses(21).size} Past Due" }
