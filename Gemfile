@@ -3,8 +3,6 @@ gem 'rails', '3.2.12'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-gem 'debugger'
-gem 'sqlite3'
 gem "twitter-bootstrap-rails", "~> 2.2.6"
 
 gem 'whenever', require: false
@@ -64,6 +62,3 @@ gem "pg"
 
 # Deploy with Capistrano
 # gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
