@@ -20,4 +20,3 @@ app/views/.DS_Store
 app/views/layouts/.DS_Store
 .DS_Store
 
-/config/environments/private_settings.rb
