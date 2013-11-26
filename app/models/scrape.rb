@@ -1,5 +1,6 @@
+require "open-uri"
+
 class Scrape
-  require "open-uri"
   # include HTTParty
 
   def codeschool_progress(user)
@@ -65,7 +66,7 @@ class Scrape
 
   # use scrape method to get hash of user progress
   def scrape_codeschool(login)
-    url = "http://www.codeschool.com/users/#{login}"
+    url = "https://www.codeschool.com/users/#{login}"
     begin
       doc = Nokogiri::HTML(open(url))
     rescue => e
