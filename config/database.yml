@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: registrar_development
+  pool: 5
+  username: matthewcampbell
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: registrar_test
+  pool: 5
+  username: matthewcampbell
+  password:

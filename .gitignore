@@ -7,8 +7,7 @@
 # Ignore bundler config
 /.bundle
 
-# Ignore database.yml
-/config/database.yml
+# Ignore database.yml because it probably contains db password
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -17,7 +16,6 @@
 /log/*.log
 /tmp
 
-/config/database.yml
 app/views/.DS_Store
 app/views/layouts/.DS_Store
 .DS_Store
